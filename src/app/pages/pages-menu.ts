@@ -2,13 +2,13 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
-    title: 'Dashboard',
+    title: 'Accueil',
     icon: 'nb-home',
     link: '/pages/dashboard',
     home: true,
   },
     {
-        title: 'Directories',
+        title: 'Repertoires',
         icon : 'ion-folder',
         link: '/pages/directories',
     },

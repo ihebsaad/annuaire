@@ -13,6 +13,7 @@ import {DataService} from './data.service';
 export class DashboardComponent implements OnInit {
     searchedLocation: Location = new Location();
     source = 'assets/tunisie.jpg';
+    radioModel = 'left';
     constructor(private data: DataService, private router: Router) {
     }
 

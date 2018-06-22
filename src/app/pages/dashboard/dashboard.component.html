@@ -10,8 +10,61 @@
   </nb-card-body>
 </nb-card>
 
-<div class="row">
-  <div class="col-xxxl-3 col-xxl-4 col-lg-5 col-md-6">
-   <!-- <ngx-ad></ngx-ad> -->
-  </div>
-</div>
+<nb-card>
+  <nb-card-header></nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="example-container toggle-types">
+          <div class="container-title"></div>
+          <div [(ngModel)]="radioModel" ngbRadioGroup
+               class="btn-group btn-group-toggle btn-outline-toggle-group btn-group-full-width btn-toggle-radio-group">
+            <label ngbButtonLabel class="btn btn-outline-primary">
+              <input ngbButton type="radio" value="left"> Automobile
+            </label>
+            <label ngbButtonLabel class="btn btn-outline-primary">
+              <input ngbButton type="radio" value="middle"> Cafes & Restos
+            </label>
+            <label ngbButtonLabel class="btn btn-outline-primary">
+              <input ngbButton type="radio" value="middl"> Hébergement
+            </label>
+            <label ngbButtonLabel class="btn btn-outline-primary">
+              <input ngbButton type="radio" value="right"> Voyages
+            </label>
+          </div>
+        </div>
+        </div>
+      </div>
+  </nb-card-body>
+</nb-card>
+
+
+<nb-card>
+ <div align="center"><nb-card-header><h2 style="align: center">Répertoires En Vedette</h2></nb-card-header></div>
+  <br><br>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-xxxl-3 col-xxl-4 col-lg-5 col-md-6">
+         <ngx-ad></ngx-ad>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+  <div align="center"><nb-card-header><h2 style="align: center">Réjoignez nous facilement en 3 étapes</h2></nb-card-header></div>
+  <br><br>
+<nb-card-body>
+  <form class="form-inline">
+    <div align="left">
+      <button class="btn btn-default btn-round btn-demo"style="height: 100px;" disabled><span style="color: black">Inscription</span></button>
+    </div>
+    <div align="center">
+      <button class="btn btn-default btn-round btn-demo"style="height: 100px; margin-left: 90px; margin-right: 90px" disabled><span style="color: black">Vérifiez votre Email</span></button>
+    </div>
+    <div align="right">
+      <button class="btn btn-default btn-round btn-demo"style="height: 100px;" disabled><span style="color: black">Accédez et ajoutez votre répértoire</span></button>
+    </div>
+  </form>
+</nb-card-body>
+</nb-card>
