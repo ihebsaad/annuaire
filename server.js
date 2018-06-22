@@ -52,7 +52,7 @@ app.use(bodyParser.json());
 //support parsing of application/x-www-form-urlencoded post data
 app.use(bodyParser.urlencoded({ extended: true }));
 
-/*
+ 
 
 app.post("/api/search", function(req, res) {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
@@ -74,8 +74,8 @@ app.post("/api/search", function(req, res) {
     });
 
 
-});*/
-
+}); 
+/*
   MongoClient.connect(url, function(err, db) {
   if (err) throw err;
   console.log("Database created!");
@@ -101,4 +101,4 @@ app.post("/api/search", function(req, res) {
     console.log("1 document inserted");
     db.close();
   });
-});  
+});  */
