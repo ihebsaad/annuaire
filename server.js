@@ -3,6 +3,9 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+var mongo = require('mongodb');
+var mongoose = require('mongoose');
+
 const corsOptions = {
     origin: '*',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
