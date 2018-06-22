@@ -28,9 +28,7 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 var db = mongoose.connection;
 
-app.listen(8000, () => {
-    console.log('Server started!');
-});
+
 
 db.once('open',function(){
 	
@@ -44,6 +42,9 @@ console.log('Erreur  :::  '+err);
 	
 });
 
+app.listen(8000, () => {
+    console.log('Server started  !!  ');
+});
 
 app.use(cors(corsOptions));
 
