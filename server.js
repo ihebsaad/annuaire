@@ -20,8 +20,6 @@ const assert = require('assert');
 // Connection URL
 const url = 'mongodb://localhost:27017/';
 
-// Database Name
-const dbName = 'myproject';
 
 const jsonParser = bodyParser.json();
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
@@ -54,7 +52,7 @@ app.use(bodyParser.json());
 //support parsing of application/x-www-form-urlencoded post data
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
+/*
 
 app.post("/api/search", function(req, res) {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
@@ -76,4 +74,31 @@ app.post("/api/search", function(req, res) {
     });
 
 
-});
+});*/
+
+  MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  console.log("Database created!");
+});  
+ 
+
+ MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("mydb");
+  dbo.createCollection("Hotels", function(err, res) {
+    if (err) throw err;
+    console.log("Collection created!");
+  });
+});  
+
+
+  MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("mydb");
+  var myobj = { name: "Hôtel Delphin Habib"};
+  dbo.collection("Hotels").insertOne(myobj, function(err, res) {
+    if (err) throw err;
+    console.log("1 document inserted");
+    db.close();
+  });
+});  
