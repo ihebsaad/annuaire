@@ -1,0 +1,17 @@
+<nb-card style="height: 400px">
+  <nb-card-header>VOTRE ANNUAIRE AVANCÉ EN LIGNE</nb-card-header>
+  <nb-card-body [style.background-image]="'url(' + source + ')'">
+    <form class="form-inline">
+      <div class="input-group full-width">
+        <ngx-search (positionChanged)="updateLocation($event)" ></ngx-search>
+      </div>
+    <!--  <button class="btn btn-success btn-semi-round btn-demo" >Search</button> -->
+    </form>
+  </nb-card-body>
+</nb-card>
+
+<div class="row">
+  <div class="col-xxxl-3 col-xxl-4 col-lg-5 col-md-6">
+   <!-- <ngx-ad></ngx-ad> -->
+  </div>
+</div>

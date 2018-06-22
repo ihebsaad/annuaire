@@ -1,0 +1,12 @@
+<nb-card style="height: 70%">
+  <nb-card-header></nb-card-header>
+  <nb-card-body>
+    <agm-map [latitude]="latitude"
+             [longitude]="longitude"
+             [scrollwheel]="false"
+             [zoom]="zoom">
+      <agm-marker [latitude]="latitude"
+                  [longitude]="longitude"></agm-marker>
+    </agm-map>
+  </nb-card-body>
+</nb-card>
