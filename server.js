@@ -23,10 +23,24 @@ const dbName = 'myproject';
 const jsonParser = bodyParser.json();
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
+var db = mongoose.connection;
 
 app.listen(8000, () => {
     console.log('Server started!');
 });
+
+db.once('open',function(){
+	
+console.log('connected to DB')	;
+	
+});
+
+db.on('error',function(err){
+	
+console.log('Erreur  :::  '+err);
+	
+});
+
 
 app.use(cors(corsOptions));
 
