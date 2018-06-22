@@ -102,3 +102,35 @@ app.post("/api/search", function(req, res) {
     db.close();
   });
 });  */
+
+
+//test connection for angular
+connect: {
+  preview: {
+    options: {
+      port: 9000,
+      keepalive: true,
+      base: './dev',
+      livereload: true,
+      // https://github.com/gruntjs/grunt-contrib-connect/issues/66
+      middleware: function(connect, options) {
+        return [function(req, res) {
+          require('fs').createReadStream('dev/index.html').pipe(res);
+        }]
+      }
+    }
+  },
+  optimize: {
+    options: {
+      port: 9001,
+      keepalive: true,
+      base: './production',
+      // https://github.com/gruntjs/grunt-contrib-connect/issues/66
+      middleware: function(connect, options) {
+        return [function(req, res) {
+          require('fs').createReadStream('index.html').pipe(res);
+        }]
+      }
+    }
+  }
+},
