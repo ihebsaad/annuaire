@@ -19,7 +19,9 @@
             "assets": [
               "src/assets",
               "src/favicon.ico",
-              "src/favicon.png"
+              "src/favicon.png",
+              "src/web.config",
+              "web.config"
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.css",
