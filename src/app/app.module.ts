@@ -14,14 +14,28 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ThemeModule } from './@theme/theme.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgxAuthComponent} from './@theme/components/auth/auth.component';
+import {NgxAuthBlockComponent} from './@theme/components/auth/auth-block/auth-block.component';
+import {NgxLoginComponent} from './@theme/components/auth/login/login.component';
+import {NgxRegisterComponent} from './@theme/components/auth/register/register.component';
+import {NgxRequestPasswordComponent} from './@theme/components/auth/request-password/request-password.component';
+import {NgxResetPasswordComponent} from './@theme/components/auth/reset-password/reset-password.component';
+import {NgxLogoutComponent} from './@theme/components/auth/logout/logout.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NgxAuthComponent,
+    NgxAuthBlockComponent,
+    NgxLoginComponent,
+    NgxRegisterComponent,
+    NgxRequestPasswordComponent,
+    NgxResetPasswordComponent,
+    NgxLogoutComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+
 
     NgbModule.forRoot(),
     ThemeModule.forRoot(),

@@ -6,6 +6,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {BlogComponent} from './blog/blog.component';
 import {ContactComponent} from './contact/contact.component';
 import {DirectoriesComponent} from './directories/directories.component';
+import {CategoriesComponent} from './categories/categories.component';
+import {ArticlesComponent} from './articles/articles.component';
+import {AnnoncesComponent} from './annonces/annonces.component';
 import {MapComponent} from './dashboard/search-map/map/map.component';
 
 
@@ -33,6 +36,18 @@ const routes: Routes = [{
       {
           path: 'directories',
           component: DirectoriesComponent,
+      },
+      {
+          path: 'categories',
+          component: CategoriesComponent,
+      },
+      {
+          path: 'annonces',
+          component: AnnoncesComponent,
+      },
+      {
+          path: 'articles',
+          component: ArticlesComponent,
       },
     {
       path: '',
