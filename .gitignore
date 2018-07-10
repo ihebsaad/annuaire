@@ -6,6 +6,9 @@
 # dependencies
 /node_modules
 
+# server modules
+./server/node_modules
+
 # IDEs and editors
 /.idea
 .project
@@ -43,3 +46,4 @@ Thumbs.db
 #package
 package.json
 package-lock.json
+server/node_modules/
