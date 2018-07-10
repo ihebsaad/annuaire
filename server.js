@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
+ var path = require('path');
+var cookieParser = require('cookie-parser');
 
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
@@ -40,8 +42,8 @@ console.log('Erreur  :::  '+err);
 	
 });
 
-app.listen(8000, () => {
-    console.log('Server started  !!  ');
+app.listen(3000, () => {
+    console.log('Server started  port 3000!!  ');
 });
 
 app.use(cors(corsOptions));
