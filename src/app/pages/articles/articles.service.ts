@@ -8,7 +8,7 @@ import {Observable} from 'rxjs/Rx';
 export class ArticlesService {
 
 
-  configUrl = 'http://localhost:3000';
+  configUrl = 'http://test7.enterpriseesolutions.com';
 
   constructor(private http: HttpClient) {
   }
