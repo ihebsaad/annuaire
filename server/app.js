@@ -37,8 +37,7 @@ app.use('/repertoires',require('./routes/repertoires'));
 
 
 app.use(function(req, res, next) {
-    //res.header("Access-Control-Allow-Origin", "http://localhost:4200");
-    res.header("Access-Control-Allow-Origin", "http://test7.enterpriseesolutions.com");
+    res.header("Access-Control-Allow-Origin", "http://localhost:4200");
    // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
@@ -49,7 +48,7 @@ app.use(passport.initialize());
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '4000');
+var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
