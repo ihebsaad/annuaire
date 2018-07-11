@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Rx';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AnnoncesService {
 
+  private configUrl= environment.API_URL;
 
-  configUrl = 'http://localhost:3000';
+ // configUrl = 'http://localhost:3000';
 
   constructor(private http: HttpClient) {
   }

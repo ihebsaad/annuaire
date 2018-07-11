@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Rx';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
     providedIn: 'root',
 })
 export class DirectoriesService {
 
-    configUrl = 'http://localhost:3000';
+   // configUrl = 'http://localhost:3000';
+    private configUrl= environment.API_URL;
+
     constructor(private http: HttpClient) { }
 
 

@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Rx';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ArticlesService {
 
+private configUrl= environment.API_URL;
 
-  configUrl = 'http://test7.enterpriseesolutions.com';
+ // configUrl = 'http://test7.enterpriseesolutions.com';
 
   constructor(private http: HttpClient) {
   }
