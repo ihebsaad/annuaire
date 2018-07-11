@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AnnoncesService} from './articles.service';
+import {ArticlesService} from './articles.service';
 import {LocalDataSource} from 'ng2-smart-table';
 
 
