@@ -4,15 +4,18 @@ var morgan = require('morgan');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var config = require('./config/database');
+var expressValidator = require('express-validator');
 
+
+var api = express.Router();
 var debug = require('debug')('auth:server');
-var http = require('http');
 
 
 var app = express();
-
+var http = require('http');
+app.use(expressValidator());
 //mongoose.connect(config.database);
-mongoose.connect('mongodb://localhost:27017/app',{ useNewUrlParser: true });
+mongoose.connect('mongodb://localhost:27017/annuaire',{ useNewUrlParser: true });
 
 var db = mongoose.connection;
 /**/
