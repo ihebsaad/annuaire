@@ -14,9 +14,24 @@ import {NgForm} from '@angular/forms';
 })
 export class DirectoriesComponent implements OnInit {
     model: any = {};
+    data: any;
   constructor(private serv: DirectoriesService, private modalService: NgbModal) { }
 
   ngOnInit() {
+
+      this.getData();
+
+  }
+
+
+  getData() {
+
+      this.serv.getData().subscribe(resp => {console.log(resp);
+          console.log(resp['repertoires']);
+          this.data = resp['repertoires'];
+
+      });
+
   }
 
 
@@ -35,7 +50,11 @@ export class DirectoriesComponent implements OnInit {
         console.log(f.value);  // { first: '', last: '' }
         console.log(f.valid);  // false
 
-        this.serv.addData(f.value).subscribe(resp => console.log(resp));
+        this.serv.addData(f.value).subscribe(resp => {console.log(resp);
+
+          this.getData();
+
+        });
 
     }
 }

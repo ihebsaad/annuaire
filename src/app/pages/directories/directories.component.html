@@ -96,7 +96,7 @@
             <label for="input7" class="col-sm-3 col-form-label">Répertoires</label>
             <div class="col-sm-9">
               <select id="input7" class="form-control">
-                <option></option>
+                <option *ngFor="let item of data;">{{item.titre}}</option>
               </select>
             </div>
           </div>
