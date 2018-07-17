@@ -34,5 +34,8 @@ export class DirectoriesComponent implements OnInit {
     onSubmit(f: NgForm) {
         console.log(f.value);  // { first: '', last: '' }
         console.log(f.valid);  // false
+
+        this.serv.addData(f.value).subscribe(resp => console.log(resp));
+
     }
 }
