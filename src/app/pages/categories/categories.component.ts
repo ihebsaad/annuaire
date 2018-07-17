@@ -82,10 +82,21 @@ export class CategoriesComponent implements OnInit {
     }
 
   }
+editRecord(event): void{
+  console.log(event);
+event.confirm.resolve();
+this.serv.editData(event.data._id,event.newData).subscribe(resp => {console.log(resp);});
+
+
+}
 
   onDeleteConfirm(event): void {
     if (window.confirm('Etes vous sûres de vouloir supprimer ?')) {
       event.confirm.resolve();
+      console.log(" id = "+event.data._id);
+
+this.serv.deleteData(event.data._id).subscribe(resp => {console.log(resp);});
+console.log("After delete");
     } else {
       event.confirm.reject();
     }
