@@ -9,10 +9,10 @@ var expressValidator = require('express-validator');
 
 var api = express.Router();
 var debug = require('debug')('auth:server');
+var http = require('http');
 
 
 var app = express();
-var http = require('http');
 app.use(expressValidator());
 //mongoose.connect(config.database);
 mongoose.connect('mongodb://localhost:27017/app',{ useNewUrlParser: true });

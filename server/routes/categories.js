@@ -97,8 +97,10 @@ router.get('/:id',(request,response)=>{
 router.get('/delete/:id',(request,response)=>{
                 console.log("suppression")        
                 Categorie.findByIdAndRemove(request.params.id, (err,categorie) => {
-					console.log(err);
-                    response.redirect('/categories')
+                    if (err) console.log('error'+err);
+            else
+					
+                         response.json({ result : "supprimé avec succès!"});
                 })
         
 
@@ -109,12 +111,14 @@ router.get('/edit/:id',(request,response)=>{
     Categorie.findById(request.params.id,(err,categorie)=>{
         if(categorie.ref != request.user._id){
             console.log(request.user._id)
-            request.flash('negative','not Authorized');
-            response.redirect('/categories');
+            //request.flash('negative','not Authorized');
+           // response.redirect('/categories');
         }else{
-        response.render('edit',{categorie:categorie})}
-    })
+     //   response.render('edit',{categorie:categorie})}
+              response.json({ result : "modifié avec succès!"});
+                  }
 
+})
 })
 router.post('/edit/:id',(request,response)=>{
     let categorie={};
@@ -123,11 +127,13 @@ router.post('/edit/:id',(request,response)=>{
  
 
     Categorie.update({_id:request.params.id},categorie,(error)=>{
-        request.flash('positive',"modifié avec succès !")
-        response.redirect('/categories')
+                          if (error) console.log('error'+error);
+            else
+                    
+                         response.json({ result : "modifié avec succès!"});
+                })
+    });
 
-    })
-})
 
 
 module.exports = router;

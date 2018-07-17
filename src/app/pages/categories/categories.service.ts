@@ -37,9 +37,29 @@ export class CategoriesService {
 
   }
 
+    deleteData(id: any): Observable<any> {
+      console.log("Entred to delete service");
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type':  'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }),
+        };
+        return this.http.get(this.configUrl + '/categories/delete/' + id, httpOptions);
 
+    }
 
+      editData(id: any, obj: any): Observable<any> {
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type':  'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }),
+        };
 
+        return this.http.post(this.configUrl + '/categories/edit/' + id, obj, httpOptions);
+
+    }
 
 }
 
