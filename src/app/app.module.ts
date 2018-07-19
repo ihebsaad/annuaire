@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './@core/core.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -35,7 +36,7 @@ import {NgxLogoutComponent} from './@theme/components/auth/logout/logout.compone
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-
+    FormsModule,ReactiveFormsModule,
 
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
