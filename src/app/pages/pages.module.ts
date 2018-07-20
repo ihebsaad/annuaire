@@ -14,6 +14,7 @@ import { ArticlesComponent } from './articles/articles.component';
 import { AnnoncesComponent } from './annonces/annonces.component';
 import {ModalComponent} from './directories/modal/modal.component';
 import {FormsModule} from '@angular/forms';
+import {Ng2PaginationModule} from 'ng2-pagination';
 const PAGES_COMPONENTS = [
   PagesComponent,
 ];
@@ -26,6 +27,7 @@ const PAGES_COMPONENTS = [
     MiscellaneousModule,
     Ng2SmartTableModule,
       FormsModule,
+      Ng2PaginationModule
   ],
   declarations: [
     ...PAGES_COMPONENTS,
