@@ -165,12 +165,7 @@ router.get('/delete/:id',(request,response)=>{
 
 
 })
-//Get Repertoire/edit
-router.get('/edit/:id',(request,response)=>{
 
-
-
-})
 router.post('/edit/:id',(request,response)=>{
 
 
@@ -207,8 +202,29 @@ router.post('/edit/:id',(request,response)=>{
         }
     })
 
+})
 
 
+router.post('/search',(request,response)=>{
+
+    var query  =  Repertoire.where({ titre: request.body.titre });
+
+    query.findOne(function (err, Repertoire) {
+        if (err){console.log(err);}
+        else{
+            /* res.status(400).json({
+
+                  repertoires:repertoires
+
+            }); */
+
+            response.json({
+
+                repertoires:Repertoire
+
+            });
+        }
+    });
 
 })
 
