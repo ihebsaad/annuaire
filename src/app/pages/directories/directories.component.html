@@ -8,109 +8,76 @@
     </ng2-smart-table>
   </nb-card-body>
 </nb-card> -->
-<nb-card>
-  <nb-tabset fullWidth>
-    <nb-tab tabTitle="Full width tab #1">
-      <nb-card>
-        <nb-card-header>Ajouter Répertoire</nb-card-header>
-        <nb-card-body>
-          <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
-            <div class="form-group row">
-              <label for="input1" class="col-sm-3 col-form-label">Titre</label>
-              <div class="col-sm-9">
-                <input type="text" name="titre" [(ngModel)]="model.titre"
-                       #ctrl1="ngModel"  class="form-control" id="input1" placeholder="titre"
-                       [class.form-control-danger]="ctrl1.invalid && ctrl1.touched" required>
-                <small class="form-text error" *ngIf="ctrl1.invalid && ctrl1.touched && ctrl1.errors['required']">
-                  required!
-                </small>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="input2" class="col-sm-3 col-form-label">Catégorie</label>
-              <div class="col-sm-9">
-                <select id="input2" class="form-control" name="categorie" [(ngModel)]="model.categorie" #ctrl2="ngModel" [class.form-control-danger]="ctrl2.invalid && ctrl2.touched" required>
-                  <option>Automobile</option>
-                  <option>Caffe & Resto</option>
-                  <option>Hebergement</option>
-                  <option>Voyage</option>
-                </select>
-                <small class="form-text error" *ngIf="ctrl2.invalid && ctrl2.touched && ctrl2.errors['required']">
-                  required!
-                </small>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="input3" class="col-sm-3 col-form-label">Adresse</label>
-              <div class="col-sm-9">
-                <input type="text" class="form-control" id="input3" placeholder="adresse" name="adresse" [(ngModel)]="model.adresse"  #ctrl3="ngModel" [class.form-control-danger]="ctrl3.invalid && ctrl3.touched" required>
-                <small class="form-text error" *ngIf="ctrl3.invalid && ctrl3.touched && ctrl3.errors['required']">
-                  required!
-                </small>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="input4" class="col-sm-3 col-form-label">Ville</label>
-              <div class="col-sm-9">
-                <input type="text" class="form-control" id="input4" placeholder="ville" name="ville" [(ngModel)]="model.ville"  #ctrl4="ngModel" [class.form-control-danger]="ctrl4.invalid && ctrl4.touched" required>
-                <small class="form-text error" *ngIf="ctrl4.invalid && ctrl4.touched && ctrl4.errors['required']">
-                  required!
-                </small>
-              </div>
-            </div>
 
-            <div class="form-group row">
-              <label for="input5" class="col-sm-3 col-form-label">Auteur</label>
-              <div class="col-sm-9">
-                <input type="text" class="form-control" id="input5" placeholder="auteur" name="auteur" [(ngModel)]="model.auteur"  #ctrl5="ngModel" [class.form-control-danger]="ctrl5.invalid && ctrl5.touched" required>
-                <small class="form-text error" *ngIf="ctrl5.invalid && ctrl5.touched && ctrl5.errors['required']">
-                  required!
-                </small>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="input6" class="col-sm-3 col-form-label">Télephone</label>
-              <div class="col-sm-9">
-                <input type="tel" class="form-control" id="input6" pattern="^[0-9-+s()]*$" placeholder="" name="telephone" [(ngModel)]="model.telephone"  #ctrl6="ngModel" [class.form-control-danger]="ctrl6.invalid && ctrl6.touched" required>
-                <small class="form-text error" *ngIf="ctrl6.invalid && ctrl6.touched && ctrl6.errors['required']">
-                  required!
-                </small>
-              </div>
-            </div>
-            <div class="form-group row">
-              <div class="offset-sm-3 col-sm-9">
-                <button type="submit" class="btn btn-success" [disabled]="!f.form.valid">Ajouter</button>
-              </div>
-            </div>
-          </form>
-        </nb-card-body>
-      </nb-card>
 
-    </nb-tab>
-    <nb-tab tabTitle="Full width tab #2">
-      <span></span>
       <nb-card>
-        <nb-card-header>Modifier Répertoire</nb-card-header>
-        <nb-card-body>
-          <div class="form-group row">
-            <label for="input7" class="col-sm-3 col-form-label">Répertoires</label>
-            <div class="col-sm-9">
-              <select id="input7" class="form-control">
-                <option *ngFor="let item of data;">{{item.titre}}</option>
-              </select>
-            </div>
-          </div>
-          <form>
+        <nb-card-header></nb-card-header>
+
+           <nb-card-body>
+
+             <nb-card>
+               <nb-card-header>
+                 <button class="btn2" (click)="AfficherFormulaire1()"><i class="fa fa-plus" ></i></button>
+               </nb-card-header>
+
+               <nb-card-body>
+
+                 <table class="table table-bordered table-responsive-md table-striped text-center">
+                   <tr>
+                     <th class="text-center">Titre</th>
+                     <th class="text-center">Categorie</th>
+                     <th class="text-center">Telephone</th>
+                     <th class="text-center">ville</th>
+                     <th class="text-center">adresse</th>
+                     <th class="text-center">auteur</th>
+                     <th class="text-center">Action</th>
+                   </tr>
+                   <tr *ngFor="let elt of data | paginate: {itemsPerPage: 5, currentPage:page, id: '1'} ">
+                     <td class="pt-3-half" contenteditable="false">{{elt.titre}}</td>
+                     <td class="pt-3-half" contenteditable="false">{{elt.categorie}}</td>
+                     <td class="pt-3-half" contenteditable="false">{{elt.tel}}</td>
+                     <td class="pt-3-half" contenteditable="false">{{elt.ville}}</td>
+                     <td class="pt-3-half" contenteditable="false">{{elt.adresse}}</td>
+                     <td class="pt-3-half" contenteditable="false">{{elt.auteur}}</td>
+                     <td>
+                          <span>
+                             <button class="btn1" (click)="AfficherFormulaire(); getId(elt._id)"><i class="fa fa-edit"></i></button>
+                             <button class="btn3" (click)="showStaticModal(elt._id);"   ><i class="fa fa-trash"></i></button>
+                          </span>
+
+                     </td>
+                       <!--<button type="button" class="btn btn-info btn-rounded btn-sm my-0" (click)="AfficherFormulaire(); getId(elt._id)">Modifier</button> -->
+                   </tr>
+
+                 </table>
+                  <div>
+                  </div>
+
+                 <div>
+                   <pagination-controls (pageChange)="page = $event" id="1"
+                                        maxSize="10"
+                                        directionLinks="true"
+                                        autoHide="true">
+                   </pagination-controls>`
+                 </div>
+
+               </nb-card-body>
+             </nb-card>
+
+
+         <div *ngIf="test">
+          <form #f1="ngForm" (ngSubmit)="updateData(f1)" novalidate>
             <div class="form-group row">
               <label for="input8" class="col-sm-3 col-form-label">Titre</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" id="input8" placeholder="">
+                <input type="text" class="form-control" id="input8" placeholder="" name="titre" [(ngModel)]="model1.titre">
               </div>
             </div>
             <div class="form-group row">
               <label for="input9" class="col-sm-3 col-form-label">Catégorie</label>
               <div class="col-sm-9">
-                <select id="input9" class="form-control">
+                <select id="input9" class="form-control" name="categorie" [(ngModel)]="model1.categorie">
+                  <option ></option>
                   <option>Automobile</option>
                   <option>Caffe & Resto</option>
                   <option>Hebergement</option>
@@ -121,64 +88,113 @@
             <div class="form-group row">
               <label for="input10" class="col-sm-3 col-form-label">Adresse</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" id="input10" placeholder="">
+                <input type="text" class="form-control" id="input10" placeholder="" name="adresse"  [(ngModel)]="model1.adresse">
               </div>
             </div>
             <div class="form-group row">
               <label for="input11" class="col-sm-3 col-form-label">Ville</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" id="input11" placeholder="">
+                <input type="text" class="form-control" id="input11" placeholder="" name="ville" [(ngModel)]="model1.ville">
               </div>
             </div>
 
             <div class="form-group row">
               <label for="input12" class="col-sm-3 col-form-label">Auteur</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" id="input12" placeholder="">
+                <input type="text" class="form-control" id="input12" placeholder="" name="auteur" [(ngModel)]="model1.auteur">
               </div>
             </div>
             <div class="form-group row">
               <label for="input13" class="col-sm-3 col-form-label">Télephone</label>
               <div class="col-sm-9">
-                <input type="tel" class="form-control" id="input13" pattern="^[0-9-+s()]*$" placeholder="">
+                <input type="tel" class="form-control" id="input13" pattern="^[0-9-+s()]*$" placeholder="" name="tel" [(ngModel)]="model1.tel">
               </div>
             </div>
             <div class="form-group row">
               <div class="offset-sm-3 col-sm-9">
-                <button type="submit" class="btn btn-warning" (click)="showStaticModal()">Modifier</button>
+                <button type="submit" class="btn btn-warning">Modifier</button>
+                <button type="button" class="btn btn-default" style="margin-left: 10px" (click)="cacherFormulaire()">Annuler</button>
               </div>
             </div>
           </form>
+         </div>
+             <div *ngIf="test1">
+
+               <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+                 <div class="form-group row">
+                   <label for="input1" class="col-sm-3 col-form-label">Titre</label>
+                   <div class="col-sm-9">
+                     <input type="text" name="titre" [(ngModel)]="model.titre"
+                            #ctrl1="ngModel"  class="form-control" id="input1" placeholder=""
+                            [class.form-control-danger]="ctrl1.invalid && ctrl1.touched" required>
+                     <small class="form-text error" *ngIf="ctrl1.invalid && ctrl1.touched && ctrl1.errors['required']">
+                       required!
+                     </small>
+                   </div>
+                 </div>
+                 <div class="form-group row">
+                   <label for="input2" class="col-sm-3 col-form-label">Catégorie</label>
+                   <div class="col-sm-9">
+                     <select id="input2" class="form-control" name="categorie" [(ngModel)]="model.categorie" #ctrl2="ngModel" [class.form-control-danger]="ctrl2.invalid && ctrl2.touched" required>
+                       <option>Automobile</option>
+                       <option>Caffe & Resto</option>
+                       <option>Hebergement</option>
+                       <option>Voyage</option>
+                     </select>
+                     <small class="form-text error" *ngIf="ctrl2.invalid && ctrl2.touched && ctrl2.errors['required']">
+                       required!
+                     </small>
+                   </div>
+                 </div>
+                 <div class="form-group row">
+                   <label for="input3" class="col-sm-3 col-form-label">Adresse</label>
+                   <div class="col-sm-9">
+                     <input type="text" class="form-control" id="input3" placeholder="" name="adresse" [(ngModel)]="model.adresse"  #ctrl3="ngModel" [class.form-control-danger]="ctrl3.invalid && ctrl3.touched" required>
+                     <small class="form-text error" *ngIf="ctrl3.invalid && ctrl3.touched && ctrl3.errors['required']">
+                       required!
+                     </small>
+                   </div>
+                 </div>
+                 <div class="form-group row">
+                   <label for="input4" class="col-sm-3 col-form-label">Ville</label>
+                   <div class="col-sm-9">
+                     <input type="text" class="form-control" id="input4" placeholder="" name="ville" [(ngModel)]="model.ville"  #ctrl4="ngModel" [class.form-control-danger]="ctrl4.invalid && ctrl4.touched" required>
+                     <small class="form-text error" *ngIf="ctrl4.invalid && ctrl4.touched && ctrl4.errors['required']">
+                       required!
+                     </small>
+                   </div>
+                 </div>
+
+                 <div class="form-group row">
+                   <label for="input5" class="col-sm-3 col-form-label">Auteur</label>
+                   <div class="col-sm-9">
+                     <input type="text" class="form-control" id="input5" placeholder="" name="auteur" [(ngModel)]="model.auteur"  #ctrl5="ngModel" [class.form-control-danger]="ctrl5.invalid && ctrl5.touched" required>
+                     <small class="form-text error" *ngIf="ctrl5.invalid && ctrl5.touched && ctrl5.errors['required']">
+                       required!
+                     </small>
+                   </div>
+                 </div>
+                 <div class="form-group row">
+                   <label for="input6" class="col-sm-3 col-form-label">Télephone</label>
+                   <div class="col-sm-9">
+                     <input type="tel" class="form-control" id="input6" pattern="^[0-9-+s()]*$" placeholder="" name="tel" [(ngModel)]="model.tel"  #ctrl6="ngModel" [class.form-control-danger]="ctrl6.invalid && ctrl6.touched" required>
+                     <small class="form-text error" *ngIf="ctrl6.invalid && ctrl6.touched && ctrl6.errors['required']">
+                       required!
+                     </small>
+                   </div>
+                 </div>
+                 <div class="form-group row">
+                   <div class="offset-sm-3 col-sm-9">
+                     <button type="submit" class="btn btn-success" [disabled]="!f.form.valid">Ajouter</button>
+                     <button type="button" class="btn btn-default" style="margin-left: 10px" (click)="cacherFormulaire1()">Annuler</button>
+                   </div>
+                 </div>
+               </form>
+
+             </div>
         </nb-card-body>
       </nb-card>
 
-    </nb-tab>
-    <nb-tab tabTitle="Full width tab #3">
-      <span></span>
-      <nb-card>
-        <nb-card-header>Supprimer Répertoire</nb-card-header>
-        <nb-card-body>
-          <form>
-            <div class="form-group row">
-              <label for="input14" class="col-sm-3 col-form-label">Répertoires</label>
-              <div class="col-sm-9">
-                <select id="input14" multiple class="form-control">
-                  <option></option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group row">
-              <div class="offset-sm-3 col-sm-9">
-                <button type="submit" class="btn btn-danger" (click)="showStaticModal()">Supprimer</button>
-              </div>
-            </div>
-          </form>
-        </nb-card-body>
-      </nb-card>
-
-    </nb-tab>
-  </nb-tabset>
-</nb-card>
 
 
 

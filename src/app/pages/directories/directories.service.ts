@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs/Rx';
+import {BehaviorSubject, Observable, Subject} from 'rxjs/Rx';
 import { environment } from '../../../environments/environment';
 
 @Injectable({
@@ -10,9 +10,14 @@ export class DirectoriesService {
 
    // configUrl = 'http://localhost:3000';
     private configUrl= environment.API_URL;
+    private dataSource = new BehaviorSubject(null);
+    data = this.dataSource.asObservable();
 
     constructor(private http: HttpClient) { }
 
+    updatedData(data: any){
+        this.dataSource.next(data);
+    }
 
     getData(): Observable<any> {
 
@@ -23,6 +28,18 @@ export class DirectoriesService {
             }),
         };
         return this.http.get(this.configUrl + '/repertoires/list', httpOptions);
+
+    }
+
+    getDataById(id: any): Observable<any> {
+
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type':  'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }),
+        };
+        return this.http.post(this.configUrl + '/repertoires/list/elt',{id: id}, httpOptions);
 
     }
 
