@@ -31,4 +31,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
         icon: 'ion-arrow-swap',
         link: '/pages/contact',
     },
+    {
+        title: 'Entités',
+        icon : 'ion-folder',
+        link: '/pages/entites',
+    }
 ];
