@@ -57,13 +57,13 @@ const routes: Routes = [{
       redirectTo: 'dashboard',
       pathMatch: 'full',
     },
-  ],
+  ] /*,
    { path: 'entites', component: EntitesComponent, children: [
    // { path: '', component: RecipeStartComponent },
   //  { path: 'new', component: RecipeEditComponent },
     { path: ':id', component: EntiteDetailsComponent },
  //   { path: ':id/edit', component: RecipeEditComponent },
-  ] }
+  ] }*/
 }];
 
 @NgModule({
