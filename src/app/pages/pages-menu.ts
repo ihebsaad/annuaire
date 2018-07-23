@@ -30,10 +30,5 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Contact',
         icon: 'ion-arrow-swap',
         link: '/pages/contact',
-    },
-    {
-        title: 'Entités',
-        icon : 'ion-folder',
-        link: '/pages/entites',
     }
 ];
