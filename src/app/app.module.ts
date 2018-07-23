@@ -22,7 +22,10 @@ import {NgxRegisterComponent} from './@theme/components/auth/register/register.c
 import {NgxRequestPasswordComponent} from './@theme/components/auth/request-password/request-password.component';
 import {NgxResetPasswordComponent} from './@theme/components/auth/reset-password/reset-password.component';
 import {NgxLogoutComponent} from './@theme/components/auth/logout/logout.component';
-
+import { EntitesComponent } from './pages/entités/entites.component';
+import { EntiteListeComponent } from './pages/entités/entité-liste/entite-liste.component';
+import { EntiteDetailsComponent } from './pages/entités/entité-détails/entite-details.component';
+import { EntiteItemComponent } from './pages/entités/entité-liste/entité-item/entite-item.component';
 @NgModule({
   declarations: [AppComponent, NgxAuthComponent,
     NgxAuthBlockComponent,
@@ -30,6 +33,7 @@ import {NgxLogoutComponent} from './@theme/components/auth/logout/logout.compone
     NgxRegisterComponent,
     NgxRequestPasswordComponent,
     NgxResetPasswordComponent,
+    EntitesComponent,EntiteListeComponent,EntiteDetailsComponent,EntiteItemComponent,
     NgxLogoutComponent],
   imports: [
     BrowserModule,
