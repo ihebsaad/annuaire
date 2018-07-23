@@ -7,8 +7,8 @@ import { Entite } from '../entite.model';
 
 @Component({
   selector: 'app-entite-liste',
-  templateUrl: './entite-liste.component.html',
-  styleUrls: ['./entite-liste.component.scss']
+  templateUrl: './entite-liste.component.html'
+  //,styleUrls: ['./entite-liste.component.scss']
 })
 export class EntiteListeComponent implements OnInit {
   entites: Entite[];
