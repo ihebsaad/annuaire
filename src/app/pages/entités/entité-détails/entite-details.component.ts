@@ -7,7 +7,7 @@ import { EntiteService } from '../entite.service';
 @Component({
   selector: 'app-entite-details',
   templateUrl: './entite-details.component.html',
-  styleUrls: ['./entite-details.component.css']
+  styleUrls: ['./entite-details.component.scss']
 })
 export class EntiteDetailsComponent implements OnInit {
   entite: Entite;

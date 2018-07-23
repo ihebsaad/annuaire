@@ -5,7 +5,7 @@ import { Entite } from './entite.model';
 @Component({
   selector: 'app-entites',
   templateUrl: './entites.component.html',
-  styleUrls: ['./entites.component.css'],
+  styleUrls: [ './entites.component.scss'],
 providers: [EntiteService]
 })
 export class EntitesComponent implements OnInit {
