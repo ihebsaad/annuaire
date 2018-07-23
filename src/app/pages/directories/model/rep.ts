@@ -5,7 +5,7 @@ export class Rep {
         public categorie: string,
         public adresse: string,
         public ville: string,
-        public telephne: string,
+        public tel: string,
         public auteur: string,
     ) {  }
 }

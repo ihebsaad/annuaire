@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import {DirectoriesService} from "../directories.service";
 
 @Component({
   selector: 'ngx-modal',
@@ -14,7 +15,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
       {{ modalContent }}
     </div>
     <div class="modal-footer">
-      <button class="btn btn-md btn-primary" (click)="closeModal()">Confirmer</button>
+      <button class="btn btn-md btn-primary" (click)="deleteData(); closeModal()">Confirmer</button>
         <button class="btn btn-md btn-primary" (click)="closeModal()">Annuler</button>
     </div>
   `,
@@ -22,13 +23,32 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 export class ModalComponent {
 
   modalHeader: string;
-  modalContent = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-    nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
-    nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.`;
+  modalContent = ``;
+  id: any;
+  data: any;
 
-  constructor(private activeModal: NgbActiveModal) { }
+
+  constructor(private activeModal: NgbActiveModal, private serv: DirectoriesService) { }
 
   closeModal() {
     this.activeModal.close();
   }
+
+    getData() {
+
+        this.serv.getData().subscribe(resp => {console.log(resp);
+            console.log(resp['repertoires']);
+            this.data = resp['repertoires'];
+            this.serv.updatedData(this.data);
+        });
+
+    }
+
+    deleteData() {
+
+        this.serv.deleteData(this.id).subscribe(resp => {console.log(resp);
+                this.getData();
+        });
+    }
+
 }
