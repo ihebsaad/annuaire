@@ -34,11 +34,10 @@ export class SearchComponent implements OnInit {
         this.ngZone.run(() => {
           // get the place result
           const place: google.maps.places.PlaceResult = autocomplete.getPlace();
-          console.log(place['name']);
             this.serv.getInfo(place['name'])
                 .subscribe(infos => {
 
-                    if (infos['repertoires'] !== null) {
+                    if (infos['data'].length !== 0) {
                         this.positionChanged.emit(
                             new Location(place.geometry.location.lat(),
                                 place.geometry.location.lng()));
