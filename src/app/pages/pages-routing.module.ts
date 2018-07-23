@@ -9,10 +9,7 @@ import {DirectoriesComponent} from './directories/directories.component';
 import {CategoriesComponent} from './categories/categories.component';
 import {ArticlesComponent} from './articles/articles.component';
 import {AnnoncesComponent} from './annonces/annonces.component';
-import {EntitesComponent} from './entités/entites.component';
 import {MapComponent} from './dashboard/search-map/map/map.component';
-import {EntiteDetailsComponent} from './entités/entité-détails/entite-details.component';
-
 
 
 const routes: Routes = [{
