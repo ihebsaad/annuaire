@@ -13,7 +13,8 @@ import { AnalyticsService } from './@core/utils/analytics.service';
 export class AppComponent implements OnInit {
 
   constructor(private analytics: AnalyticsService) {
-  }
+    console.log(' host name ='+window.location.hostname);
+      }
 
   ngOnInit() {
     this.analytics.trackPageViews();
