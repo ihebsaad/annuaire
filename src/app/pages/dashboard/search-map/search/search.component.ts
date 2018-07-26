@@ -37,7 +37,8 @@ export class SearchComponent implements OnInit {
             this.serv.getInfo(place['name'])
                 .subscribe(infos => {
 
-                    if (infos['data'].length !== 0) {
+                  //  if (infos['data'].length !== 0) {
+						  if (infos['repertoires'] !== null) {
                         this.positionChanged.emit(
                             new Location(place.geometry.location.lat(),
                                 place.geometry.location.lng()));
