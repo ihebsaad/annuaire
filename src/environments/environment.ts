@@ -10,5 +10,7 @@
 export const environment = 
 {
     production: false,
-    API_URL: 'http://localhost:3000',
+	'http://'+window.location.hostname+':4200',
+    API_URL: 'http://'+window.location.hostname+':3000',
+    //API_URL: 'http://localhost:3000',
 };

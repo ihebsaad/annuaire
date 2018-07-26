@@ -20,7 +20,7 @@ export class DirectoriesService {
     }
 
     getData(): Observable<any> {
-
+console.log(' dynamic Url'+this.configUrl + '/repertoires/list');
         const httpOptions = {
             headers: new HttpHeaders({
                 'Content-Type':  'application/json',
