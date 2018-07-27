@@ -36,6 +36,7 @@ app.use('/',require('./routes/api'));
 app.use('/annonces',require('./routes/annonces'));
 app.use('/articles',require('./routes/articles'));
 app.use('/categories',require('./routes/categories'));
+app.use('/users',require('./routes/users'));
 app.use('/repertoires',require('./routes/repertoires'));
 //app.use('/contact',require('./routes/contact'));
 

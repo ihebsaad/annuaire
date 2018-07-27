@@ -12,8 +12,8 @@ var cors = require('cors');
 
 var corsOptions = {
 	
-    //origin: 'http://localhost:4200',
-    origin: 'http://'+window.location.hostname+':4200',
+    origin: 'http://localhost:4200',
+  //  origin: 'http://'+window.location.hostname+':4200',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
@@ -46,6 +46,7 @@ router.post('/signup', function(req, res) {
 
 
 router.post('/signin', function(req, res) {
+
     User.findOne({
         email: req.body.email
     }, function(err, user) {
@@ -60,6 +61,7 @@ router.post('/signin', function(req, res) {
                     // if user is found and password is right create a token
                     var token = jwt.sign(user.toJSON(), config.secret);
                     // return the information including token as JSON
+                 
                     res.json({success: true, token: 'JWT ' + token});
                 } else {
                     res.status(401).send({success: false, msg: 'Authentication failed. Wrong password.'});

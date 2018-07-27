@@ -138,7 +138,10 @@ export class NgxLoginComponent {
       this.submitted = false;
 
       if (result.isSuccess()) {
+   localStorage.setItem('email', this.user.email);
+   console.log('email= '+this.user.email);
         this.messages = result.getMessages();
+
       } else {
         this.errors = result.getErrors();
       }

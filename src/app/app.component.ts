@@ -5,6 +5,8 @@
  */
 import { Component, OnInit } from '@angular/core';
 import { AnalyticsService } from './@core/utils/analytics.service';
+import {AppService} from './app.service';
+
 
 @Component({
   selector: 'ngx-app',
@@ -12,12 +14,18 @@ import { AnalyticsService } from './@core/utils/analytics.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private analytics: AnalyticsService) {
-    console.log(' host name ='+window.location.hostname);
-      }
+  constructor(private analytics: AnalyticsService,private serv: AppService) {
+
+
+       }
+
 
   ngOnInit() {
     this.analytics.trackPageViews();
+    this.serv.checkAccess().subscribe(resp => {console.log( resp);
+    	console.log("status = "+resp.result);
+          
+      });
   }
   
 }
