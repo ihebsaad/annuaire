@@ -12,6 +12,7 @@ import {AppService} from './app.service';
   selector: 'ngx-app',
   template: '<router-outlet></router-outlet>',
 })
+//export const LOGGEDIN=false;
 export class AppComponent implements OnInit {
 
   constructor(private analytics: AnalyticsService,private serv: AppService) {
@@ -21,11 +22,19 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
+  let	statusb:any;
     this.analytics.trackPageViews();
-    this.serv.checkAccess().subscribe(resp => {console.log( resp);
-    	console.log("status = "+resp.result);
+    this.serv.checkAccess().subscribe(resp => {//console.log( resp);
+    	//console.log("status = "+resp.result);
+    	status=resp.result;
+    	if (status=="simple"){statusb=false;}
+    	else {statusb=true;}
           
       });
-  }
+
+
+    	}
+
+
   
 }

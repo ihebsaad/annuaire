@@ -10,7 +10,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './@core/core.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import {AppService} from './app.service';
+import {AuthenticationService} from './authentication.service';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ThemeModule } from './@theme/theme.module';
@@ -21,7 +22,37 @@ import {NgxLoginComponent} from './@theme/components/auth/login/login.component'
 import {NgxRegisterComponent} from './@theme/components/auth/register/register.component';
 import {NgxRequestPasswordComponent} from './@theme/components/auth/request-password/request-password.component';
 import {NgxResetPasswordComponent} from './@theme/components/auth/reset-password/reset-password.component';
-import {NgxLogoutComponent} from './@theme/components/auth/logout/logout.component';@NgModule({
+import {NgxLogoutComponent} from './@theme/components/auth/logout/logout.component';
+
+import { ExtraOptions, RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+   
+      {
+        path: 'login',
+        component: NgxLoginComponent,
+      },
+      {
+        path: 'register',
+        component: NgxRegisterComponent,
+      },
+      {
+        path: 'logout',
+        component: NgxLogoutComponent,
+      },
+      {
+        path: 'request-password',
+        component: NgxRequestPasswordComponent,
+      },
+      {
+        path: 'reset-password',
+        component: NgxResetPasswordComponent,
+      },
+    
+];
+
+
+@NgModule({
   declarations: [AppComponent, NgxAuthComponent,
     NgxAuthBlockComponent,
     NgxLoginComponent,
@@ -41,7 +72,7 @@ import {NgxLogoutComponent} from './@theme/components/auth/logout/logout.compone
     CoreModule.forRoot(),
   ],
   bootstrap: [AppComponent],
-  providers: [
+  providers: [AppService,AuthenticationService,
     { provide: APP_BASE_HREF, useValue: '/' },
   ],
 })

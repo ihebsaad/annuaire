@@ -23,13 +23,13 @@ router.get('/access/:email', function(req, res) {
 
  //  let  email=localStorage.getItem('email');
    let email= req.params.email;  
-if (email.length == 0)
+if (email == null)
 {
     let loggedin=false;
 }
 else {
     let loggedin=true;
-    console.log('loggedin');
+  //  console.log('loggedin');
 }
 let st="";
 User.findOne({
@@ -59,6 +59,38 @@ User.findOne({
 
 })
 
+router.get('/username/:email', function(req, res) {
+
+ //  let  email=localStorage.getItem('email');
+   let email= req.params.email;  
+
+let st="";
+User.findOne({
+        email: email
+    }, function(err, user) {
+        if (err) throw err;
+
+        if (!user) {
+          res.json({
+
+            result : "simple0"        });
+        } 
+         else{ 
+   res.json({
+
+            result : user.fullName
+        });
+         }
+
+
+     // console.log('test');
+     
+
+    });
+
+
+
+})
 
 
 module.exports = router;

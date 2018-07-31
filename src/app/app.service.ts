@@ -26,4 +26,16 @@ checkAccess(): Observable<any> {
 
     }
 
+getusername(): Observable<any> {
+  let  email=localStorage.getItem('email');
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type':  'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }),
+        };
+
+        return this.http.get(this.configUrl + '/users/username/'+ email, httpOptions);
+
+    }
 }
