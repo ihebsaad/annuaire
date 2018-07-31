@@ -13,6 +13,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { AnnoncesComponent } from './annonces/annonces.component';
 import {ModalComponent} from './directories/modal/modal.component';
+import {ModalComponent2} from './categories/modal/modal.component';
 import {FormsModule} from '@angular/forms';
 import {Ng2PaginationModule} from 'ng2-pagination';
 const PAGES_COMPONENTS = [
@@ -37,10 +38,10 @@ const PAGES_COMPONENTS = [
     CategoriesComponent,
     ArticlesComponent,
     AnnoncesComponent,
-      ModalComponent,
+      ModalComponent,ModalComponent2
   ],
     entryComponents: [
-        ModalComponent,
+        ModalComponent,ModalComponent2
     ],
 })
 export class PagesModule {

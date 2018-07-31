@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {CategoriesService} from './categories.service';
 import {LocalDataSource} from 'ng2-smart-table';
+import {ModalComponent2} from './modal/modal.component';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {Cat} from './model/cat';
+import {NgForm} from '@angular/forms';
+import {AfterContentChecked, AfterContentInit, AfterViewChecked, DoCheck} from '@angular/core';
 @Component({
   selector: 'categories',
   templateUrl: './categories.component.html',
@@ -11,94 +16,127 @@ import {LocalDataSource} from 'ng2-smart-table';
 
 
 export class CategoriesComponent implements OnInit {
+model: any = {};
+    model1 = new Cat('','');
+    data: any;
+    data1: any;
+    id: any;
+    test: boolean = false;
+    test1: boolean = false;
 
-  obj: any;
-  source: LocalDataSource = new LocalDataSource();
-  settings = {
-    add: {
-      addButtonContent: '<i class="nb-plus"></i>',
-      createButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-      confirmCreate: true,
-    },
-    edit: {
-      editButtonContent: '<i class="nb-edit"></i>',
-      saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-      confirmSave: true,
+  constructor(private serv : CategoriesService, private modalService: NgbModal) { }
 
-    },
-    delete: {
-      deleteButtonContent: '<i class="nb-trash"></i>',
-      confirmDelete: true,
-    },
-    columns: {
-      titre: {
-        title: 'titre',
-        type: 'string',
-      },
-      type: {
-        title: 'type',
-        type: 'number',
-      }
-    },
-  };
 
-  constructor(private serv : CategoriesService) { }
 
+
+ 
   ngOnInit() {
 
-    this.showData();
-  }
-
-  showData() {
-
-    this.serv.getData().subscribe(resp => {console.log(resp);
-
-      this.obj = resp['categories'];
-      this.source.load(this.obj);
-
-    });
-
-
+      this.getData();
 
   }
 
-  sendData(obj: any) {
-
-    this.serv.addData(obj).subscribe(resp => {console.log(resp);
-    });
-
-  }
-
-  addRecord(event): void {
-    if((event['newData']['titre'] !== '')&&(event['newData']['type'] !== '') ) {
-      event.confirm.resolve();
-      console.log(event['newData']);
-      this.sendData(event['newData']);
-    }else {
-      event.confirm.reject();
-      this.settings.add.confirmCreate = false;
+    ngAfterContentInit() {
+      this.afficher();
     }
 
+  getData() {
+
+      this.serv.getData().subscribe(resp => {console.log(resp);
+          console.log(resp['categories']);
+          this.data = resp['categories'];
+
+      });
+
   }
-editRecord(event): void{
-  console.log(event);
-event.confirm.resolve();
-this.serv.editData(event.data._id,event.newData).subscribe(resp => {console.log(resp);});
+
+  getDataById(id:any) {
+      this.id = id;
+      this.serv.getDataById(id).subscribe(resp => {console.log(resp);
+          console.log(resp['categories']);
+          this.data1 = resp['categories'];
+          this.model1 = new Cat(this.data1.titre,this.data1.type);
+
+      });
+
+  }
 
 
-}
+    showStaticModal(obj:any) {
+        const activeModal = this.modalService.open(ModalComponent2, {
+            size: 'sm',
+            backdrop: 'static',
+            container: 'nb-layout',
+        });
+        activeModal.componentInstance.id = obj;
+        activeModal.componentInstance.modalHeader = 'Confirmation';
+        activeModal.componentInstance.modalContent = `Est ce que vous voulez confirmer cette action ?`;
 
-  onDeleteConfirm(event): void {
-    if (window.confirm('Etes vous sûres de vouloir supprimer ?')) {
-      event.confirm.resolve();
-      console.log(" id = "+event.data._id);
-
-this.serv.deleteData(event.data._id).subscribe(resp => {console.log(resp);});
-console.log("After delete");
-    } else {
-      event.confirm.reject();
     }
-  }
+
+    onSubmit(f: NgForm) {
+        console.log(f.value);  // { first: '', last: '' }
+        console.log(f.valid);  // false
+
+        this.serv.addData(f.value).subscribe(resp => {console.log(resp);
+            this.getData();
+            this.test1 = false;
+            f.reset();
+        });
+
+    }
+
+    getId(obj:any) {
+
+        console.log(obj);
+        this.id = obj;
+        this.getDataById(obj);
+
+    }
+
+    updateData(f: NgForm) {
+        console.log(f.value);  // { first: '', last: '' }
+        console.log(this.id);
+        this.serv.editData(this.id,f.value).subscribe(resp => {console.log(resp);
+
+            this.getData();
+            this.test = false;
+            f.reset();
+
+        });
+
+
+
+    }
+
+    AfficherFormulaire() {
+
+        this.test = true;
+
+    }
+
+    cacherFormulaire() {
+
+        this.test = false;
+    }
+
+    AfficherFormulaire1() {
+
+        this.test1 = true;
+
+    }
+
+    cacherFormulaire1() {
+
+        this.test1 = false;
+    }
+
+    afficher() {
+      this.serv.data.subscribe(data => {
+          //do what ever needs doing when data changes
+          this.data = data;
+      });
+    }
+
+
 }
