@@ -32,7 +32,7 @@
                      <th class="text-center">auteur</th>
                      <th class="text-center">Action</th>
                    </tr>
-                   <tr *ngFor="let elt of data | paginate: {itemsPerPage: 5, currentPage:page, id: '1'} ">
+                   <tr *ngFor="let elt of data | paginate: {itemsPerPage: 5, currentPage:this.page, id: '1'} ">
                      <td class="pt-3-half" contenteditable="false">{{elt.titre}}</td>
                      <td class="pt-3-half" contenteditable="false">{{elt.categorie}}</td>
                      <td class="pt-3-half" contenteditable="false">{{elt.tel}}</td>
