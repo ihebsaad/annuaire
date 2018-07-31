@@ -23,7 +23,8 @@ model: any = {};
     id: any;
     test: boolean = false;
     test1: boolean = false;
-
+    page : any;
+    
   constructor(private serv : CategoriesService, private modalService: NgbModal) { }
 
 
