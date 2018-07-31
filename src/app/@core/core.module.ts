@@ -14,8 +14,8 @@ import { throwIfAlreadyLoaded } from './module-import-guard';
 import { DataModule } from './data/data.module';
 import { AnalyticsService } from './utils/analytics.service';
 
-import { environment } from '../../../environments/environment';
-  private configUrl= environment.API_URL;
+import { environment } from '../../environments/environment';
+  const configUrl= environment.API_URL;
 
 
 const socialLinks = [
