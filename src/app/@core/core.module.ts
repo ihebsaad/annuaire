@@ -14,6 +14,10 @@ import { throwIfAlreadyLoaded } from './module-import-guard';
 import { DataModule } from './data/data.module';
 import { AnalyticsService } from './utils/analytics.service';
 
+import { environment } from '../../../environments/environment';
+  private configUrl= environment.API_URL;
+
+
 const socialLinks = [
     {
         url: 'https://github.com/akveo/nebular',
@@ -48,7 +52,7 @@ export const NB_CORE_PROVIDERS = [
                 name: 'email',
 
                 //baseEndpoint: 'http://localhost:3000',
-                baseEndpoint: 'http://'+window.location.hostname+':3000',
+                baseEndpoint: configUrl,
 				
                 login: {
                     endpoint: '/signin',
