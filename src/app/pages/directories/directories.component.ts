@@ -64,7 +64,15 @@ getUsername(){
       });
 
   }
+approveDirectory(f: NgForm){
+ this.serv.approve(this.id).subscribe(resp => {console.log(resp);
 
+            this.getData();
+                       
+
+        });
+
+}
   getDataById(id:any) {
       this.id = id;
       this.serv.getDataById(id).subscribe(resp => {console.log(resp);

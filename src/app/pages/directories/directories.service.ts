@@ -30,7 +30,17 @@ console.log(' dynamic Url'+this.configUrl + '/repertoires/list');
         return this.http.get(this.configUrl + '/repertoires/list', httpOptions);
 
     }
+   approve(id: any): Observable<any> {
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type':  'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }),
+        };
 
+        return this.http.post(this.configUrl + '/repertoires/approve/' + id, httpOptions);
+
+    }
     getDataById(id: any): Observable<any> {
 
         const httpOptions = {

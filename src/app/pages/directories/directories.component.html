@@ -40,10 +40,12 @@
                      <td class="pt-3-half" contenteditable="false">{{elt.ville}}</td>
                      <td class="pt-3-half" contenteditable="false">{{elt.adresse}}</td>
                      <td class="pt-3-half" contenteditable="false">{{elt.auteur}}</td>
-                     <td class="pt-3-half" contenteditable="false">{{elt.status}}</td>
+                     <td class="pt-3-half" contenteditable="false" style="color:green"
+                     [ngClass]="{'notapproved' : elt.status == 'non approuvé'}">{{elt.status}}</td>
                      <td>
                           <span>
                              <button class="btn1" (click)="AfficherFormulaire(); getId(elt._id)"><i class="fa fa-edit"></i></button>
+                             <button class="btn2" (click)="getId(elt._id);approveDirectory()"><i class="fa fa-check"></i></button>
                              <button class="btn3" (click)="showStaticModal(elt._id);"   ><i class="fa fa-trash"></i></button>
                           </span>
 
