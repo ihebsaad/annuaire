@@ -30,6 +30,7 @@
                      <th class="text-center">ville</th>
                      <th class="text-center">adresse</th>
                      <th class="text-center">auteur</th>
+                     <th class="text-center">status</th>
                      <th class="text-center">Action</th>
                    </tr>
                    <tr *ngFor="let elt of data | paginate: {itemsPerPage: 5, currentPage:page, id: '1'} ">
@@ -39,6 +40,7 @@
                      <td class="pt-3-half" contenteditable="false">{{elt.ville}}</td>
                      <td class="pt-3-half" contenteditable="false">{{elt.adresse}}</td>
                      <td class="pt-3-half" contenteditable="false">{{elt.auteur}}</td>
+                     <td class="pt-3-half" contenteditable="false">{{elt.status}}</td>
                      <td>
                           <span>
                              <button class="btn1" (click)="AfficherFormulaire(); getId(elt._id)"><i class="fa fa-edit"></i></button>
@@ -168,8 +170,8 @@
                  <div class="form-group row">
                    <label for="input5" class="col-sm-3 col-form-label">Auteur</label>
                    <div class="col-sm-9">
-                     <input type="text" class="form-control" id="input5" placeholder="" name="auteur" [(ngModel)]="model.auteur"  #ctrl5="ngModel" [class.form-control-danger]="ctrl5.invalid && ctrl5.touched" required>
-                     <small class="form-text error" *ngIf="ctrl5.invalid && ctrl5.touched && ctrl5.errors['required']">
+                     <input type="text" class="form-control" id="input5" placeholder="" name="auteur" [(ngModel)]="username"  #ctrl5="ngModel" [class.form-control-danger]="ctrl5.invalid && ctrl5.touched" required>
+                     <small class="form-text error" *ngIf="ctrl5.invalid && ctrl5.touched && ctrl5.errors['required']" >
                        required!
                      </small>
                    </div>

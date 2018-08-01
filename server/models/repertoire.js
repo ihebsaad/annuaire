@@ -25,6 +25,11 @@ var repertoireSchema = mongoose.Schema({
     auteur: {
         type: String,
         required:true
+    },
+    status: {
+        type: String,
+        required:true,
+        default: 'non approuvé'
     }
 });
 

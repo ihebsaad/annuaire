@@ -3,11 +3,11 @@
  * Copyright Akveo. All Rights Reserved.
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
-import { Component, Inject } from '@angular/core';
+import { Component, Inject,Input } from '@angular/core';
 import { Router } from '@angular/router';
 import {NB_AUTH_OPTIONS, NbAuthResult, NbAuthService, NbAuthSocialLink} from '@nebular/auth';
 import {getDeepFromObject} from '@nebular/auth/helpers';
-
+import{ NgxLoginComponent } from '../login/login.component';
 
 
 @Component({
@@ -146,7 +146,7 @@ import {getDeepFromObject} from '@nebular/auth/helpers';
   `,
 })
 export class NgxRegisterComponent {
-
+// @Input() logincpn: NgxLoginComponent;
   redirectDelay: number = 0;
   showMessages: any = {};
   strategy: string = '';
@@ -175,6 +175,29 @@ export class NgxRegisterComponent {
       this.submitted = false;
       if (result.isSuccess()) {
         this.messages = result.getMessages();
+       console.log('here success register');
+       //this.logincpn.login();
+     //  console.log('after login');
+     // Login after register
+ 
+    this.service.authenticate(this.strategy, this.user).subscribe((result: NbAuthResult) => {
+      this.submitted = false;
+
+      if (result.isSuccess()) {
+   localStorage.setItem('email', this.user.email);
+   console.log('email= '+this.user.email);
+        this.messages = result.getMessages();
+
+      } else {
+        this.errors = result.getErrors();
+      }
+
+
+}
+
+
+
+     //end login after register
       } else {
         this.errors = result.getErrors();
       }
@@ -187,7 +210,31 @@ export class NgxRegisterComponent {
       }
     });
   }
+  
+  login(): void {
+    this.errors = this.messages = [];
+    this.submitted = true;
 
+    this.service.authenticate(this.strategy, this.user).subscribe((result: NbAuthResult) => {
+      this.submitted = false;
+
+      if (result.isSuccess()) {
+   localStorage.setItem('email', this.user.email);
+   console.log('email= '+this.user.email);
+        this.messages = result.getMessages();
+
+      } else {
+        this.errors = result.getErrors();
+      }
+
+      const redirect = result.getRedirect();
+      if (redirect) {
+        setTimeout(() => {
+          return this.router.navigateByUrl(redirect);
+        }, this.redirectDelay);
+      }
+    });
+  }
   getConfigValue(key: string): any {
     return getDeepFromObject(this.options, key, null);
   }

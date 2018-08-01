@@ -5,6 +5,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ModalComponent} from './modal/modal.component';
 import {Rep} from './model/rep';
 import {NgForm} from '@angular/forms';
+import {AppService} from '../../app.service';
 
 @Component({
   selector: 'ngx-directories',
@@ -20,9 +21,19 @@ export class DirectoriesComponent implements OnInit, AfterContentInit {
     test: boolean = false;
     test1: boolean = false;
     page : any;
+    username:any;
 
+  constructor(private serv: DirectoriesService, private modalService: NgbModal,
+private servApp: AppService,
+    ) { 
+this.servApp.getusername().subscribe(resp => {
+  console.log( resp);
+      console.log("name** = "+resp.result);
+       this.username=resp.result;
+         //return resp.result; 
+      });
 
-  constructor(private serv: DirectoriesService, private modalService: NgbModal) { }
+  }
 
   ngOnInit() {
 
@@ -33,6 +44,16 @@ export class DirectoriesComponent implements OnInit, AfterContentInit {
     ngAfterContentInit() {
       this.afficher();
     }
+getUsername(){
+ this.servApp.getusername().subscribe(resp => {
+  console.log( resp);
+      console.log("name** = "+resp.result);
+       this.username=resp.result;
+         //return resp.result; 
+      });
+
+}
+
 
   getData() {
 

@@ -40,7 +40,7 @@ User.findOne({
         if (!user) {
           res.json({
 
-            result : "simple0"        });
+            result : ""        });
         } 
          else{ 
    res.json({
@@ -73,7 +73,7 @@ User.findOne({
         if (!user) {
           res.json({
 
-            result : "simple0"        });
+            result : ""        });
         } 
          else{ 
    res.json({

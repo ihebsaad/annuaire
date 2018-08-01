@@ -27,7 +27,7 @@ username:any;
               public auth: AuthenticationService) {
     this.serv.getusername().subscribe(resp => {
   console.log( resp);
-      console.log("name = "+resp.result);
+      console.log("name** = "+resp.result);
        this.username=resp.result;
          //return resp.result; 
       });
