@@ -206,6 +206,34 @@ router.post('/edit/:id',(request,response)=>{
 
 })
 
+router.post('/approve/:id',(request,response)=>{
+
+
+    Repertoire.findById(request.params.id,(err,repertoire)=>{
+        if(repertoire.ref != request.body._id){
+            console.log(request.body._id)
+        }else{
+
+            // let repertoire = new Repertoire();
+            //let repertoire= {};
+           
+                repertoire.status = 'approuvé';
+
+            Repertoire.update({_id:request.params.id},repertoire,(error)=>{
+                response.json({
+
+                    result : "success to update the directory !"
+
+                });
+
+            })
+
+
+        }
+    })
+
+})
+
 
 router.post('/search',(request,response)=>{
 
