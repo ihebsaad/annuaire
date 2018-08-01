@@ -2,10 +2,11 @@
         <nb-card-header></nb-card-header>
 
            <nb-card-body>
-
+<div class="row">
+	<div class="col-xs-12 col-sm-12 col-md-6  col-lg-6 ">
              <nb-card>
                <nb-card-header>
-                 <button style="float:right" class="btn2" (click)="AfficherFormulaire1()"><i class="fa fa-plus" ></i></button>
+                <h1>Liste des catégories<button style="float:right" class="btn2" (click)="AfficherFormulaire1()"><i class="fa fa-plus" ></i></button></h1> 
                </nb-card-header>
 
                <nb-card-body>
@@ -42,67 +43,88 @@
 
                </nb-card-body>
              </nb-card>
+	</div><!--col-->
 
-
+<div class="row">
+<div  >
+	<div   style="width:100%;padding-top:70px;padding-left:50px;padding-right:30px;margin-bottom:50px">
          <div *ngIf="test">
+		 	<h3>Modifier une catégorie</h3>
+		
           <form #f1="ngForm" (ngSubmit)="updateData(f1)" novalidate>
             <div class="form-group row">
-              <label for="input8" class="col-sm-3 col-form-label">Titre</label>
-              <div class="col-sm-9">
+              <label for="input8" class="  col-form-label">Titre</label>
+              <div  >
                 <input type="text" class="form-control" id="input8" placeholder="" name="titre" [(ngModel)]="model1.titre">
               </div>
             </div>
             <div class="form-group row">
-              <label for="input10" class="col-sm-3 col-form-label">Type</label>
-              <div class="col-sm-9">
+              <label for="input10" class="c  col-form-label">Type</label>
+              <div  >
                 <input type="text" class="form-control" id="input10" placeholder="" name="type"  [(ngModel)]="model1.type">
               </div>
             </div>
-            <div class="form-group row">
-              <div class="offset-sm-3 col-sm-9">
+            <div class="form-group row" style="padding-left:100px">
+              <div class="    ">
                 <button type="submit" class="btn btn-warning">Modifier</button>
-                <button type="button" class="btn btn-default" style="margin-left: 10px" (click)="cacherFormulaire()">Annuler</button>
+                <button type="button" class="btn " style="margin-left: 10px;background-color:#848484" (click)="cacherFormulaire()">Annuler</button>
               </div>
             </div>
           </form>
          </div>
+	</div><!--col-->
+		 
+	<div  style="width:100%;padding-left:50px;padding-right:30px">
+		 
              <div *ngIf="test1">
-
+	<h3>Ajouter une catégorie</h3>
                <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
                  <div class="form-group row">
-                   <label for="input1" class="col-sm-3 col-form-label">Titre</label>
-                   <div class="col-sm-9">
+                   <label for="input1" class="  col-form-label">Titre</label>
+                   <div class=" ">
                      <input type="text" name="titre" [(ngModel)]="model.titre"
                             #ctrl1="ngModel"  class="form-control" id="input1" placeholder=""
                             [class.form-control-danger]="ctrl1.invalid && ctrl1.touched" required>
                      <small class="form-text error" *ngIf="ctrl1.invalid && ctrl1.touched && ctrl1.errors['required']">
-                       required!
+                       Champ obligatoire!
                      </small>
                    </div>
                  </div>
                  <div class="form-group row">
-                   <label for="input2" class="col-sm-3 col-form-label">Type</label>
-                   <div class="col-sm-9">
+                   <label for="input2" class="  col-form-label">Type</label>
+                   <div class=" ">
                      <input type="text" class="form-control" id="input2" placeholder="" name="type" [(ngModel)]="model.type"  #ctrl2="ngModel" [class.form-control-danger]="ctrl2.invalid && ctrl2.touched" required>
                      <small class="form-text error" *ngIf="ctrl2.invalid && ctrl2.touched && ctrl2.errors['required']">
-                       required!
+                       Champ obligatoire!
                      </small>
                    </div>
                  </div>
-                 <div class="form-group row">
-                   <div class="offset-sm-3 col-sm-9">
+                 <div class="form-group row" style="padding-left:100px">
+                   <div class=" ">
                      <button type="submit" class="btn btn-success" [disabled]="!f.form.valid">Ajouter</button>
-                     <button type="button" class="btn btn-default" style="margin-left: 10px" (click)="cacherFormulaire1()">Annuler</button>
+                     <button type="button" class="btn " style="margin-left: 10px;background-color:#848484;" (click)="cacherFormulaire1()">Annuler</button>
                    </div>
                  </div>
                </form>
 
              </div>
+			 
+	</div><!--col-->
+	</div><!--col-->
+
+</div><!--row-->
+</div><!--row-->
+
         </nb-card-body>
       </nb-card>
 
 
-
+<style>
+label{width:100px;}
+h3{text-align:center;font-size:25px;margin-bottom:30px;}
+nb-card-body{min-height:500px;}
+h1{font-size35px;}
+</style>
 
 
 

@@ -112,7 +112,7 @@ model: any = {};
 
     AfficherFormulaire() {
 
-        this.test = true;
+        if (this.test==false) {this.test=true;}else{this.test=false;}
 
     }
 
@@ -123,7 +123,7 @@ model: any = {};
 
     AfficherFormulaire1() {
 
-        this.test1 = true;
+        if (this.test1==false) {this.test1=true;}else{this.test1=false;}
 
     }
 
