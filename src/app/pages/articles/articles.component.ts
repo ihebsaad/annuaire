@@ -1,7 +1,7 @@
 import {AfterContentChecked, AfterContentInit, AfterViewChecked, Component, DoCheck, OnInit} from '@angular/core';
 import {ArticlesService} from './articles.service';
 import {LocalDataSource} from 'ng2-smart-table';
-import {ModalComponent3} from './modal/modal.component';
+import {ModalComponent} from './modal/modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Art} from './model/art';
 import {NgForm} from '@angular/forms';
@@ -74,7 +74,7 @@ export class ArticlesComponent implements OnInit {
 
 
   showStaticModal(obj:any) {
-    const activeModal = this.modalService.open(ModalComponent3, {
+    const activeModal = this.modalService.open(ModalComponent, {
       size: 'lg',
       backdrop: 'static',
       container: 'nb-layout',
