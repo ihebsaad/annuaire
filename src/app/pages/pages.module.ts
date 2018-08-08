@@ -12,6 +12,7 @@ import {Ng2SmartTableModule} from 'ng2-smart-table';
 import { CategoriesComponent } from './categories/categories.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { AnnoncesComponent } from './annonces/annonces.component';
+import { UsersComponent } from './users/users.component';
 import {ModalComponent} from './directories/modal/modal.component';
 import {ModalComponent2} from './categories/modal/modal.component';
 import {FormsModule} from '@angular/forms';
@@ -38,6 +39,7 @@ const PAGES_COMPONENTS = [
     CategoriesComponent,
     ArticlesComponent,
     AnnoncesComponent,
+    UsersComponent,
       ModalComponent,ModalComponent2
   ],
     entryComponents: [

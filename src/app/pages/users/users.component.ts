@@ -1,41 +1,36 @@
-import {AfterContentChecked, AfterContentInit, AfterViewChecked, Component, DoCheck, OnInit} from '@angular/core';
-import {DirectoriesService} from './directories.service';
+import { Component, OnInit } from '@angular/core';
+import {UsersService} from './users.service';
 import {LocalDataSource} from 'ng2-smart-table';
+import {ModalComponent2} from './modal/modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {ModalComponent} from './modal/modal.component';
-import {Rep} from './model/rep';
+import {User} from './model/user';
 import {NgForm} from '@angular/forms';
-import {AppService} from '../../app.service';
-
+//import {AfterContentChecked, AfterContentInit, AfterViewChecked, DoCheck} from '@angular/core';
 @Component({
-  selector: 'ngx-directories',
-  templateUrl: './directories.component.html',
-  styleUrls: ['./directories.component.scss'],
+  selector: 'users',
+  templateUrl: './users.component.html',
+  styleUrls: ['./users.component.scss'],
+  providers: [UsersService]
+
 })
-export class DirectoriesComponent implements OnInit, AfterContentInit {
-    model: any = {};
-    model1 = new Rep('','','','','','');
+
+
+export class UsersComponent implements OnInit {
+model: any = {};
+    model1 = new User('','','');
     data: any;
     data1: any;
     id: any;
     test: boolean = false;
     test1: boolean = false;
     page : any;
-    username:any;
+    
+  constructor(private serv : UsersService, private modalService: NgbModal) { }
 
-  constructor(private serv: DirectoriesService, private modalService: NgbModal,
-private servApp: AppService,
-    ) {
 
-this.servApp.getusername().subscribe(resp => {
-  console.log( resp);
-      console.log("name** = "+resp.result);
-       this.username=resp.result;
-         //return resp.result; 
-      });
 
-  }
 
+ 
   ngOnInit() {
 
       this.getData();
@@ -45,41 +40,23 @@ this.servApp.getusername().subscribe(resp => {
     ngAfterContentInit() {
       this.afficher();
     }
-getUsername(){
- this.servApp.getusername().subscribe(resp => {
-  console.log( resp);
-      console.log("name** = "+resp.result);
-       this.username=resp.result;
-         //return resp.result; 
-      });
-
-}
-
 
   getData() {
 
       this.serv.getData().subscribe(resp => {console.log(resp);
-          console.log(resp['repertoires']);
-          this.data = resp['repertoires'];
+          console.log(resp['users']);
+          this.data = resp['users'];
 
       });
 
   }
-approveDirectory(f: NgForm){
- this.serv.approve(this.id).subscribe(resp => {console.log(resp);
 
-            this.getData();
-                       
-
-        });
-
-}
   getDataById(id:any) {
       this.id = id;
       this.serv.getDataById(id).subscribe(resp => {console.log(resp);
-          console.log(resp['repertoires']);
-          this.data1 = resp['repertoires'];
-          this.model1 = new Rep(this.data1.titre,this.data1.categorie,this.data1.adresse,this.data1.ville,this.data1.tel,this.data1.auteur);
+          console.log(resp['users']);
+          this.data1 = resp['users'];
+          this.model1 = new User(this.data1.fullName,this.data1.email,this.data1.status);
 
       });
 
@@ -87,7 +64,7 @@ approveDirectory(f: NgForm){
 
 
     showStaticModal(obj:any) {
-        const activeModal = this.modalService.open(ModalComponent, {
+        const activeModal = this.modalService.open(ModalComponent2, {
             size: 'lg',
             backdrop: 'static',
             container: 'nb-layout',
@@ -135,7 +112,7 @@ approveDirectory(f: NgForm){
 
     AfficherFormulaire() {
 
-        this.test = true;
+        if (this.test==false) {this.test=true;}else{this.test=false;}
 
     }
 
@@ -146,7 +123,7 @@ approveDirectory(f: NgForm){
 
     AfficherFormulaire1() {
 
-        this.test1 = true;
+        if (this.test1==false) {this.test1=true;}else{this.test1=false;}
 
     }
 

@@ -5,7 +5,7 @@ import {ModalComponent2} from './modal/modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Cat} from './model/cat';
 import {NgForm} from '@angular/forms';
-import {AfterContentChecked, AfterContentInit, AfterViewChecked, DoCheck} from '@angular/core';
+//import {AfterContentChecked, AfterContentInit, AfterViewChecked, DoCheck} from '@angular/core';
 @Component({
   selector: 'categories',
   templateUrl: './categories.component.html',
@@ -65,7 +65,7 @@ model: any = {};
 
     showStaticModal(obj:any) {
         const activeModal = this.modalService.open(ModalComponent2, {
-            size: 'sm',
+            size: 'lg',
             backdrop: 'static',
             container: 'nb-layout',
         });

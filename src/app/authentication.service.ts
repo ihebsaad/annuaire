@@ -29,8 +29,7 @@ export class AuthenticationService {
   private token: string;
 strategy: string = '';
   redirectDelay: number = 0;
-  constructor(protected service: NbAuthService,
-    private http: HttpClient, private router: Router,
+  constructor(protected service: NbAuthService,  private http: HttpClient, private router: Router,
               @Inject(NB_AUTH_OPTIONS) protected options = {}) {
   this.redirectDelay = this.getConfigValue('forms.logout.redirectDelay');
     this.strategy = this.getConfigValue('forms.logout.strategy');
@@ -84,6 +83,11 @@ else if (email.length > 0 ){
 }
 
   }
+
+    public isAdmin(): boolean {
+
+      return false;
+    }
 
   private request(method: 'post'|'get', type: 'login'|'register'|'profile', user?: TokenPayload): Observable<any> {
     let base;

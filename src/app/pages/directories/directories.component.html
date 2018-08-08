@@ -168,16 +168,8 @@
                      </small>
                    </div>
                  </div>
+                 <input type="hidden" class="form-control" id="input5" placeholder="" name="auteur" [(ngModel)]="username"  #ctrl5="ngModel" [class.form-control-danger]="ctrl5.invalid && ctrl5.touched" required>
 
-                 <div class="form-group row">
-                   <label for="input5" class="col-sm-3 col-form-label">Auteur</label>
-                   <div class="col-sm-9">
-                     <input type="text" class="form-control" id="input5" placeholder="" name="auteur" [(ngModel)]="username"  #ctrl5="ngModel" [class.form-control-danger]="ctrl5.invalid && ctrl5.touched" required>
-                     <small class="form-text error" *ngIf="ctrl5.invalid && ctrl5.touched && ctrl5.errors['required']" >
-                       required!
-                     </small>
-                   </div>
-                 </div>
                  <div class="form-group row">
                    <label for="input6" class="col-sm-3 col-form-label">Télephone</label>
                    <div class="col-sm-9">

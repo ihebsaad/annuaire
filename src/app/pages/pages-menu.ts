@@ -26,6 +26,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Blog',
         icon: 'ion-document-text',
         link: '/pages/blog',
+    }, {
+        title: 'Utilisateurs',
+        icon: 'ion-user',
+        link: '/pages/users',
     }
 ];
 export const MENU_ITEMS_SIMPLE: NbMenuItem[] = [

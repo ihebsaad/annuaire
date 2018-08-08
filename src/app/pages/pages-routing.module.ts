@@ -9,6 +9,7 @@ import {DirectoriesComponent} from './directories/directories.component';
 import {CategoriesComponent} from './categories/categories.component';
 import {ArticlesComponent} from './articles/articles.component';
 import {AnnoncesComponent} from './annonces/annonces.component';
+import {UsersComponent} from './users/users.component';
 import {MapComponent} from './dashboard/search-map/map/map.component';
 
 
@@ -48,8 +49,12 @@ const routes: Routes = [{
           path: 'articles',
           component: ArticlesComponent,
       },
-   
-    {
+      {
+          path: 'users',
+          component: UsersComponent,
+      },
+
+      {
       path: '',
       redirectTo: 'dashboard',
       pathMatch: 'full',
