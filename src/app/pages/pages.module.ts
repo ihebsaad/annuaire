@@ -15,6 +15,9 @@ import { AnnoncesComponent } from './annonces/annonces.component';
 import { UsersComponent } from './users/users.component';
 import {ModalComponent} from './directories/modal/modal.component';
 import {ModalComponent2} from './categories/modal/modal.component';
+import {ModalComponent3} from './annonces/modal/modal.component';
+import {ModalComponent4} from './articles/modal/modal.component';
+import {ModalComponent5} from './users/modal/modal.component';
 import {FormsModule} from '@angular/forms';
 import {Ng2PaginationModule} from 'ng2-pagination';
 const PAGES_COMPONENTS = [
