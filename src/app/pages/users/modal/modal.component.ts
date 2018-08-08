@@ -20,7 +20,7 @@ import {UsersService} from "../users.service";
     </div>
   `,
 })
-export class ModalComponent2 {
+export class ModalComponent {
 
   modalHeader: string;
   modalContent = ``;

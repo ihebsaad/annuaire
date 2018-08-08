@@ -9,11 +9,13 @@ import { AuthenticationService } from '../../authentication.service';
 import { UsersService } from '../users/users.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'annonces',
   templateUrl: './annonces.component.html',
   styleUrls: ['./annonces.component.scss'],
-  providers: [AnnoncesService]
+  providers: [AnnoncesService],
+  entryComponents: [ModalComponent],
 
 })
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UsersService} from './users.service';
 import {LocalDataSource} from 'ng2-smart-table';
-import {ModalComponent2} from './modal/modal.component';
+import {ModalComponent} from './modal/modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {User} from './model/user';
 import {NgForm} from '@angular/forms';
@@ -10,7 +10,9 @@ import {NgForm} from '@angular/forms';
   selector: 'users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss'],
-  providers: [UsersService]
+  providers: [UsersService],
+    entryComponents: [ModalComponent],
+
 
 })
 
@@ -64,7 +66,7 @@ model: any = {};
 
 
     showStaticModal(obj:any) {
-        const activeModal = this.modalService.open(ModalComponent2, {
+        const activeModal = this.modalService.open(ModalComponent, {
             size: 'lg',
             backdrop: 'static',
             container: 'nb-layout',

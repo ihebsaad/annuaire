@@ -14,7 +14,8 @@ import { AuthenticationService } from '../../authentication.service';
   selector: 'articles',
   templateUrl: './articles.component.html',
   styleUrls: ['./articles.component.scss'],
-  providers: [ArticlesService]
+  providers: [ArticlesService],
+   entryComponents: [ModalComponent],
 
 })
 
