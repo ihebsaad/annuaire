@@ -40,10 +40,10 @@ const PAGES_COMPONENTS = [
     ArticlesComponent,
     AnnoncesComponent,
     UsersComponent,
-      ModalComponent,ModalComponent2
+      ModalComponent,ModalComponent2,ModalComponent3,ModalComponent4,ModalComponent5
   ],
     entryComponents: [
-        ModalComponent,ModalComponent2
+        ModalComponent,ModalComponent2,ModalComponent3,ModalComponent4,ModalComponent5
     ],
 })
 export class PagesModule {

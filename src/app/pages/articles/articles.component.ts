@@ -1,7 +1,7 @@
 import {AfterContentChecked, AfterContentInit, AfterViewChecked, Component, DoCheck, OnInit} from '@angular/core';
 import {ArticlesService} from './articles.service';
 import {LocalDataSource} from 'ng2-smart-table';
-import {ModalComponent} from './modal/modal.component';
+import {ModalComponent4} from './modal/modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Art} from './model/art';
 import {NgForm} from '@angular/forms';
@@ -74,8 +74,7 @@ export class ArticlesComponent implements OnInit {
 
 
   showStaticModal(obj:any) {
-    /*
-    const activeModal = this.modalService.open(ModalComponent, {
+    const activeModal = this.modalService.open(ModalComponent4, {
       size: 'lg',
       backdrop: 'static',
       container: 'nb-layout',
@@ -83,7 +82,7 @@ export class ArticlesComponent implements OnInit {
     activeModal.componentInstance.id = obj;
     activeModal.componentInstance.modalHeader = 'Confirmation';
     activeModal.componentInstance.modalContent = `Est ce que vous voulez confirmer cette action ?`;
-*/
+
   }
 
   onSubmit(f: NgForm) {

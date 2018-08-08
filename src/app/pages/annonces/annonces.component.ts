@@ -1,6 +1,6 @@
 import { Component, DoCheck, OnInit} from '@angular/core';
 import {AnnoncesService} from './annonces.service';
-import {ModalComponent} from './modal/modal.component';
+import {ModalComponent3} from './modal/modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Anc} from './model/Anc';
 import {NgForm} from '@angular/forms';
@@ -92,8 +92,8 @@ else {
 
 
   showStaticModal(obj:any) {
-    /*
-    const activeModal = this.modalService.open(ModalComponent, {
+
+    const activeModal = this.modalService.open(ModalComponent3, {
       size: 'lg',
       backdrop: 'static',
       container: 'nb-layout',
@@ -101,7 +101,7 @@ else {
     activeModal.componentInstance.id = obj;
     activeModal.componentInstance.modalHeader = 'Confirmation';
     activeModal.componentInstance.modalContent = `Est ce que vous voulez confirmer cette action ?`;
-*/
+
   }
 
   onSubmit(f: NgForm) {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UsersService} from './users.service';
 import {LocalDataSource} from 'ng2-smart-table';
-import {ModalComponent} from './modal/modal.component';
+import {ModalComponent5} from './modal/modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {User} from './model/user';
 import {NgForm} from '@angular/forms';
@@ -66,7 +66,7 @@ model: any = {};
 
 
     showStaticModal(obj:any) {
-      /*  const activeModal = this.modalService.open(ModalComponent, {
+         const activeModal = this.modalService.open(ModalComponent5, {
             size: 'lg',
             backdrop: 'static',
             container: 'nb-layout',
@@ -74,7 +74,7 @@ model: any = {};
         activeModal.componentInstance.id = obj;
         activeModal.componentInstance.modalHeader = 'Confirmation';
         activeModal.componentInstance.modalContent = `Est ce que vous voulez confirmer cette action ?`;
-*/
+
     }
 
     onSubmit(f: NgForm) {

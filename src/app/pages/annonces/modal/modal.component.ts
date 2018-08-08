@@ -20,7 +20,7 @@ import {AnnoncesService} from "../annonces.service";
     </div>
   `,
 })
-export class ModalComponent {
+export class ModalComponent3 {
 
   modalHeader: string;
   modalContent = ``;
