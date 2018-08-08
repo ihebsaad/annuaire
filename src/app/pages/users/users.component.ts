@@ -10,8 +10,8 @@ import {NgForm} from '@angular/forms';
   selector: 'users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss'],
-  providers: [UsersService],
-    entryComponents: [ModalComponent],
+  providers: [UsersService]
+///    entryComponents: [ModalComponent],
 
 
 })
@@ -66,7 +66,7 @@ model: any = {};
 
 
     showStaticModal(obj:any) {
-        const activeModal = this.modalService.open(ModalComponent, {
+      /*  const activeModal = this.modalService.open(ModalComponent, {
             size: 'lg',
             backdrop: 'static',
             container: 'nb-layout',
@@ -74,7 +74,7 @@ model: any = {};
         activeModal.componentInstance.id = obj;
         activeModal.componentInstance.modalHeader = 'Confirmation';
         activeModal.componentInstance.modalContent = `Est ce que vous voulez confirmer cette action ?`;
-
+*/
     }
 
     onSubmit(f: NgForm) {

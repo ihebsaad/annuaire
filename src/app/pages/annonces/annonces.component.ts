@@ -15,7 +15,6 @@ import { Router } from '@angular/router';
   templateUrl: './annonces.component.html',
   styleUrls: ['./annonces.component.scss'],
   providers: [AnnoncesService],
-  entryComponents: [ModalComponent],
 
 })
 
@@ -93,6 +92,7 @@ else {
 
 
   showStaticModal(obj:any) {
+    /*
     const activeModal = this.modalService.open(ModalComponent, {
       size: 'lg',
       backdrop: 'static',
@@ -101,7 +101,7 @@ else {
     activeModal.componentInstance.id = obj;
     activeModal.componentInstance.modalHeader = 'Confirmation';
     activeModal.componentInstance.modalContent = `Est ce que vous voulez confirmer cette action ?`;
-
+*/
   }
 
   onSubmit(f: NgForm) {

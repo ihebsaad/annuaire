@@ -15,7 +15,6 @@ import { AuthenticationService } from '../../authentication.service';
   templateUrl: './articles.component.html',
   styleUrls: ['./articles.component.scss'],
   providers: [ArticlesService],
-   entryComponents: [ModalComponent],
 
 })
 
@@ -75,6 +74,7 @@ export class ArticlesComponent implements OnInit {
 
 
   showStaticModal(obj:any) {
+    /*
     const activeModal = this.modalService.open(ModalComponent, {
       size: 'lg',
       backdrop: 'static',
@@ -83,7 +83,7 @@ export class ArticlesComponent implements OnInit {
     activeModal.componentInstance.id = obj;
     activeModal.componentInstance.modalHeader = 'Confirmation';
     activeModal.componentInstance.modalContent = `Est ce que vous voulez confirmer cette action ?`;
-
+*/
   }
 
   onSubmit(f: NgForm) {
