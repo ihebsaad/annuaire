@@ -9,7 +9,11 @@ var categorieSchema = mongoose.Schema({
 	type: {
 		type: String,
 		required:true
-	} 
+	} ,
+    parent: {
+        type: String,
+        required:false
+    }
 });
 
  
