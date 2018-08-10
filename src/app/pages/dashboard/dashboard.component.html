@@ -10,7 +10,7 @@
   </nb-card-body>
 </nb-card>
 
-<nb-card>
+<!--nb-card>
   <nb-card-header></nb-card-header>
 
   <nb-card-body>
@@ -37,7 +37,7 @@
         </div>
       </div>
   </nb-card-body>
-</nb-card>
+</nb-card-->
 
 
 
@@ -52,7 +52,7 @@
           <div [(ngModel)]="radioModel" ngbRadioGroup
                class="btn-group btn-group-toggle btn-outline-toggle-group btn-group-full-width btn-toggle-radio-group">
                         <label *ngFor="let elt of dataC" ngbButtonLabel class="btn btn-outline-primary">
-              <input ngbButton type="radio" value="elt.titre"> {{elt.titre}}
+              <input (click)="fnclick(elt.titre);" ngbButton type="radio" value="{{elt.titre}}"/> {{elt.titre}} 
             </label>
             
           </div>
@@ -62,6 +62,16 @@
   </nb-card-body>
 </nb-card>
 
+<nb-card>  <br><br>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-xxxl-3 col-xxl-4 col-lg-5 col-md-6">
+         <ngx-ad  *ngIf="selectedCategory; else infoText"
+      [category]="selectedCategory"></ngx-ad>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
 
 <nb-card>
  <div align="center"><nb-card-header><h2 style="align: center">Répertoires En Vedette</h2></nb-card-header></div>

@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, Input} from '@angular/core';
 import {NbThemeService} from '@nebular/theme';
 
 @Component({
@@ -7,7 +7,7 @@ import {NbThemeService} from '@nebular/theme';
   styleUrls: ['./ad.component.scss'],
 })
 export class AdComponent implements OnDestroy {
-
+ @Input() category: Category;
     currentTheme: string;
     themeSubscription: any;
     source = 'assets/hotel.jpg';
@@ -22,4 +22,13 @@ export class AdComponent implements OnDestroy {
         this.themeSubscription.unsubscribe();
     }
 
+}
+export class Category {
+  public titre: string;
+  public type: string;
+
+  constructor(name: string, type: string) {
+    this.titre = name;
+    this.type = type;
+  }
 }

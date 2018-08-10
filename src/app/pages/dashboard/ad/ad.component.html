@@ -1,10 +1,10 @@
-<nb-card size="medium">
+<nb-card *ngFor="let elt of dataD" size="medium">
   <nb-card-body>
     <div class="picture" [style.background-image]="'url(' + source + ')'"></div>
 
     <div class="details">
       <div class="title" align="center">
-        Hotel
+        {{elt.titre}}
       </div>
       <div class="description">
       </div>
