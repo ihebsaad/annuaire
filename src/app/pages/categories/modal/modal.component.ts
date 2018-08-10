@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import {CategoriesService} from "../categories.service";
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'ngx-modal',
@@ -26,12 +27,12 @@ export class ModalComponent2 {
   modalContent = ``;
   id: any;
   data: any;
-
-
+    
   constructor(private activeModal: NgbActiveModal, private serv: CategoriesService) { }
 
   closeModal() {
     this.activeModal.close();
+
   }
 
     getData() {
@@ -44,11 +45,19 @@ export class ModalComponent2 {
 
     }
 
+    refresh(f: NgForm){
+        f.reset();
+    }
+
     deleteData() {
 
         this.serv.deleteData(this.id).subscribe(resp => {console.log(resp);
-                this.getData();
+
+            //    this.getData();
+            this.data = resp['categories'];
+             //this.refresh(this.data);
               //  this.serv.updatedData(this.data);
+            this.refresh(  this.data );
         });
     }
 

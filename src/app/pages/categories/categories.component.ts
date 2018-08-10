@@ -17,20 +17,59 @@ import {NgForm} from '@angular/forms';
 
 export class CategoriesComponent implements OnInit {
 model: any = {};
-    model1 = new Cat('','');
+    model1 = new Cat('','','');
     data: any;
     data1: any;
     id: any;
     test: boolean = false;
     test1: boolean = false;
     page : any;
-    
-  constructor(private serv : CategoriesService, private modalService: NgbModal) { }
+    CatList: any;
+    data2:any;
+    parent:any;
+    data2=[
+        {
+            "Id": 3,
+            "Name": "Attorney Case"
+        },
+        {
+            "Id": 1035,
+            "Name": "bikesh appeal"
+        },
+        {
+            "Id": 22,
+            "Name": "BikeshAppeal"
+        },
+        {
+            "Id": 20,
+            "Name": "Case Info"
+        },
+        {
+            "Id": 15,
+            "Name": "Case Infoe"
+        },
+        {
+            "Id": 11,
+            "Name": "Case Prep"
+        }
+    ]
+  constructor(private serv : CategoriesService, private modalService: NgbModal) {this.getCatList();
+  }
 
+    getCatList()
+    {
+        this.serv.getData().subscribe(resp => {console.log(resp);
+            console.log(resp['categories']);
+            this.data = resp['categories'];
+        });
 
+        this.CatList= this.data;
+    }
+    selectCats()
+    {
+      //  alert(this.model.parent);
+    }
 
-
- 
   ngOnInit() {
 
       this.getData();
@@ -46,17 +85,18 @@ model: any = {};
       this.serv.getData().subscribe(resp => {console.log(resp);
           console.log(resp['categories']);
           this.data = resp['categories'];
-
+      ///  this.liste=resp['categories'];
       });
 
   }
+
 
   getDataById(id:any) {
       this.id = id;
       this.serv.getDataById(id).subscribe(resp => {console.log(resp);
           console.log(resp['categories']);
           this.data1 = resp['categories'];
-          this.model1 = new Cat(this.data1.titre,this.data1.type);
+          this.model1 = new Cat(this.data1.titre,this.data1.type,this.data1.parent);
 
       });
 
@@ -106,14 +146,10 @@ model: any = {};
 
         });
 
-
-
     }
 
     AfficherFormulaire() {
-
         if (this.test==false) {this.test=true;}else{this.test=false;}
-
     }
 
     cacherFormulaire() {

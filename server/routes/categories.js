@@ -115,6 +115,7 @@ router.post('/add',(request,response)=>{
         let categorie = new Categorie();
         categorie.titre = request.body.titre ;
         categorie.type = request.body.type ;
+        categorie.parent = request.body.parent ;
 
         categorie.save((error) => {
             if (error) throw error
@@ -176,6 +177,8 @@ router.post('/edit/:id',(request,response)=>{
                 categorie.titre = request.body.titre ;
             if(request.body.type != null)
                 categorie.type = request.body.type ;
+            if(request.body.parent != null)
+                categorie.parent = request.body.parent ;
            
             Categorie.update({_id:request.params.id},categorie,(error)=>{
                 response.json({
@@ -215,6 +218,10 @@ router.post('/search',(request,response)=>{
     });
 
 })
+
+
+
+
 
 
 module.exports = router;
