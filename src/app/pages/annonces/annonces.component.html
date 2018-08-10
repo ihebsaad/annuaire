@@ -101,13 +101,13 @@
                 <div class="form-group row">
                   <label for="input2" class="  col-form-label">Détails</label>
                   <div class=" ">
-                    <input type="text" class="form-control" id="input2" placeholder="" name="details" [(ngModel)]="model.details"  #ctrl2="ngModel" [class.form-control-danger]="ctrl2.invalid && ctrl2.touched" required>
+                    <textarea type="text" class="form-control" id="input2" placeholder="" name="details" [(ngModel)]="model.details"  #ctrl2="ngModel" [class.form-control-danger]="ctrl2.invalid && ctrl2.touched" required></textarea>
                     <small class="form-text error" *ngIf="ctrl2.invalid && ctrl2.touched && ctrl2.errors['required']">
                       Champ obligatoire!
                     </small>
                   </div>
                 </div>
-                <input type="hidden" class="form-control" id="input3" placeholder="" name="auteur" [(ngModel)]="username"  #ctrl3="ngModel" [class.form-control-danger]="ctrl3.invalid && ctrl3.touched" required>
+                <input type="hidden" class="form-control" id="input3" placeholder="" name="auteur" [(ngModel)]="auteur"  #ctrl3="ngModel" [class.form-control-danger]="ctrl3.invalid && ctrl3.touched" required>
 
                 <div class="form-group row" style="padding-left:100px">
                   <div class=" ">

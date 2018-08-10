@@ -7,12 +7,10 @@ var User = require('../models/user');
 var cors = require('cors');
 
 
-var cors = require('cors');
-
 var corsOptions = {
-  
+
     origin: 'http://localhost:4200',
-   // origin: 'http://'+window.location.hostname+':4200',
+    // origin: 'http://'+window.location.hostname+':4200',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
@@ -47,9 +45,9 @@ router.get('/list', function (req, res) {
         else{
             /* res.status(400).json({
 
-                  users:users
+             users:users
 
-            }); */
+             }); */
 
             res.json({
 
@@ -74,9 +72,9 @@ router.post('/list/elt', function (req, res) {
         else{
             /* res.status(400).json({
 
-                  users:users
+             users:users
 
-            }); */
+             }); */
 
             res.json({
 
@@ -104,12 +102,12 @@ router.post('/add',(request,response)=>{
     request.checkBody('fullName','le nom est obligatoire').notEmpty()
     request.checkBody('email','l  email est obligatoire').notEmpty()
     request.checkBody('satus','le status est obligatoire').notEmpty()
-     // request.checkBody('ref','ref est oblig').notEmpty()
+    // request.checkBody('ref','ref est oblig').notEmpty()
     let errors=request.validationErrors()
     if(errors){
         /* response.render('add',{
-             titre:'Ajouter un Répertoire',
-             errors:errors
+         titre:'Ajouter un Répertoire',
+         errors:errors
          }) */
         response.json({
 
@@ -168,6 +166,79 @@ router.get('/delete/:id',(request,response)=>{
 
 })
 
+
+router.get('/username/:email', function(req, res) {
+
+    //  let  email=localStorage.getItem('email');
+    let email= req.params.email;
+
+    let st="";
+    User.findOne({
+        email: email
+    }, function(err, user) {
+        if (err) throw err;
+
+        if (!user) {
+            res.json({
+
+                result : ""        });
+        }
+        else{
+            res.json({
+
+                result : user.fullName
+            });
+        }
+
+
+        // console.log('test');
+
+
+    });
+
+
+
+})
+router.get('/access/:email', function(req, res) {
+
+    //  let  email=localStorage.getItem('email');
+    let email= req.params.email;
+   /* if (email.length == 0)
+    {
+        let loggedin=false;
+    }
+    else {
+        let loggedin=true;
+        console.log('loggedin');
+    }*/
+    let st="";
+    User.findOne({
+        email: email
+    }, function(err, user) {
+        if (err) throw err;
+
+        if (!user) {
+            res.json({
+
+                result : "simple0"        });
+        }
+        else{
+            res.json({
+
+                result : user.status
+            });
+        }
+
+
+        // console.log('test');
+
+
+    });
+
+
+
+})
+
 router.post('/edit/:id',(request,response)=>{
 
 
@@ -182,9 +253,9 @@ router.post('/edit/:id',(request,response)=>{
                 user.fullName = request.body.fullName ;
             if(request.body.email != null)
                 user.email = request.body.email ;
-              if(request.body.status != null)
+            if(request.body.status != null)
                 user.status = request.body.status ;
-           
+
             User.update({_id:request.params.id},user,(error)=>{
                 response.json({
 
@@ -205,7 +276,7 @@ router.post('/admin/', function (req, res) {
 
     let email= req.params.email;
 
-     User.findOne({
+    User.findOne({
         email: email
     }, function(err, user) {
         if (err) throw err;
