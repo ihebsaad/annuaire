@@ -25,7 +25,8 @@ import {NgxResetPasswordComponent} from './@theme/components/auth/reset-password
 import {NgxLogoutComponent} from './@theme/components/auth/logout/logout.component';
 
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
-
+//import the ng2-file-upload directive so we can add it to our declarations.
+//import { FileSelectDirective } from 'ng2-file-upload';
 const routes: Routes = [
    
       {
@@ -59,6 +60,7 @@ const routes: Routes = [
     NgxRegisterComponent,
     NgxRequestPasswordComponent,
     NgxResetPasswordComponent,
+    //FileSelectDirective,
     NgxLogoutComponent],
   imports: [
     BrowserModule,

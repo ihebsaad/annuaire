@@ -20,6 +20,9 @@ import {ModalComponent4} from './articles/modal/modal.component';
 import {ModalComponent5} from './users/modal/modal.component';
 import {FormsModule} from '@angular/forms';
 import {Ng2PaginationModule} from 'ng2-pagination';
+import { FileSelectDirective } from 'ng2-file-upload';
+import { HttpModule } from '@angular/http';
+
 const PAGES_COMPONENTS = [
   PagesComponent,
 ];
@@ -31,12 +34,12 @@ const PAGES_COMPONENTS = [
     DashboardModule,
     MiscellaneousModule,
     Ng2SmartTableModule,
-      FormsModule,
+      FormsModule,HttpModule,
       Ng2PaginationModule
   ],
   declarations: [
     ...PAGES_COMPONENTS,
-    BlogComponent,
+    BlogComponent,FileSelectDirective,
     DirectoriesComponent,
     ContactComponent,
     CategoriesComponent,

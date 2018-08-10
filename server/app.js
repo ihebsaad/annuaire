@@ -11,7 +11,7 @@ var api = express.Router();
 var debug = require('debug')('auth:server');
 var http = require('http');
 
-
+var multer = require('multer');
 var app = express();
 app.use(expressValidator());
 //mongoose.connect(config.database);
@@ -48,6 +48,18 @@ app.use(function(req, res, next) {
 });
 
 app.use(passport.initialize());
+
+
+
+//create a cors middleware
+app.use(function(req, res, next) {
+//set headers to allow cross origin request.
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 
 /**
  * Get port from environment and store in Express.

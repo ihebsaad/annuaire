@@ -2,6 +2,12 @@ var express = require('express');
 var router = express.Router();
 var Repertoire = require('../models/repertoire');
 var expressValidator = require('express-validator');
+//require multer for the file uploads
+var multer = require('multer');
+// set the directory for the uploads to the uploaded to
+var DIR = './uploads/';
+//define the type of upload multer would be doing and pass in its destination, in our case, its a single file with the name photo
+var upload = multer({dest: DIR}).single('photo');
 
 var cors = require('cors');
 
@@ -122,6 +128,9 @@ router.post('/add',(request,response)=>{
         repertoire.adresse = request.body.adresse ;
         repertoire.auteur = request.body.auteur;
 
+
+
+
         repertoire.save((error) => {
             if (error) throw error
             else
@@ -138,6 +147,24 @@ router.post('/add',(request,response)=>{
     }
 
 })
+
+router.post('/upload', function (req, res, next) {
+//upload image
+console.log('entred to uplod express');
+var path = '';
+     upload(req, res, function (err) {
+        if (err) {
+            console.log('here');
+          // An error occurred when uploading
+          console.log(err);
+          return res.status(422).send("an Error occured while uploading")
+        }  
+       // No error occured.
+        path = req.file.path;
+        return res.send("Upload Completed for "+path); 
+  });     
+});
+
 
 
 //get repertoire
