@@ -30,6 +30,18 @@ console.log(' dynamic Url'+this.configUrl + '/repertoires/list');
         return this.http.get(this.configUrl + '/repertoires/list', httpOptions);
 
     }
+    getDataPerCateg(titresel:String): Observable<any> {
+console.log(' dynamic Url'+this.configUrl + '/repertoires/list');
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type':  'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }),
+        };
+        return this.http.get(this.configUrl + '/repertoires/searchpercateg/'+titresel, httpOptions);
+
+    }
+    
    approve(id: any): Observable<any> {
         const httpOptions = {
             headers: new HttpHeaders({

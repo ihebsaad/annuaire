@@ -259,4 +259,40 @@ router.post('/search',(request,response)=>{
 })
 
 
+router.get('/searchpercateg/:titresel',(request,response)=>{
+console.log('here');
+console.log('titre'+request.params.titresel);
+    var query  =  Repertoire.where({ categorie: request.params.titresel });
+
+    query.find(function (err, Repertoire) {
+        if (err){console.log(err);}
+        else{
+console.log(Repertoire);
+            /* res.status(400).json({
+
+                  repertoires:repertoires
+
+            });*/
+                        response.json({
+
+                repertoires:Repertoire
+
+            });
+        }
+    });
+
+  /*  Repertoire.find({}, function (err, repertoires)
+    {
+        if (err){console.log(err);}
+        else{
+            res.render('repertoires/repertoires',{
+
+                repertoires:repertoires
+
+            });
+        }
+*/
+
+    });
+
 module.exports = router;
