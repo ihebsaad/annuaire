@@ -322,4 +322,34 @@ console.log(Repertoire);
 
     });
 
+//get total directories
+router.post('/count',(request,response)=>{
+    console.log('entred to count');
+    Repertoire.count({}, function(err, c) {
+           console.log('Count is ' + c);
+       response.json({
+                count:c
+            });
+})
+});
+//get total directories
+router.post('/counta',(request,response)=>{
+    console.log('entred to count');
+    Repertoire.count({status: 'approuvé'}, function(err, c) {
+           console.log('Count is ' + c);
+       response.json({
+                count:c
+            });
+})
+});
+//get total directories
+router.post('/countn',(request,response)=>{
+    console.log('entred to count');
+    Repertoire.count({status: 'non approuvé'}, function(err, c) {
+           console.log('Count is ' + c);
+       response.json({
+                count:c
+            });
+})
+});
 module.exports = router;

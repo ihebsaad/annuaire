@@ -25,7 +25,7 @@ model: any = {};
     test1: boolean = false;
     page : any;
     CatList: any;
-    data2:any;
+    //data2:any;
     parent:any;
     data2=[
         {

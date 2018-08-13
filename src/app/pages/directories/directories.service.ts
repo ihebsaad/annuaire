@@ -64,7 +64,35 @@ console.log(' dynamic Url'+this.configUrl + '/repertoires/list');
         return this.http.post(this.configUrl + '/repertoires/list/elt',{id: id}, httpOptions);
 
     }
+getTotalD():Observable<any> { const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type':  'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }),
+        };
+        return this.http.post(this.configUrl + '/repertoires/count', httpOptions);
 
+    }
+
+getTotalA():Observable<any> { const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type':  'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }),
+        };
+        return this.http.post(this.configUrl + '/repertoires/counta', httpOptions);
+
+    }
+
+getTotalN():Observable<any> { const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type':  'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }),
+        };
+        return this.http.post(this.configUrl + '/repertoires/countn', httpOptions);
+
+    }
     addData(obj: any): Observable<any> {
         const httpOptions = {
             headers: new HttpHeaders({

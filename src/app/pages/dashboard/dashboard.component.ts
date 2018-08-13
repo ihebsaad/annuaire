@@ -18,18 +18,41 @@ export class DashboardComponent implements OnInit {
     source = 'assets/tunisie.jpg';
     radioModel = 'left';
     dataC:any;dataD:any;
+    countD:any;countA:any;countN:any;
     constructor(private data: DataService, private router: Router,private servDirect: DirectoriesService, private servCateg:CategoriesService) {
      this.servCateg.getData().subscribe(resp => {console.log(resp);
           console.log(resp['categories']);
           this.dataC = resp['categories'];
 console.log(this.dataC);
       });
-
+         //calcul tot repertoires
+this.servDirect.getTotalD().subscribe(resp => {console.log(resp);
+          
+         this.countD = resp['count'];
+//console.log(this.countD);
+      });  
+         //calcul tot repertoires
+this.servDirect.getTotalA().subscribe(resp => {console.log(resp);
+          
+         this.countA = resp['count'];
+//console.log(this.countD);
+      }); 
+               //calcul tot repertoires
+this.servDirect.getTotalN().subscribe(resp => {console.log(resp);
+          
+         this.countN = resp['count'];
+//console.log(this.countD);
+      });   
     }
 
     ngOnInit() {
         this.data.location.subscribe(loc => this.searchedLocation = loc);
-    }
+}
+   
+
+
+
+    
 
     updateLocation(event: Location) {
         this.searchedLocation = new Location(event.latitude, event.longitude);
