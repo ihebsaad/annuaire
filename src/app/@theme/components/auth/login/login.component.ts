@@ -7,7 +7,7 @@ import { Component, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import {NB_AUTH_OPTIONS, NbAuthResult, NbAuthService, NbAuthSocialLink} from '@nebular/auth';
 import {getDeepFromObject} from '@nebular/auth/helpers';
-
+import {AppService} from '../../../../app.service';
 
 
 
@@ -122,7 +122,8 @@ export class NgxLoginComponent {
 
   constructor(protected service: NbAuthService,
               @Inject(NB_AUTH_OPTIONS) protected options = {},
-              protected router: Router) {
+              protected router: Router,
+              private serv: AppService,) {
 
     this.redirectDelay = this.getConfigValue('forms.login.redirectDelay');
     this.showMessages = this.getConfigValue('forms.login.showMessages');
@@ -146,13 +147,22 @@ export class NgxLoginComponent {
         this.errors = result.getErrors();
       }
 
-      const redirect = result.getRedirect();
+      let redirect = result.getRedirect();
       if (redirect) {
+            let  statusb:any;
+   // this.analytics.trackPageViews();
+    this.serv.checkAccess().subscribe(resp => {console.log( resp);
+      console.log("status = "+resp.result);
+      status=resp.result;
+      if (status=="admin"){redirect="/dashboard";}
+     
         setTimeout(() => {
           return this.router.navigateByUrl(redirect);
         }, this.redirectDelay);
-      }
+     });
+     } 
     });
+  
   }
 
   getConfigValue(key: string): any {

@@ -352,4 +352,14 @@ router.post('/countn',(request,response)=>{
             });
 })
 });
+//get total directories per categories
+router.get('/countpercat/:cat',(request,response)=>{
+    console.log('entred to count per cat ' +request.params.cat);
+    Repertoire.count({categorie: request.params.cat}, function(err, c) {
+           console.log('Count per cat is ' + c);
+       response.json({
+                count:c
+            });
+});
+});
 module.exports = router;

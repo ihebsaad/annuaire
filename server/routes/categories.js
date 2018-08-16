@@ -35,6 +35,7 @@ router.get('/', function (req, res) {
 });
 
 
+
 // JSON Format
 router.get('/list', function (req, res) {
     Categorie.find({}, function (err, categories)
@@ -57,9 +58,53 @@ router.get('/list', function (req, res) {
     });
 
 });
+var catProjection = { 
+        __v: false,
+        _id: false,
+        type:false
+    };
+
+// JSON Format
 
 
 
+router.get('/listcatnames', function (req, res) {
+   var query = Categorie.find({}).select({ "titre": 1, "_id": 0});
+
+    query.exec(function (err, categories) {
+        if (err) {return next(err);}
+    else{
+            /* res.status(400).json({
+
+                  categories:categories
+
+            }); */
+
+            res.json({
+
+                categories:categories
+
+            });
+        }
+    });
+
+
+   /* Categorie.find({}, "titre": 1,"_id": 0 , function (err, categories)
+    {
+        if (err){console.log(err);}
+        else{
+           
+
+            res.json({
+
+                categories:categories
+
+            });
+        }
+
+    });*/
+
+});
 // JSON Format
 router.post('/list/elt', function (req, res) {
 

@@ -9,7 +9,7 @@ import {
 } from './@theme/components/auth';
 
 const routes: Routes = [
-  { path: 'pages', loadChildren: 'app/pages/pages.module#PagesModule' },
+  { path: '', loadChildren: 'app/pages/pages.module#PagesModule' },
   {
     path: 'auth',
     component: NgxAuthComponent,

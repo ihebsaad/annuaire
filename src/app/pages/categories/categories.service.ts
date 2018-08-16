@@ -12,7 +12,7 @@ export class CategoriesService {
     private configUrl= environment.API_URL;
     private dataSource = new BehaviorSubject(null);
     data = this.dataSource.asObservable();
-
+arrayCatégories:Array<Object> ;
     constructor(private http: HttpClient) { }
 
     updatedData(data: any){
@@ -30,6 +30,18 @@ console.log(' dynamic Url'+this.configUrl + '/categories/list');
         return this.http.get(this.configUrl + '/categories/list', httpOptions);
 
     }
+        getNames(): Observable<any> {
+console.log(' dynamic Url'+this.configUrl + '/categories/list');
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type':  'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }),
+        };
+        return this.http.get(this.configUrl + '/categories/listcatnames', httpOptions);
+
+    }
+    
 
     getDataById(id: any): Observable<any> {
 

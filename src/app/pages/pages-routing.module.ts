@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AccueilComponent } from './accueil/accueil.component';
 import {BlogComponent} from './blog/blog.component';
 import {ContactComponent} from './contact/contact.component';
 import {DirectoriesComponent} from './directories/directories.component';
@@ -56,8 +57,9 @@ const routes: Routes = [{
 
       {
       path: '',
-      redirectTo: 'dashboard',
-      pathMatch: 'full',
+    //  redirectTo: 'accueil',
+      component: AccueilComponent,
+     // pathMatch: 'full',
     },
   ] /*,
    { path: 'entites', component: EntitesComponent, children: [

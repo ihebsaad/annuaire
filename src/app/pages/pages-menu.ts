@@ -4,59 +4,59 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Accueil',
     icon: 'ion-home',
-    link: '/pages/dashboard',
+    link: '/dashboard',
     home: true,
   }, {
         title: 'Repertoires',
         icon : 'ion-folder',
-        link: '/pages/directories',
+        link: '/directories',
     }, {
         title: 'Catégories',
         icon : 'ion-filing',
-        link: '/pages/categories',
+        link: '/categories',
     }, {
         title: 'Articles',
         icon : 'ion-document',
-        link: '/pages/articles',
+        link: '/articles',
     }, {
         title: 'Annonces',
         icon : 'ion-clipboard',
-        link: '/pages/annonces',
+        link: '/annonces',
     }, {
         title: 'Blog',
         icon: 'ion-document-text',
-        link: '/pages/blog',
+        link: '/blog',
     }, {
         title: 'Utilisateurs',
         icon: 'ion-contacts',
-        link: '/pages/users',
+        link: '/users',
     }
 ];
 export const MENU_ITEMS_SIMPLE: NbMenuItem[] = [
   {
     title: 'Accueil',
     icon: 'ion-home',
-    link: '/pages/dashboard',
+    link: '/dashboard',
     home: true,
   }, {
         title: 'Repertoires',
         icon : 'ion-folder',
-        link: '/pages/directories',
+        link: '/directories',
     },  {
         title: 'Articles',
         icon : 'ion-document',
-        link: '/pages/articles',
+        link: '/articles',
     }, {
         title: 'Annonces',
         icon : 'ion-clipboard',
-        link: '/pages/annonces',
+        link: '/annonces',
     }, {
         title: 'Blog',
         icon: 'ion-document-text',
-        link: '/pages/blog',
+        link: '/blog',
     }, {
         title: 'Contact',
         icon: 'ion-arrow-swap',
-        link: '/pages/contact',
+        link: '/contact',
     }
 ];

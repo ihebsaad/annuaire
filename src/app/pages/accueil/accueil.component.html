@@ -1,15 +1,14 @@
-<!--nb-card style="height: 400px">
+<nb-card style="height: 400px">
   <nb-card-header>VOTRE ANNUAIRE AVANCÉ EN LIGNE</nb-card-header>
   <nb-card-body [style.background-image]="'url(' + source + ')'">
     <form class="form-inline">
       <div class="input-group full-width">
         <ngx-search (positionChanged)="updateLocation($event)" ></ngx-search>
       </div>
-     <button class="btn btn-success btn-semi-round btn-demo" >Search</button> 
+    <!--  <button class="btn btn-success btn-semi-round btn-demo" >Search</button> -->
     </form>
   </nb-card-body>
-</nb-card-->
-
+</nb-card>
 <!--nb-card>
   <nb-card-header></nb-card-header>
 
@@ -39,44 +38,7 @@
   </nb-card-body>
 </nb-card-->
 
-<div class="row">
-<div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="fa fa-folder"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Total</span>
-              <span class="info-box-number">{{countD}}</span>
-            </div>
-          </div>
-
-        </div>
-
-<div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-green"><i class="fa fa-folder"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Total approuvés</span>
-              <span class="info-box-number">{{countA}}</span>
-            </div>
-          </div>
-
-        </div>
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-orange"><i class="fa fa-folder"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Total non approuvés</span>
-              <span class="info-box-number">{{countN}}</span>
-            </div>
-          </div>
-
-        </div>
- </div>
-
-<!--nb-card>
+<nb-card>
   <nb-card-header></nb-card-header>
   
   <nb-card-body>
@@ -121,6 +83,20 @@
 </nb-card>
 
 <nb-card>
+<nb-card-header><h3>Parcourir par catégorie</h3></nb-card-header>
+<nb-card-body>
+<div class="row">
+<div *ngFor="let cat of arraycat1; let i = index " class="col-md-2">
+  <img src="../../../assets/images/{{cat}}.png"/>
+<h5 class="text-center">{{cat}} ( {{arraycat2[i]}} ) </h5></div>
+
+</div>
+</nb-card-body>
+</nb-card>
+
+
+
+<nb-card>
   <div align="center"><nb-card-header><h2 style="align: center">Réjoignez nous facilement en 3 étapes</h2></nb-card-header></div>
   <br><br>
 <nb-card-body>
@@ -136,4 +112,4 @@
     </div>
   </form>
 </nb-card-body>
-</nb-card-->
+</nb-card>
