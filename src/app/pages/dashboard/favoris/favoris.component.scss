@@ -1,0 +1,116 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+
+  nb-card-body {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .picture {
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    border-top-left-radius: nb-theme(card-border-radius);
+    border-top-right-radius: nb-theme(card-border-radius);
+    flex: 1;
+  }
+
+  .details {
+    padding: 1.25rem 1.25rem 0;
+
+    .title {
+      font-family: nb-theme(font-secondary);
+      font-weight: nb-theme(font-weight-bold);
+      color: nb-theme(color-fg-heading);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+
+      @include nb-for-theme(cosmic) {
+        font-weight: nb-theme(font-weight-bolder);
+      }
+    }
+
+    .description {
+      text-align: justify;
+      color: nb-theme(color-fg-text);
+      font-weight: nb-theme(font-weight-light);
+
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-height: calc(1rem * 8 * #{nb-theme(line-height)});
+    }
+  }
+
+  nb-card-footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 0.75rem 0;
+    border: none;
+
+    a {
+      text-decoration: none;
+      color: nb-theme(color-fg);
+
+      &:hover {
+        color: nb-theme(color-fg-heading);
+      }
+
+      i {
+        font-size: 1.75rem;
+      }
+    }
+  }
+}
+
+
+
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+body {
+    margin: 5%; 
+    text-align: center;
+    background: #111;
+    color: #333; 
+}
+h1 {
+    font-size: 2em; 
+    margin-bottom: .5rem;
+}
+
+/* Ratings widget */
+.rate {
+    display: inline-block;
+    border: 0;
+}
+/* Hide radio */
+.rate > input {
+    display: none;
+}
+/* Order correctly by floating highest to the right */
+.rate > label {
+    float: right;
+}
+/* The star of the show */
+.rate > label:before {
+    display: inline-block;
+    font-size: 1.1rem;
+    padding: .3rem .2rem;
+    margin: 0;
+    cursor: pointer;
+    font-family: FontAwesome;
+    content: "\f005 "; /* full star */
+}
+/* Zero stars rating */
+.rate > label:last-child:before {
+    content: "\f006 "; /* empty star outline */
+}
+/* Half star trick */
+.rate .half:before {
+    content: "\f089 "; /* half star no outline */
+    position: absolute;
+    padding-right: 0;
+}
+
+.active{color:#A6E72D!important;}

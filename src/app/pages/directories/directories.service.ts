@@ -95,7 +95,7 @@ getTotalN():Observable<any> { const httpOptions = {
     }
 
 getTotalperCat(cat:any):Observable<any> {
-console.log('entred to fct of servDirect ' +cat);
+
  const httpOptions = {
             headers: new HttpHeaders({
                 'Content-Type':  'application/json',
@@ -103,6 +103,15 @@ console.log('entred to fct of servDirect ' +cat);
             }),
         };
         return this.http.get(this.configUrl + '/repertoires/countpercat/'+cat, httpOptions);
+
+    }
+    getNote():Observable<any> { const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type':  'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }),
+        };
+        return this.http.post(this.configUrl + '/repertoires/note', httpOptions);
 
     }
     addData(obj: any): Observable<any> {

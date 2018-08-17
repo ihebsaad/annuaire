@@ -362,4 +362,23 @@ router.get('/countpercat/:cat',(request,response)=>{
             });
 });
 });
+
+
+
+router.post('/note',(request,response)=>{
+Repertoire.aggregate(
+   [
+     { $project: {
+    //_id:0,
+    noteavg: { $divide: [ "$note", "$nbVote" ] } } }
+   ]
+, function(err, n) {
+           console.log( n);
+       response.json({
+                notes:n
+            });
+
+});
+});
+
 module.exports = router;

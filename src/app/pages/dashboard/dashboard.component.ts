@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
     source = 'assets/tunisie.jpg';
     radioModel = 'left';
     dataC:any;dataD:any;
-    countD:any;countA:any;countN:any;
+    countD:any;countA:any;countN:any;countNote:any;
     constructor(private data: DataService, private router: Router,private servDirect: DirectoriesService, private servCateg:CategoriesService) {
      this.servCateg.getData().subscribe(resp => {console.log(resp);
           console.log(resp['categories']);
@@ -43,6 +43,8 @@ this.servDirect.getTotalN().subscribe(resp => {console.log(resp);
          this.countN = resp['count'];
 //console.log(this.countD);
       });   
+
+  
     }
 
     ngOnInit() {

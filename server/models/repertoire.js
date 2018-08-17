@@ -30,6 +30,16 @@ var repertoireSchema = mongoose.Schema({
         type: String,
         required:true,
         default: 'non approuvé'
+    },
+    note: {
+        type: Number,
+        required:true,
+        default: 0
+    },
+    nbVote: {
+        type: Number,
+        required:true,
+        default: 0
     }
 });
 
