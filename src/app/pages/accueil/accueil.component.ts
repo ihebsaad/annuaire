@@ -17,7 +17,7 @@ import 'rxjs/add/observable/forkJoin';
 })
 export class AccueilComponent implements OnInit {
     selectedCategory: Category;
-    arraycat: any[] = [];     datadirec:any;
+    arraycat: any[] = [];     
       arraycat1: any[] = []; 
         arraycat2: any[] = []; 
     searchedLocation: Location = new Location();
@@ -37,18 +37,34 @@ this.servCateg.getNames().subscribe(resp => {//console.log(resp);
           console.log(resp['categories']);
           this.dataCatnames = resp['categories'];
 var promises = [];
+ /*for (var i = 0; i <= this.dataC.length - 1; i++) {
+   
+   let value=[resp2['categories'][i]][0].titre;
+    
+     var promise= this.servDirect.getTotalperCat(value).subscribe(resp3 => {
+console.log('i='+i);
+     console.log('catégorie ='+value);   
+console.log('count = '+resp3['count']);
+console.log([resp['categories'][i]][0].titre);
+// this.arraycat1[i]=[resp['categories'][i]][0].titre;
+//this.arraycat2[i]=resp['count'];
+// [[resp['categories'][i]][0].titre]=  resp['count'];
+      });
+      promises.push(promise);
+ }*/
  
+// console.log( this.arraycat1);
+  //console.log( this.arraycat2);
+//let value=[resp['categories'][i]][0].titre;
+   
   let observables = new Array();
 
 //let value=resp['categories'][i].titre;
 for(var i = 0; i <= this.dataC.length - 1; i++ ) {
    let value=resp['categories'][i].titre;
    this.arraycat1[i]=value;
-
     observables.push(this.servDirect.getTotalperCat(value));
 }
-this.selectedCategory=   this.arraycat1[0];
-this.getDatapercategory(this.selectedCategory);
 
 Observable.forkJoin(observables).subscribe(
     res => {console.log(res);
@@ -70,7 +86,17 @@ Observable.forkJoin(observables).subscribe(
         this.data.location.subscribe(loc => this.searchedLocation = loc);
 }
    
-
+/*findcat(cat:any):any{
+  console.log('findcat '+cat);
+  this.servDirect.getTotalperCat(cat).subscribe(resp => {
+console.log('after service');
+    console.log(resp['count']);
+          
+         this.countCat = resp['count'];
+//console.log(this.countD);
+return  resp['count'];
+      });  
+}*/
 
     updateLocation(event: Location) {
         this.searchedLocation = new Location(event.latitude, event.longitude);
@@ -97,32 +123,6 @@ this.servDirect.getDataPerCateg(value).subscribe(resp => {console.log(resp);
 console.log(this.dataD);
       });    
 }
-fnlist(){
-
- var x = document.getElementsByClassName("item");
-for(var i=0;i< x.length;i++){
-    x[i].classList.add("list-group-item");
-       x[i].classList.add("row");
-    }
-}
-fngrid(){
-
- var x = document.getElementsByClassName("item");
-for(var i=0;i< x.length;i++){
-   x[i].classList.remove("list-group-item");
-   x[i].classList.add("grid-group-item");
-     x[i].classList.remove("row");
-    }
-}
-  getDatapercategory(category:any) {
-
-      this.servDirect.getDataPerCateg(category).subscribe(resp => {console.log(resp);
-          console.log(resp['repertoires']);
-          this.datadirec = resp['repertoires'];
-
-      });
-
-  }
 }
 export class Category {
   public titre: string;

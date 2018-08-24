@@ -31,11 +31,6 @@ var repertoireSchema = mongoose.Schema({
         required:true,
         default: 'non approuvé'
     },
-    image: {
-        type:String,
-        required:true,
-      //  default: ''
-    },
     note: {
         type: Number,
         required:true,
@@ -47,7 +42,7 @@ var repertoireSchema = mongoose.Schema({
         default: 0
     }
 });
-//.image.data.toString('base64');
+
 
 
 let Repertoire = module.exports = mongoose.model('Repertoire', repertoireSchema);

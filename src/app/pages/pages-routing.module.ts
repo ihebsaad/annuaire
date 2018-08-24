@@ -10,7 +10,6 @@ import {DirectoriesComponent} from './directories/directories.component';
 import {CategoriesComponent} from './categories/categories.component';
 import {ArticlesComponent} from './articles/articles.component';
 import {AnnoncesComponent} from './annonces/annonces.component';
-import {ListingComponent} from './listing/listing.component';
 import {UsersComponent} from './users/users.component';
 import {MapComponent} from './dashboard/search-map/map/map.component';
 
@@ -46,10 +45,6 @@ const routes: Routes = [{
       {
           path: 'annonces',
           component: AnnoncesComponent,
-      },
-      {
-          path: 'listing',
-          component: ListingComponent,
       },
       {
           path: 'articles',

@@ -7,12 +7,12 @@ import {AgmCoreModule} from '@agm/core';
 import {SearchComponent} from './search-map/search/search.component';
 import {MapComponent} from './search-map/map/map.component';
 import { AdComponent } from './ad/ad.component';
-import {Ng2PaginationModule} from 'ng2-pagination';
+
 
 
 @NgModule({
   imports: [
-    ThemeModule,Ng2PaginationModule,  AgmCoreModule.forRoot({
+    ThemeModule,  AgmCoreModule.forRoot({
           apiKey: 'AIzaSyDURztPvnIS1JTvUzDTrEGxyE6lFBXJp9I',
           libraries: ['places'],
       }),
