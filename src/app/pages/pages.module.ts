@@ -42,7 +42,7 @@ const PAGES_COMPONENTS = [
   ],
   declarations: [
     ...PAGES_COMPONENTS,
-    BlogComponent,
+    BlogComponent,FileSelectDirective,
     DirectoriesComponent,
     ContactComponent,
     CategoriesComponent,RateComponent,
