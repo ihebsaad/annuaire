@@ -69,7 +69,7 @@ const routes: Routes = [
     HttpClientModule,
     AppRoutingModule,
     FormsModule,ReactiveFormsModule,
-     // FileUploadModule,
+      FileUploadModule,
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
     CoreModule.forRoot(),
