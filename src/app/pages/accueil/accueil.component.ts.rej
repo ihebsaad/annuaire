@@ -1,0 +1,20 @@
+diff a/src/app/pages/accueil/accueil.component.ts b/src/app/pages/accueil/accueil.component.ts	(rejected hunks)
+@@ -86,7 +86,17 @@
+         this.data.location.subscribe(loc => this.searchedLocation = loc);
+ }
+    
+-
++/*findcat(cat:any):any{
++  console.log('findcat '+cat);
++  this.servDirect.getTotalperCat(cat).subscribe(resp => {
++console.log('after service');
++    console.log(resp['count']);
++          
++         this.countCat = resp['count'];
++//console.log(this.countD);
++return  resp['count'];
++      });  
++}*/
+ 
+     updateLocation(event: Location) {
+         this.searchedLocation = new Location(event.latitude, event.longitude);
