@@ -38,7 +38,7 @@ const PAGES_COMPONENTS = [
     MiscellaneousModule,
     Ng2SmartTableModule,
       FormsModule,HttpModule,
-      Ng2PaginationModule,FileUploadModule
+      Ng2PaginationModule/*,FileUploadModule*/
   ],
   declarations: [
     ...PAGES_COMPONENTS,
