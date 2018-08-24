@@ -182,9 +182,9 @@
                    <div class="form-group row">
                       <label for="input7" class="col-sm-3 col-form-label">Photos</label>
                    <div class="col-sm-9">
-<input type="file" ng2FileSelect [uploader]="uploader" id="input7" name="photo" ctrl7="ngModel"/>
+<input type="file" ng2FileSelect [uploader]="uploader"  name="photofile" />
  
-<input type="hidden"  id="input8" name="image" [(ngModel)]="pathimage"  #ctrl8="ngModel"/>
+<input type="hidden"   name="image" [(ngModel)]="pathimage" id="input7"  #ctrl7="ngModel"/>
 <!-- button to trigger the file upload when submitted -->
 <button type="button" class="btn btn-success btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
     Télécharger

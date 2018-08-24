@@ -28,7 +28,7 @@ export class DirectoriesComponent implements OnInit, AfterContentInit {
     page : any;
     username:any;
 pathimage:any; fname:any;
-public uploader:FileUploader = new FileUploader({url: URL+'/'+this.fname, itemAlias: 'photo'});
+public uploader:FileUploader = new FileUploader({url: URL/*+'/'+this.fname, itemAlias: 'photo'*/});
   constructor(private serv: DirectoriesService, private modalService: NgbModal,
 private servApp: AppService,private http: Http, private el: ElementRef
     ) {
@@ -45,7 +45,8 @@ this.servApp.getusername().subscribe(resp => {
        //able to deal with the server response.
        this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
             console.log("ImageUpload:uploaded:", item, status, response);
-             
+                        
+
         };
 
   }
@@ -61,10 +62,10 @@ ngOnInit() {
             console.log("ImageUpload:uploaded:", item, status, response);
             console.log('response'+response);
              console.log('here');
-              console.log(item.file.name);
+            console.log(item);
               //item.filename=item.file.name;
                           var pos=response.length;
-     this.pathimage = response.substring(18,pos-1);
+     this.pathimage = item.file.name;
            console.log('pathimage= '+this.pathimage);
           
         };
@@ -89,7 +90,7 @@ ngOnInit() {
 
             this.http
         //post the form data to the url defined above and map the response. Then subscribe //to initiate the post. if you don't subscribe, angular wont post.
-                .post(URL+'/'+this.fname, formData).map((res:Response) => res.json()).subscribe(
+                .post(URL/*+'/'+this.fname*/, formData).map((res:Response) => res.json()).subscribe(
                 //map the success function and alert the response
                  (success) => {
                   // console.log('here');

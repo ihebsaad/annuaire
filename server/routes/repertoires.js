@@ -126,6 +126,9 @@ router.post('/add',(request,response)=>{
         repertoire.categorie = request.body.categorie ;
         repertoire.ville = request.body.ville ;
         repertoire.adresse = request.body.adresse ;
+          repertoire.auteur = request.body.auteur;
+  repertoire.image = request.body.image;
+
         repertoire.auteur = request.body.auteur;
 
 
@@ -148,7 +151,7 @@ router.post('/add',(request,response)=>{
 
 })
 //upload image
-console.log('entred to uplod express');
+/*console.log('entred to uplod express');
 var fname="";
 var path = '';
 //var upload = multer({dest: DIR}).single(req.file.filename);
@@ -160,13 +163,14 @@ var storage = multer.diskStorage({
     cb(null, file.fieldname)
      fname=file.fieldname;
   }
-})
-var upload = multer({storage: storage}).single('photo');
-router.post('/upload/:name', function (req, res, next) {
-    console.log( req.params.name);
+})*/
+/*var upload = multer({storage: storage}).single('photo');
+router.post('/upload', function (req, res, next) {
+ //   console.log( req.params.name);
+ //   console.log(req);
 //var upload = multer({ storage: storage })
-  /*   upload(req, res, function (err) {
-console.log( request.params.name);
+    upload(req, res, function (err) {
+//console.log( request.params.name);
         if (err) {
             console.log('here');
           // An error occurred when uploading
@@ -182,9 +186,38 @@ console.log( request.params.name);
                 });
 
         //return res.send("Upload Completed for "+path); 
-  });    */ 
-});
+  });    
+  });
+*/
+//test
+var path = require('path')
 
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './uploads/')
+  },
+  filename: function (req, file, cb) {
+   // crypto.pseudoRandomBytes(16, function (err, raw) {
+     // cb(null, raw.toString('hex') + Date.now() + '.' + mime.extension(file.mimetype));
+    cb(null, path.parse(file.originalname).name + path.extname(file.originalname)) //Appending extension
+   console.log(file.originalname);
+
+ }
+  
+});
+var upload = multer({ storage: storage }).any();
+router.post('/upload', function (req, res, next) {
+    upload(req, res, function (err) {
+        if (err) {
+            console.log('here');
+          // An error occurred when uploading
+          console.log(err);
+          return res.status(422).send("an Error occured while uploading")
+        }  
+       // No error occured.
+       console.log('no error');
+       return res.send("Upload Completed  ");   });    
+  });
 
 
 //get repertoire
