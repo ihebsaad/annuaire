@@ -7,7 +7,7 @@ var multer = require('multer');
 // set the directory for the uploads to the uploaded to
 var DIR = './uploads/';
 //define the type of upload multer would be doing and pass in its destination, in our case, its a single file with the name photo
-var upload = multer({dest: DIR}).single('photo');
+
 
 var cors = require('cors');
 
@@ -147,12 +147,26 @@ router.post('/add',(request,response)=>{
     }
 
 })
-
-router.post('/upload', function (req, res, next) {
 //upload image
 console.log('entred to uplod express');
+var fname="";
 var path = '';
-     upload(req, res, function (err) {
+//var upload = multer({dest: DIR}).single(req.file.filename);
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './uploads/')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname)
+     fname=file.fieldname;
+  }
+})
+var upload = multer({storage: storage}).single('photo');
+router.post('/upload/:name', function (req, res, next) {
+    console.log( req.params.name);
+//var upload = multer({ storage: storage })
+  /*   upload(req, res, function (err) {
+console.log( request.params.name);
         if (err) {
             console.log('here');
           // An error occurred when uploading
@@ -161,8 +175,14 @@ var path = '';
         }  
        // No error occured.
         path = req.file.path;
-        return res.send("Upload Completed for "+path); 
-  });     
+
+        res.json({
+
+                    path :path
+                });
+
+        //return res.send("Upload Completed for "+path); 
+  });    */ 
 });
 
 

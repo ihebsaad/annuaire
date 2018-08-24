@@ -8,7 +8,7 @@ import {SearchComponent} from './search-map/search/search.component';
 import {MapComponent} from './search-map/map/map.component';
 import { AdComponent } from './ad/ad.component';
 import { FavorisComponent } from './favoris/favoris.component';
-import { RateComponent } from './rate/rate.component';
+//import { RateComponent } from './rate/rate.component';
 
 
 @NgModule({
@@ -19,7 +19,8 @@ import { RateComponent } from './rate/rate.component';
       }),
   ],
   declarations: [
-    DashboardComponent, SearchComponent, MapComponent, AdComponent,FavorisComponent,RateComponent
+    DashboardComponent, SearchComponent, MapComponent, AdComponent,FavorisComponent
+    //,RateComponent
   ],
 })
 export class DashboardModule { }

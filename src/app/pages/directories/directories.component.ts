@@ -10,7 +10,7 @@ import {AppService} from '../../app.service';
 //import the file uploader plugin
 import {  FileUploader } from 'ng2-file-upload/ng2-file-upload';
 //define the constant url we would be uploading to.
-const URL = 'http://localhost:3000/repertoires/upload';
+let URL = 'http://localhost:3000/repertoires/upload';
 
 @Component({
   selector: 'ngx-directories',
@@ -27,8 +27,8 @@ export class DirectoriesComponent implements OnInit, AfterContentInit {
     test1: boolean = false;
     page : any;
     username:any;
-
-public uploader:FileUploader = new FileUploader({url: URL, itemAlias: 'photo'});
+pathimage:any; fname:any;
+public uploader:FileUploader = new FileUploader({url: URL+'/'+this.fname, itemAlias: 'photo'});
   constructor(private serv: DirectoriesService, private modalService: NgbModal,
 private servApp: AppService,private http: Http, private el: ElementRef
     ) {
@@ -45,6 +45,7 @@ this.servApp.getusername().subscribe(resp => {
        //able to deal with the server response.
        this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
             console.log("ImageUpload:uploaded:", item, status, response);
+             
         };
 
   }
@@ -58,6 +59,14 @@ ngOnInit() {
     //able to deal with the server response.
       this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
             console.log("ImageUpload:uploaded:", item, status, response);
+            console.log('response'+response);
+             console.log('here');
+              console.log(item.file.name);
+              //item.filename=item.file.name;
+                          var pos=response.length;
+     this.pathimage = response.substring(18,pos-1);
+           console.log('pathimage= '+this.pathimage);
+          
         };
     }
     //declare a constroctur, so we can pass in some properties to the class, which can be    //accessed using the this variable
@@ -76,12 +85,20 @@ ngOnInit() {
             //append the key name 'photo' with the first file in the element
                 formData.append('photo', inputEl.files.item(0));
             //call the angular http method
+           this.fname= inputEl.files.item(0).name;
+
             this.http
         //post the form data to the url defined above and map the response. Then subscribe //to initiate the post. if you don't subscribe, angular wont post.
-                .post(URL, formData).map((res:Response) => res.json()).subscribe(
+                .post(URL+'/'+this.fname, formData).map((res:Response) => res.json()).subscribe(
                 //map the success function and alert the response
                  (success) => {
-                         alert(success._body);
+                  // console.log('here');
+                  // console.log(success.path);
+                 //   console.log('here2');
+                   //console.log(success._body);
+                    // console.log(success._body["path"]);
+                   
+                         //alert(success._body);
                 },
                 (error) => alert(error))
           }

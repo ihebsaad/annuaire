@@ -140,8 +140,8 @@
                    <label for="input2" class="col-sm-3 col-form-label">Catégorie</label>
                    <div class="col-sm-9">
                      <select id="input2" class="form-control" name="categorie" [(ngModel)]="model.categorie" #ctrl2="ngModel" [class.form-control-danger]="ctrl2.invalid && ctrl2.touched" required>
-                       <option>Automobile</option>
-                       <option>Caffe & Resto</option>
+                       <option>Restaurants</option>
+                       <option>beauté</option>
                        <option>Hebergement</option>
                        <option>Voyage</option>
                      </select>
@@ -182,7 +182,9 @@
                    <div class="form-group row">
                       <label for="input7" class="col-sm-3 col-form-label">Photos</label>
                    <div class="col-sm-9">
-<input type="file" name="photo" ng2FileSelect [uploader]="uploader" multiple />
+<input type="file" ng2FileSelect [uploader]="uploader" id="input7" name="photo" ctrl7="ngModel"/>
+ 
+<input type="hidden"  id="input8" name="image" [(ngModel)]="pathimage"  #ctrl8="ngModel"/>
 <!-- button to trigger the file upload when submitted -->
 <button type="button" class="btn btn-success btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
     Télécharger

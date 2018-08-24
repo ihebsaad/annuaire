@@ -1,0 +1,72 @@
+<div class="container">
+<div class="row">
+<h2>Liste  {{selectedCategory}}</h2>
+</div>  
+<div class="row">
+<div class="col-md-4">
+  <table>
+    <th>Catégories</th>
+    <tr *ngFor="let cat of arraycat1 ; let i = index ">
+      <td><h5><a href="javascript:void(0)" (click)="getDatapercategory(cat);">{{cat}} </a></h5></td>
+      <td><span class="badge bg-green"> {{arraycat2[i]}}</span></td>
+    </tr>
+  </table>
+
+</div>
+<div class="col-md-8">
+
+<!-- start -->
+<section *ngFor="let elt of data | paginate: {itemsPerPage: 4, currentPage:page, id: '1'} "  id="{{elt._id}}" class="summary-box ">
+    <div class="summary-content">
+        <div class="media">
+            <div class="media-body">
+                <h3>
+                    <a href="">{{elt.titre}}</a>
+                </h3>
+                <!--p class="categories-list">in <a href="">Veterinary Services</a>
+                </p-->
+                <p class="summary-desc"></p>
+                <p>{{elt.adresse}}<br><br> {{elt.ville}} </p>
+        </div>
+        <div class="media-right text-center">
+                <div class="summary-info">
+                    <span class="stars-rating"><span class="rate-0"></span></span>
+                    <ngx-rate></ngx-rate>
+                </div>
+                    <h6>Noter</h6>
+                    <p class="contact-info">
+                    <mark><h5>{{elt.tel}}</h5></mark>
+                    </p>
+                <div class="social-share">
+                    <div class="social-button">
+                        <a target="_blank" class="popup btn-info" href="">
+                            <span class="fa fa-facebook"></span>
+                        </a>
+                    </div>
+                    <div class="social-button">
+                        <a target="_blank" class="popup btn-info" href="">
+                            <span class="fa fa-twitter"></span>
+                        </a>
+                    </div>
+                    <div class="social-button">
+                        <a target="_blank" class="popup btn-info" href="">
+                            <span class="fa fa-google"></span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+    <div>
+                   <pagination-controls (pageChange)="page = $event" id="1"
+                                        maxSize="10"
+                                        directionLinks="true"
+                                        autoHide="true">
+                   </pagination-controls>
+                 </div>
+<!-- end -->
+</div>
+</div>
+</div>  
