@@ -38,11 +38,11 @@ const PAGES_COMPONENTS = [
     MiscellaneousModule,
     Ng2SmartTableModule,
       FormsModule,HttpModule,
-      Ng2PaginationModule,FileSelectDirective
+      Ng2PaginationModule
   ],
   declarations: [
     ...PAGES_COMPONENTS,
-    BlogComponent,FileSelectDirective,
+    BlogComponent,
     DirectoriesComponent,
     ContactComponent,
     CategoriesComponent,RateComponent,
