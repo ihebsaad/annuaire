@@ -7,7 +7,7 @@ var multer = require('multer');
 // set the directory for the uploads to the uploaded to
 var DIR = './uploads/';
 //define the type of upload multer would be doing and pass in its destination, in our case, its a single file with the name photo
-var upload = multer({dest: DIR}).single('photo');
+
 
 var cors = require('cors');
 
@@ -126,11 +126,8 @@ router.post('/add',(request,response)=>{
         repertoire.categorie = request.body.categorie ;
         repertoire.ville = request.body.ville ;
         repertoire.adresse = request.body.adresse ;
-          repertoire.auteur = request.body.auteur;
-  repertoire.image = request.body.image;
-
         repertoire.auteur = request.body.auteur;
-
+ repertoire.image = request.body.image;
 
 
 
@@ -150,10 +147,7 @@ router.post('/add',(request,response)=>{
     }
 
 })
-
-router.post('/upload', function (req, res, next) {
 //upload image
-<<<<<<< HEAD
 /*console.log('entred to uplod express');
 var fname="";
 var path = '';
@@ -174,11 +168,6 @@ router.post('/upload', function (req, res, next) {
 //var upload = multer({ storage: storage })
     upload(req, res, function (err) {
 //console.log( request.params.name);
-=======
-console.log('entred to uplod express');
-var path = '';
-     upload(req, res, function (err) {
->>>>>>> parent of b3a4f9b... Listing page
         if (err) {
             console.log('here');
           // An error occurred when uploading
@@ -187,7 +176,6 @@ var path = '';
         }  
        // No error occured.
         path = req.file.path;
-<<<<<<< HEAD
 
         res.json({
 
@@ -210,11 +198,6 @@ var storage = multer.diskStorage({
      // cb(null, raw.toString('hex') + Date.now() + '.' + mime.extension(file.mimetype));
     cb(null, path.parse(file.originalname).name + path.extname(file.originalname)) //Appending extension
    console.log(file.originalname);
-=======
-        return res.send("Upload Completed for "+path); 
-  });     
-});
->>>>>>> parent of b3a4f9b... Listing page
 
  }
   
