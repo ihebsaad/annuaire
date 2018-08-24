@@ -31,6 +31,10 @@ var repertoireSchema = mongoose.Schema({
         required:true,
         default: 'non approuvé'
     },
+    image: {
+        type: String,
+        required:true
+    },
     note: {
         type: Number,
         required:true,
