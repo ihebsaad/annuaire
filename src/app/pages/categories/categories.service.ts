@@ -12,7 +12,7 @@ export class CategoriesService {
     private configUrl= environment.API_URL;
     private dataSource = new BehaviorSubject(null);
     data = this.dataSource.asObservable();
-arrayCatégories:Array<Object> ;
+
     constructor(private http: HttpClient) { }
 
     updatedData(data: any){

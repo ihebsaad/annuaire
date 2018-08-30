@@ -27,32 +27,8 @@ model: any = {};
     CatList: any;
     //data2:any;
     parent:any;
-    data2=[
-        {
-            "Id": 3,
-            "Name": "Attorney Case"
-        },
-        {
-            "Id": 1035,
-            "Name": "bikesh appeal"
-        },
-        {
-            "Id": 22,
-            "Name": "BikeshAppeal"
-        },
-        {
-            "Id": 20,
-            "Name": "Case Info"
-        },
-        {
-            "Id": 15,
-            "Name": "Case Infoe"
-        },
-        {
-            "Id": 11,
-            "Name": "Case Prep"
-        }
-    ]
+
+
   constructor(private serv : CategoriesService, private modalService: NgbModal) {this.getCatList();
   }
 
@@ -64,10 +40,12 @@ model: any = {};
         });
 
         this.CatList= this.data;
+        console.log('CatList : '+ this.data);
+
     }
     selectCats()
     {
-      //  alert(this.model.parent);
+        alert(this.model.parent);
     }
 
   ngOnInit() {

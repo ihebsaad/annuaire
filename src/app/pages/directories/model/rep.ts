@@ -7,5 +7,7 @@ export class Rep {
         public ville: string,
         public tel: string,
         public auteur: string,
+        public longitude: string,
+        public latitude: string,
     ) {  }
 }

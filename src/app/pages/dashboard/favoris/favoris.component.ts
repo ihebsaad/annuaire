@@ -9,7 +9,7 @@ import {Rep} from '../../directories/model/rep';
 })
 export class FavorisComponent implements OnDestroy {
 id:any; note:any;
- model1 = new Rep('','','','','','');
+ model1 = new Rep('','','','','','','','');
     data: any;
     data1="";
     currentTheme: string;

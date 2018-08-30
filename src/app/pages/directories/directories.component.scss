@@ -50,36 +50,42 @@ nb-card {
 }
 
 .btn3 {
-  background-color: red; /* Blue background */
+  background-color: #F33F3F; /* Blue background */
   border: none; /* Remove borders */
   color: white; /* White text */
   padding: 12px 16px; /* Some padding */
   font-size: 16px; /* Set a font size */
   cursor: pointer;
-  margin-left: 10px;/* Mouse pointer on hover */
+  margin-left: 10px;
+  margin-bottom: 10px;
+
 }
 
 
 .btn1 {
-  background-color: gold; /* Blue background */
+  background-color: #ffa100; /* Blue background */
   border: none; /* Remove borders */
   color: white; /* White text */
   padding: 12px 16px; /* Some padding */
   font-size: 16px; /* Set a font size */
   cursor: pointer;
-  /* Mouse pointer on hover */
+  margin-bottom: 10px;
+  margin-left: 10px;
+
 }
 
 
 
 .btn2 {
-  background-color: green; /* Blue background */
+  background-color: #40dc7e; /* Blue background */
   border: none; /* Remove borders */
   color: white; /* White text */
   padding: 12px 16px; /* Some padding */
   font-size: 16px; /* Set a font size */
   cursor: pointer;
-  /* Mouse pointer on hover */
+  margin-bottom: 10px;
+  margin-left: 10px;
+
 }
 
 
@@ -90,8 +96,9 @@ nb-card {
   padding: 12px 16px; /* Some padding */
   font-size: 16px; /* Set a font size */
   cursor: pointer;
-  margin-left: 10px;/* Mouse pointer on hover */
+  margin-left: 10px;
 }
+
 
 .approved {
     background-color: green;

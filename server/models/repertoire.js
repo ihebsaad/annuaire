@@ -33,7 +33,7 @@ var repertoireSchema = mongoose.Schema({
     },
     image: {
         type: String,
-        required:true
+        required:false
     },
     note: {
         type: Number,
@@ -44,7 +44,18 @@ var repertoireSchema = mongoose.Schema({
         type: Number,
         required:true,
         default: 0
-    }
+    },
+    longitude:
+    {
+        type:String ,
+        default: 0
+    },
+    latitude:
+        {
+            type:String ,
+            default: 0
+        }
+
 });
 
 

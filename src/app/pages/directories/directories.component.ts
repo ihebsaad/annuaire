@@ -17,9 +17,10 @@ let URL = 'http://localhost:3000/repertoires/upload';
   templateUrl: './directories.component.html',
   styleUrls: ['./directories.component.scss'],
 })
+
 export class DirectoriesComponent implements OnInit, AfterContentInit {
     model: any = {};
-    model1 = new Rep('','','','','','');
+    model1 = new Rep('','','','','','','','');
     data: any;
     data1: any;
     id: any;
@@ -51,7 +52,6 @@ this.servApp.getusername().subscribe(resp => {
 
   }
 
-
 ngOnInit() {
    this.getData();
     //override the onAfterAddingfile property of the uploader so it doesn't authenticate with //credentials.
@@ -71,7 +71,7 @@ ngOnInit() {
         };
     }
     //declare a constroctur, so we can pass in some properties to the class, which can be    //accessed using the this variable
-  
+  /*
     //the function which handles the file upload without using a plugin.
     upload() {
       console.log("here from directories.component.ts");
@@ -90,7 +90,7 @@ ngOnInit() {
 
             this.http
         //post the form data to the url defined above and map the response. Then subscribe //to initiate the post. if you don't subscribe, angular wont post.
-                .post(URL/*+'/'+this.fname*/, formData).map((res:Response) => res.json()).subscribe(
+                .post(URL/*+'/'+this.fname*//*,/* formData).map((res:Response) => res.json()).subscribe(
                 //map the success function and alert the response
                  (success) => {
                   // console.log('here');
@@ -103,7 +103,7 @@ ngOnInit() {
                 },
                 (error) => alert(error))
           }
-       }
+       }*/
     ngAfterContentInit() {
       this.afficher();
     }
@@ -141,7 +141,7 @@ approveDirectory(f: NgForm){
       this.serv.getDataById(id).subscribe(resp => {console.log(resp);
           console.log(resp['repertoires']);
           this.data1 = resp['repertoires'];
-          this.model1 = new Rep(this.data1.titre,this.data1.categorie,this.data1.adresse,this.data1.ville,this.data1.tel,this.data1.auteur);
+          this.model1 = new Rep(this.data1.titre,this.data1.categorie,this.data1.adresse,this.data1.ville,this.data1.tel,this.data1.auteur,this.data1.longitude,this.data1.latitude);
 
       });
 
@@ -197,24 +197,24 @@ approveDirectory(f: NgForm){
 
     AfficherFormulaire() {
 
-        this.test = true;
+        if (this.test==false) {this.test=true;}else{this.test=false;}
 
     }
 
     cacherFormulaire() {
 
-        this.test = false;
+        if (this.test==false) {this.test=true;}else{this.test=false;}
     }
 
     AfficherFormulaire1() {
 
-        this.test1 = true;
+        if (this.test1==false) {this.test1=true;}else{this.test1=false;}
 
     }
 
     cacherFormulaire1() {
 
-        this.test1 = false;
+        if (this.test1==false) {this.test1=true;}else{this.test1=false;}
     }
 
     afficher() {

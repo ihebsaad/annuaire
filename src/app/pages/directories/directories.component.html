@@ -16,9 +16,10 @@
            <nb-card-body>
 
              <nb-card>
-               <nb-card-header>
-                 <button style="float:right;" class="btn2" (click)="AfficherFormulaire1()"><i class="fa fa-plus" ></i></button>
-               </nb-card-header>
+                 <nb-card-header>
+                     <h1>Liste des répertoires<button style="float:right" class="btn2" (click)="AfficherFormulaire1()"><i class="fa fa-plus" ></i></button></h1>
+                 </nb-card-header>
+
 
                <nb-card-body>
 
@@ -70,7 +71,9 @@
 
 
          <div *ngIf="test">
-          <form #f1="ngForm" (ngSubmit)="updateData(f1)" novalidate>
+             <h3>Modifier un repertoire</h3>
+
+             <form #f1="ngForm" (ngSubmit)="updateData(f1)" novalidate>
             <div class="form-group row">
               <label for="input8" class="col-sm-3 col-form-label">Titre</label>
               <div class="col-sm-9">
@@ -114,6 +117,16 @@
                 <input type="tel" class="form-control" id="input13" pattern="^[0-9-+s()]*$" placeholder="" name="tel" [(ngModel)]="model1.tel">
               </div>
             </div>
+                 <div class="form-group row">
+
+                 <label   class="col-sm-3 col-form-label">Localisation</label>
+                 <div class="col-sm-9 col-md-9">
+                     <div class="row">
+                     <div class="col-md-6 col-sm-6"><input name="longitude" class="form-control"  style="width:100%" [(ngModel)]="model1.longitude"  placeholder="longitude" /></div><div class="col-md-6 col-sm-6"><input style="width:100%"  class="form-control"  name="latitude"  [(ngModel)]="model1.latitude"  placeholder="latitude" /></div>
+
+                     </div>
+                 </div>
+                 </div>
             <div class="form-group row">
               <div class="offset-sm-3 col-sm-9">
                 <button type="submit" class="btn btn-warning">Modifier</button>
@@ -123,6 +136,7 @@
           </form>
          </div>
              <div *ngIf="test1">
+                 <h3>Ajouter un repertoire</h3>
 
                <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
                  <div class="form-group row">
@@ -170,15 +184,21 @@
                  </div>
                  <input type="hidden" class="form-control" id="input5" placeholder="" name="auteur" [(ngModel)]="username"  #ctrl5="ngModel" [class.form-control-danger]="ctrl5.invalid && ctrl5.touched" required>
 
-                 <div class="form-group row">
-                   <label for="input6" class="col-sm-3 col-form-label">Télephone</label>
-                   <div class="col-sm-9">
-                     <input type="tel" class="form-control" id="input6" pattern="^[0-9-+s()]*$" placeholder="" name="tel" [(ngModel)]="model.tel"  #ctrl6="ngModel" [class.form-control-danger]="ctrl6.invalid && ctrl6.touched" required>
-                     <small class="form-text error" *ngIf="ctrl6.invalid && ctrl6.touched && ctrl6.errors['required']">
-                       required!
-                     </small>
+                   <div class="form-group row">
+                       <label for="input13" class="col-sm-3 col-form-label">Télephone</label>
+                       <div class="col-sm-9">
+                           <input type="tel" class="form-control" id="input6" pattern="^[0-9-+s()]*$" placeholder="" name="tel" [(ngModel)]="model1.tel">
+                       </div>
                    </div>
+                   <div class="form-group row">
+                  <label   class="col-sm-3 col-form-label">Localisation</label>
+                       <div class="col-sm-9">
+                       <div class="row">
+                     <div class="col-md-6 col-sm-6"><input name="longitude" class="form-control"  style="width:100%" [(ngModel)]="model.longitude"  placeholder="longitude" /></div><div class="col-md-6 col-sm-+"><input style="width:100%"  class="form-control"  name="latitude"  [(ngModel)]="model.latitude"  placeholder="latitude" /></div>
+
                  </div>
+                       </div>
+                   </div>
                    <div class="form-group row">
                       <label for="input7" class="col-sm-3 col-form-label">Photos</label>
                    <div class="col-sm-9">

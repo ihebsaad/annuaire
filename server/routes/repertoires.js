@@ -127,6 +127,8 @@ router.post('/add',(request,response)=>{
         repertoire.ville = request.body.ville ;
         repertoire.adresse = request.body.adresse ;
         repertoire.auteur = request.body.auteur;
+        repertoire.longitude = request.body.longitude;
+        repertoire.latitude = request.body.latitude;
  repertoire.image = request.body.image;
 
 
@@ -268,6 +270,11 @@ router.post('/edit/:id',(request,response)=>{
             if(request.body.auteur != null)
                 repertoire.auteur = request.body.auteur;
 
+            if(request.body.longitude != null)
+                repertoire.longitude = request.body.longitude;
+            if(request.body.latitude != null)
+                repertoire.latitude = request.body.latitude;
+
             Repertoire.update({_id:request.params.id},repertoire,(error)=>{
                 response.json({
 
@@ -293,8 +300,9 @@ router.post('/approve/:id',(request,response)=>{
 
             // let repertoire = new Repertoire();
             //let repertoire= {};
-           
-                repertoire.status = 'approuvé';
+           if(repertoire.status == 'approuvé')
+           { repertoire.status = 'non approuvé';}
+           else{ repertoire.status = 'approuvé';}
 
             Repertoire.update({_id:request.params.id},repertoire,(error)=>{
                 response.json({
