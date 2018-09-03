@@ -85,11 +85,14 @@
               <div class="col-sm-9">
                 <select id="input9" class="form-control" name="categorie" [(ngModel)]="model1.categorie">
                   <option ></option>
-                  <option>Automobile</option>
-                  <option>Caffe & Resto</option>
-                  <option>Hebergement</option>
-                  <option>Voyage</option>
-                </select>
+                  <option>Cafés</option>
+                  <option>Restaurants</option>
+                    <option>Hotels</option>
+                    <option>Logement</option>
+                    <option>Santé</option>
+                    <option>Beauté</option>
+                    <option>Services Financiers</option>
+                 </select>
               </div>
             </div>
             <div class="form-group row">
@@ -154,10 +157,14 @@
                    <label for="input2" class="col-sm-3 col-form-label">Catégorie</label>
                    <div class="col-sm-9">
                      <select id="input2" class="form-control" name="categorie" [(ngModel)]="model.categorie" #ctrl2="ngModel" [class.form-control-danger]="ctrl2.invalid && ctrl2.touched" required>
-                       <option>Restaurants</option>
-                       <option>beauté</option>
-                       <option>Hebergement</option>
-                       <option>Voyage</option>
+                         <option ></option>
+                         <option>Cafés</option>
+                         <option>Restaurants</option>
+                         <option>Hotels</option>
+                         <option>Logement</option>
+                         <option>Santé</option>
+                         <option>Beauté</option>
+                         <option>Services Financiers</option>
                      </select>
                      <small class="form-text error" *ngIf="ctrl2.invalid && ctrl2.touched && ctrl2.errors['required']">
                        required!
