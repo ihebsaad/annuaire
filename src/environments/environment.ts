@@ -7,16 +7,17 @@
 // The build system defaults to the dev environment which uses `environment.ts`, but if you do
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
-export const environment = 
-{
-    production: false,
+URL="";
+if (window.location.hostname == 'localhost'){
+    URL= 'http://'+window.location.hostname+':3000';
+}else {
+    URL= 'http://'+window.location.hostname;
+}
+export const environment =
+    {
+        production: false,
 //	'http://'+window.location.hostname+':4200',
 
-   // API_URL: 'http://localhost:3000',
-    Upload_Url:'http://localhost:3000/repertoires/upload'
+     API_URL: URL,
+    Upload_Url: URL+'/repertoires/upload'
 };
-if (window.location.hostname == 'localhost'){
-    API_URL: 'http://'+window.location.hostname+':3000';
-}else {
-    API_URL: 'http://'+window.location.hostname;
-}
