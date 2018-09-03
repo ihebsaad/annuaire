@@ -11,8 +11,12 @@ import { environment } from '../../../environments/environment';
 //import the file uploader plugin
 import {  FileUploader } from 'ng2-file-upload/ng2-file-upload';
 //define the constant url we would be uploading to.
+if (window.location.hostname == 'localhost')
+{
+    const up_URL="http://localhost:3000/repertoires/upload";
+}
+else{const up_URL= environment.Upload_Url;}
 
-const up_URL= environment.Upload_Url;
 @Component({
   selector: 'ngx-directories',
   templateUrl: './directories.component.html',
