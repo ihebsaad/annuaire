@@ -13,11 +13,18 @@
 }else {
     URL= 'http://'+window.location.hostname;
 }*/
+
+var URL='';
+if (window.location.hostname == 'localhost')
+{
+     URL="http://localhost:3000";
+}
+else{ URL= 'http://test7.enterpriseesolutions.com';}
 export const environment =
     {
         production: false,
 //	'http://'+window.location.hostname+':4200',
 
-    API_URL: 'http://test7.enterpriseesolutions.com',
-    Upload_Url: 'http://test7.enterpriseesolutions.com/repertoires/upload'
+    API_URL: URL,
+    Upload_Url: URL+'/repertoires/upload'
 };
