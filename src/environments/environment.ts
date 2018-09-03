@@ -18,6 +18,6 @@ export const environment =
         production: false,
 //	'http://'+window.location.hostname+':4200',
 
-     API_URL: 'http://'+window.location.hostname,
-    Upload_Url: URL+'/repertoires/upload'
+    API_URL: 'http://test7.enterpriseesolutions.com',
+    Upload_Url: 'http://test7.enterpriseesolutions.com/repertoires/upload'
 };
