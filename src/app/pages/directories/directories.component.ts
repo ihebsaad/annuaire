@@ -71,8 +71,9 @@ ngOnInit() {
         };
     }
     //declare a constroctur, so we can pass in some properties to the class, which can be    //accessed using the this variable
-  /*
+
     //the function which handles the file upload without using a plugin.
+
     upload() {
       console.log("here from directories.component.ts");
     //locate the file element meant for the file upload.
@@ -90,7 +91,7 @@ ngOnInit() {
 
             this.http
         //post the form data to the url defined above and map the response. Then subscribe //to initiate the post. if you don't subscribe, angular wont post.
-                .post(URL/*+'/'+this.fname*//*,/* formData).map((res:Response) => res.json()).subscribe(
+                .post(URL, formData).map((res:Response) => res.json()).subscribe(
                 //map the success function and alert the response
                  (success) => {
                   // console.log('here');
@@ -103,7 +104,7 @@ ngOnInit() {
                 },
                 (error) => alert(error))
           }
-       }*/
+       }
     ngAfterContentInit() {
       this.afficher();
     }
