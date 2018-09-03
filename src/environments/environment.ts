@@ -8,16 +8,16 @@
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 URL="";
-if (window.location.hostname == 'localhost'){
+/*if (window.location.hostname == 'localhost'){
     URL= 'http://'+window.location.hostname+':3000';
 }else {
     URL= 'http://'+window.location.hostname;
-}
+}*/
 export const environment =
     {
         production: false,
 //	'http://'+window.location.hostname+':4200',
 
-     API_URL: URL,
+     API_URL: 'http://'+window.location.hostname,
     Upload_Url: URL+'/repertoires/upload'
 };
