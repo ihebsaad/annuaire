@@ -11,6 +11,7 @@ import { environment } from '../../../environments/environment';
 //import the file uploader plugin
 import {  FileUploader } from 'ng2-file-upload/ng2-file-upload';
 //define the constant url we would be uploading to.
+ up_URL='';
 if (window.location.hostname == 'localhost')
 {
     const up_URL="http://localhost:3000/repertoires/upload";
