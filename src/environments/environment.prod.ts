@@ -8,4 +8,6 @@ export const environment =
 {
     production: true,
     API_URL: 'http://test7.enterpriseesolutions.com',
+    Upload_Url:'http://test7.enterpriseesolutions.com/repertoires/upload'
+
 };

@@ -7,11 +7,12 @@ import {Rep} from './model/rep';
 import { Http, Response } from '@angular/http';
 import {NgForm} from '@angular/forms';
 import {AppService} from '../../app.service';
+import { environment } from '../../../environments/environment';
 //import the file uploader plugin
 import {  FileUploader } from 'ng2-file-upload/ng2-file-upload';
 //define the constant url we would be uploading to.
-let URL = 'http://localhost:3000/repertoires/upload';
 
+const up_URL= environment.Upload_Url;
 @Component({
   selector: 'ngx-directories',
   templateUrl: './directories.component.html',
@@ -19,7 +20,8 @@ let URL = 'http://localhost:3000/repertoires/upload';
 })
 
 export class DirectoriesComponent implements OnInit, AfterContentInit {
-    model: any = {};
+
+     model: any = {};
     model1 = new Rep('','','','','','','','');
     data: any;
     data1: any;
@@ -29,7 +31,7 @@ export class DirectoriesComponent implements OnInit, AfterContentInit {
     page : any;
     username:any;
 pathimage:any; fname:any;
-public uploader:FileUploader = new FileUploader({url: URL/*+'/'+this.fname, itemAlias: 'photo'*/});
+public uploader:FileUploader = new FileUploader({url: up_URL});
   constructor(private serv: DirectoriesService, private modalService: NgbModal,
 private servApp: AppService,private http: Http, private el: ElementRef
     ) {
@@ -38,15 +40,15 @@ this.servApp.getusername().subscribe(resp => {
   console.log( resp);
       console.log("name** = "+resp.result);
        this.username=resp.result;
-         //return resp.result; 
+         //return resp.result;
       });
  //override the onAfterAddingfile property of the uploader so it doesn't authenticate with //credentials.
        this.uploader.onAfterAddingFile = (file)=> { file.withCredentials = false; };
-       //overide the onCompleteItem property of the uploader so we are 
+       //overide the onCompleteItem property of the uploader so we are
        //able to deal with the server response.
        this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
             console.log("ImageUpload:uploaded:", item, status, response);
-                        
+
 
         };
 
@@ -56,7 +58,7 @@ ngOnInit() {
    this.getData();
     //override the onAfterAddingfile property of the uploader so it doesn't authenticate with //credentials.
       this.uploader.onAfterAddingFile = (file)=> { file.withCredentials = false; };
-    //overide the onCompleteItem property of the uploader so we are 
+    //overide the onCompleteItem property of the uploader so we are
     //able to deal with the server response.
       this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
             console.log("ImageUpload:uploaded:", item, status, response);
@@ -67,7 +69,7 @@ ngOnInit() {
                           var pos=response.length;
      this.pathimage = item.file.name;
            console.log('pathimage= '+this.pathimage);
-          
+
         };
     }
     //declare a constroctur, so we can pass in some properties to the class, which can be    //accessed using the this variable
@@ -91,7 +93,7 @@ ngOnInit() {
 
             this.http
         //post the form data to the url defined above and map the response. Then subscribe //to initiate the post. if you don't subscribe, angular wont post.
-                .post(URL, formData).map((res:Response) => res.json()).subscribe(
+                .post(up_URL, formData).map((res:Response) => res.json()).subscribe(
                 //map the success function and alert the response
                  (success) => {
                   // console.log('here');
@@ -99,7 +101,7 @@ ngOnInit() {
                  //   console.log('here2');
                    //console.log(success._body);
                     // console.log(success._body["path"]);
-                   
+
                          //alert(success._body);
                 },
                 (error) => alert(error))
@@ -113,7 +115,7 @@ getUsername(){
   console.log( resp);
       console.log("name** = "+resp.result);
        this.username=resp.result;
-         //return resp.result; 
+         //return resp.result;
       });
 
 }
@@ -132,7 +134,7 @@ approveDirectory(f: NgForm){
  this.serv.approve(this.id).subscribe(resp => {console.log(resp);
 
             this.getData();
-                       
+
 
         });
 
