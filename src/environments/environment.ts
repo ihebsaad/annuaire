@@ -11,7 +11,12 @@ export const environment =
 {
     production: false,
 //	'http://'+window.location.hostname+':4200',
-   API_URL: 'http://'+window.location.hostname+':3000',
+
    // API_URL: 'http://localhost:3000',
     Upload_Url:'http://localhost:3000/repertoires/upload'
 };
+if (window.location.hostname == 'localhost'){
+    API_URL: 'http://'+window.location.hostname+':3000';
+}else {
+    API_URL: 'http://'+window.location.hostname;
+}
