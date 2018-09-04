@@ -34,7 +34,7 @@ strategy: string = '';
   this.redirectDelay = this.getConfigValue('forms.logout.redirectDelay');
     this.strategy = this.getConfigValue('forms.logout.strategy');
 
-    
+
   }
 ngOnInit(): void {
     this.logout(this.strategy);

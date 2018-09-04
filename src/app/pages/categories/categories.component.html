@@ -70,9 +70,10 @@
                   <label for="input10" class="c  col-form-label">Parent</label>
                   <div  >
                       <select  class="form-control" id="input11" placeholder="" name="parent"  [(ngModel)]="model1.parent">
-                          <option>cat 1</option>
-                          <option>cat 2</option>
-                          <option>cat 3</option>
+                          <option selected="" value=""></option>
+                          <option [ngValue]="k.titre" *ngFor="let k of data">
+                              {{k.titre}}
+                          </option>
                       </select>
                   </div>
               </div>
@@ -87,8 +88,7 @@
 	</div><!--col-->
 		 
 	<div  style="width:100%;padding-left:50px;padding-right:30px">
-		 
-             <div *ngIf="test1">
+        <div *ngIf="test1">
 	<h3>Ajouter une catégorie</h3>
                <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
                  <div class="form-group row">
@@ -140,7 +140,6 @@
 
         </nb-card-body>
       </nb-card>
-
 
 <style>
 label{width:100px;}

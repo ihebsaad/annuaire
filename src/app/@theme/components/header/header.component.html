@@ -32,8 +32,8 @@
  <a href=""> Login  </a>
 </div>
 -->
- <ul class="nav navbar-nav navbar-right">
-        <li *ngIf="!auth.isLoggedIn()"><a routerLink="/login">Sign in</a></li>
+ <ul class="nav navbar-nav navbar-right" style="width:250px" >
+        <li *ngIf="!auth.isLoggedIn()"><a style="cursor:pointer;color:#40dc7e" href="/auth/login">Se connecter</a></li>
         <li *ngIf="auth.isLoggedIn()"><a routerLink="/profile">{{ username }}</a></li>
-        <li *ngIf="auth.isLoggedIn()"><a (click)="auth.logout()">Logout</a></li>
+        <li *ngIf="auth.isLoggedIn()"><a style="cursor:pointer;color:#40dc7e" (click)="auth.logout()">Déconnexion</a></li>
       </ul>
