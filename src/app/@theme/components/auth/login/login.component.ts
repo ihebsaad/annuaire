@@ -10,79 +10,79 @@ import {getDeepFromObject} from '@nebular/auth/helpers';
 import {AppService} from '../../../../app.service';
 
 
-
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'ngx-login',
   template: `
     <nb-auth-block>
-      <h2 class="title">Sign In</h2>
-      <small class="form-text sub-title">Hello! Sign in with your username or email</small>
+      <h2 class="title">Se connecter</h2>
+      <small class="form-text sub-title">Bienvenue! Connectez vous avec votre Pseudo ou Email</small>
 
       <form (ngSubmit)="login()" #form="ngForm" autocomplete="nope">
 
         <div *ngIf="showMessages.error && errors && errors.length > 0 && !submitted"
              class="alert alert-danger" role="alert">
-          <div><strong>Oh snap!</strong></div>
+          <div><strong>Vérifiez vos entrées!</strong></div>
           <div *ngFor="let error of errors">{{ error }}</div>
         </div>
 
         <div *ngIf="showMessages.success && messages && messages.length > 0 && !submitted"
              class="alert alert-success" role="alert">
-          <div><strong>Hooray!</strong></div>
+          <div><strong>Merci !</strong></div>
           <div *ngFor="let message of messages">{{ message }}</div>
         </div>
 
         <div class="form-group">
-          <label for="input-email" class="sr-only">Email address</label>
+          <label for="input-email" class="sr-only">Adresse Email </label>
           <input name="email" [(ngModel)]="user.email" id="input-email" pattern=".+@.+\..+"
-                 class="form-control" placeholder="Email address" #email="ngModel"
+                 class="form-control" placeholder="Adresse Email" #email="ngModel"
                  [class.form-control-danger]="email.invalid && email.touched" autofocus
                  [required]="getConfigValue('forms.validation.email.required')">
           <small class="form-text error" *ngIf="email.invalid && email.touched && email.errors['required']">
-            Email is required!
+            l'email est Obligatoire!
           </small>
           <small class="form-text error"
                  *ngIf="email.invalid && email.touched && email.errors['pattern']">
-            Email should be the real one!
+        Vérifiez l'adresse email !
           </small>
         </div>
 
         <div class="form-group">
-          <label for="input-password" class="sr-only">Password</label>
+          <label for="input-password" class="sr-only">Mot de Passe</label>
           <input name="password" [(ngModel)]="user.password" type="password" id="input-password"
-                 class="form-control" placeholder="Password" #password="ngModel"
+                 class="form-control" placeholder="Mot de Passe" #password="ngModel"
                  [class.form-control-danger]="password.invalid && password.touched"
                  [required]="getConfigValue('forms.validation.password.required')"
                  [minlength]="getConfigValue('forms.validation.password.minLength')"
                  [maxlength]="getConfigValue('forms.validation.password.maxLength')">
           <small class="form-text error" *ngIf="password.invalid && password.touched && password.errors['required']">
-            Password is required!
+              Le mot de passe est obligatoire!
           </small>
           <small
             class="form-text error"
             *ngIf="password.invalid && password.touched && (password.errors['minlength'] || password.errors['maxlength'])">
-            Password should contains
-            from {{ getConfigValue('forms.validation.password.minLength') }}
-            to {{ getConfigValue('forms.validation.password.maxLength') }}
-            characters
+              Le mot de passe doit contenir  
+            de {{ getConfigValue('forms.validation.password.minLength') }}
+            à {{ getConfigValue('forms.validation.password.maxLength') }}
+            caractères
           </small>
         </div>
 
         <div class="form-group accept-group col-sm-12">
-          <nb-checkbox name="rememberMe" [(ngModel)]="user.rememberMe">Remember me</nb-checkbox>
-          <a class="forgot-password" routerLink="../request-password">Forgot Password?</a>
+          <nb-checkbox name="rememberMe" [(ngModel)]="user.rememberMe">Se souvenir de moi</nb-checkbox>
+          <a class="forgot-password" routerLink="../request-password">Mot de passe oublié?</a>
         </div>
 
         <button [disabled]="submitted || !form.valid" class="btn btn-block btn-hero-success"
                 [class.btn-pulse]="submitted">
-          Sign In
+          se connecter
         </button>
       </form>
 
       <div class="links">
 
-        <ng-container *ngIf="socialLinks && socialLinks.length > 0">
+       <!-- <ng-container *ngIf="socialLinks && socialLinks.length > 0">
           <small class="form-text">Or connect with:</small>
 
           <div class="socials">
@@ -100,14 +100,15 @@ import {AppService} from '../../../../app.service';
             </ng-container>
           </div>
         </ng-container>
-
+-->
         <small class="form-text">
-          Don't have an account? <a routerLink="../register"><strong>Sign Up</strong></a>
+          Nouveau? <a routerLink="/register"><strong>Inscription ici</strong></a>
         </small>
       </div>
     </nb-auth-block>
   `,
 })
+
 export class NgxLoginComponent {
 
   redirectDelay: number = 0;
@@ -119,7 +120,7 @@ export class NgxLoginComponent {
   user: any = {};
   submitted: boolean = false;
   socialLinks: NbAuthSocialLink[] = [];
-
+  URL:any;
   constructor(protected service: NbAuthService,
               @Inject(NB_AUTH_OPTIONS) protected options = {},
               protected router: Router,
@@ -129,6 +130,8 @@ export class NgxLoginComponent {
     this.showMessages = this.getConfigValue('forms.login.showMessages');
     this.strategy = this.getConfigValue('forms.login.strategy');
     this.socialLinks = this.getConfigValue('forms.login.socialLinks');
+    this.URL= environment.API_URL;
+
   }
 
   login(): void {
