@@ -51,3 +51,4 @@ server/node_modules/
 
 #BD
 ./server/config/database.js
+server/uploads

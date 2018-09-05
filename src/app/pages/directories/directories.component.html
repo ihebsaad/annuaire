@@ -141,7 +141,7 @@
              <div *ngIf="test1">
                  <h3>Ajouter un repertoire</h3>
 
-               <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+               <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate enctype="multipart/form-data">
                  <div class="form-group row">
                    <label for="input1" class="col-sm-3 col-form-label">Titre</label>
                    <div class="col-sm-9">
