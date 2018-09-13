@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @license
  * Copyright Akveo. All Rights Reserved.
  * Licensed under the MIT License. See License.txt in the project root for license information.
@@ -34,9 +34,9 @@ import { environment } from '../../../../../environments/environment';
         </div>
 
         <div class="form-group">
-          <label for="input-email" class="sr-only">Adresse Email </label>
+          <label for="input-email" class="sr-only">Pseudo /Adresse Email </label>
           <input name="email" [(ngModel)]="user.email" id="input-email" pattern=".+@.+\..+"
-                 class="form-control" placeholder="Adresse Email" #email="ngModel"
+                 class="form-control" placeholder="Pseudo / Adresse Email" #email="ngModel"
                  [class.form-control-danger]="email.invalid && email.touched" autofocus
                  [required]="getConfigValue('forms.validation.email.required')">
           <small class="form-text error" *ngIf="email.invalid && email.touched && email.errors['required']">
@@ -59,13 +59,11 @@ import { environment } from '../../../../../environments/environment';
           <small class="form-text error" *ngIf="password.invalid && password.touched && password.errors['required']">
               Le mot de passe est obligatoire!
           </small>
-          <small
-            class="form-text error"
-            *ngIf="password.invalid && password.touched && (password.errors['minlength'] || password.errors['maxlength'])">
+          <small     class="form-text error"    *ngIf="password.invalid && password.touched && (password.errors['minlength'] || password.errors['maxlength'])">
               Le mot de passe doit contenir  
             de {{ getConfigValue('forms.validation.password.minLength') }}
             à {{ getConfigValue('forms.validation.password.maxLength') }}
-            caractères
+            caracteres
           </small>
         </div>
 
@@ -82,7 +80,7 @@ import { environment } from '../../../../../environments/environment';
 
       <div class="links">
 
-       <!-- <ng-container *ngIf="socialLinks && socialLinks.length > 0">
+        <ng-container *ngIf="socialLinks && socialLinks.length > 0">
           <small class="form-text">Or connect with:</small>
 
           <div class="socials">
@@ -100,8 +98,7 @@ import { environment } from '../../../../../environments/environment';
             </ng-container>
           </div>
         </ng-container>
--->
-        <small class="form-text">
+         <small class="form-text">
           Nouveau? <a routerLink="/register"><strong>Inscription ici</strong></a>
         </small>
       </div>

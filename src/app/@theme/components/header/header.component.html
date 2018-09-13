@@ -36,4 +36,4 @@
         <li *ngIf="!auth.isLoggedIn()"><a style="cursor:pointer;color:#40dc7e" href="/auth/login">Se connecter</a></li>
         <li *ngIf="auth.isLoggedIn()"><a routerLink="/profile">{{ username }}</a></li>
         <li *ngIf="auth.isLoggedIn()"><a style="cursor:pointer;color:#40dc7e" (click)="auth.logout()">Déconnexion</a></li>
-      </ul>
+ </ul>
