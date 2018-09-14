@@ -22,11 +22,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Annonces',
         icon : 'ion-clipboard',
         link: '/annonces',
-    }, {
+    },/* {
         title: 'Blog',
         icon: 'ion-document-text',
         link: '/blog',
-    }, {
+    },*/ {
         title: 'Utilisateurs',
         icon: 'ion-contacts',
         link: '/users',
@@ -50,11 +50,11 @@ export const MENU_ITEMS_SIMPLE: NbMenuItem[] = [
         title: 'Annonces',
         icon : 'ion-clipboard',
         link: '/annonces',
-    }, {
+    },/* {
         title: 'Blog',
         icon: 'ion-document-text',
         link: '/blog',
-    }, {
+    }*/, {
         title: 'Contact',
         icon: 'ion-arrow-swap',
         link: '/contact',

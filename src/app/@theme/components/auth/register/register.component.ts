@@ -15,112 +15,112 @@ import{ NgxLoginComponent } from '../login/login.component';
   styleUrls: ['./register.component.scss'],
   template: `
     <nb-auth-block>
-      <h2 class="title">Sign Up</h2>
+      <h2 class="title">Registration</h2>
       <form (ngSubmit)="register()" #form="ngForm">
 
         <div *ngIf="showMessages.error && errors && errors.length > 0 && !submitted"
              class="alert alert-danger" role="alert">
-          <div><strong>Oh snap!</strong></div>
+          <div><strong>Erreur !</strong></div>
           <div *ngFor="let error of errors">{{ error }}</div>
         </div>
         <div *ngIf="showMessages.success && messages && messages.length > 0 && !submitted"
              class="alert alert-success" role="alert">
-          <div><strong>Hooray!</strong></div>
+          <div><strong>Bienvenue!</strong></div>
           <div *ngFor="let message of messages">{{ message }}</div>
         </div>
 
         <div class="form-group">
-          <label for="input-name" class="sr-only">Full name</label>
+          <label for="input-name" class="sr-only">Nom </label>
           <input name="fullName" [(ngModel)]="user.fullName" id="input-name" #fullName="ngModel"
-                 class="form-control" placeholder="Full name"
+                 class="form-control" placeholder="Nom Complet"
                  [class.form-control-danger]="fullName.invalid && fullName.touched"
                  [required]="getConfigValue('forms.validation.fullName.required')"
                  [minlength]="getConfigValue('forms.validation.fullName.minLength')"
                  [maxlength]="getConfigValue('forms.validation.fullName.maxLength')"
                  autofocus>
           <small class="form-text error" *ngIf="fullName.invalid && fullName.touched && fullName.errors['required']">
-            Full name is required!
+            Le Nom est obligatoire!
           </small>
           <small
             class="form-text error"
             *ngIf="fullName.invalid && fullName.touched && (fullName.errors['minlength'] || fullName.errors['maxlength'])">
-            Full name should contains
-            from {{getConfigValue('forms.validation.fullName.minLength')}}
-            to {{getConfigValue('forms.validation.fullName.maxLength')}}
-            characters
+            le nom doit contenir
+            de  {{getConfigValue('forms.validation.fullName.minLength')}}
+            à {{getConfigValue('forms.validation.fullName.maxLength')}}
+            caractères
           </small>
         </div>
 
         <div class="form-group">
-          <label for="input-email" class="sr-only">Email address</label>
+          <label for="input-email" class="sr-only">Email </label>
           <input name="email" [(ngModel)]="user.email" id="input-email" #email="ngModel"
-                 class="form-control" placeholder="Email address" pattern=".+@.+\..+"
+                 class="form-control" placeholder="Adresse Email " pattern=".+@.+\..+"
                  [class.form-control-danger]="email.invalid && email.touched"
                  [required]="getConfigValue('forms.validation.email.required')">
           <small class="form-text error" *ngIf="email.invalid && email.touched && email.errors['required']">
-            Email is required!
+           L'email est obligatoire!
           </small>
           <small class="form-text error"
                  *ngIf="email.invalid && email.touched && email.errors['pattern']">
-            Email should be the real one!
+            Email incorrect !
           </small>
         </div>
 
         <div class="form-group">
-          <label for="input-password" class="sr-only">Password</label>
+          <label for="input-password" class="sr-only">Mot de passe</label>
           <input name="password" [(ngModel)]="user.password" type="password" id="input-password"
-                 class="form-control" placeholder="Password" #password="ngModel"
+                 class="form-control" placeholder="Mot de passe" #password="ngModel"
                  [class.form-control-danger]="password.invalid && password.touched"
                  [required]="getConfigValue('forms.validation.password.required')"
                  [minlength]="getConfigValue('forms.validation.password.minLength')"
                  [maxlength]="getConfigValue('forms.validation.password.maxLength')">
           <small class="form-text error" *ngIf="password.invalid && password.touched && password.errors['required']">
-            Password is required!
+            Le mot de passe est obligatoire !
           </small>
           <small
             class="form-text error"
             *ngIf="password.invalid && password.touched && (password.errors['minlength'] || password.errors['maxlength'])">
-            Password should contains
-            from {{ getConfigValue('forms.validation.password.minLength') }}
-            to {{ getConfigValue('forms.validation.password.maxLength') }}
-            characters
+            Le mot de passe doit contenir 
+            de {{ getConfigValue('forms.validation.password.minLength') }}
+            à {{ getConfigValue('forms.validation.password.maxLength') }}
+            caractères
           </small>
         </div>
 
         <div class="form-group">
-          <label for="input-re-password" class="sr-only">Repeat password</label>
+          <label for="input-re-password" class="sr-only">Confirmation </label>
           <input
             name="rePass" [(ngModel)]="user.confirmPassword" type="password" id="input-re-password"
-            class="form-control" placeholder="Confirm Password" #rePass="ngModel"
+            class="form-control" placeholder="Confirmation" #rePass="ngModel"
             [class.form-control-danger]="(rePass.invalid || password.value != rePass.value) && rePass.touched"
             [required]="getConfigValue('forms.validation.password.required')">
           <small class="form-text error"
                  *ngIf="rePass.invalid && rePass.touched && rePass.errors['required']">
-            Password confirmation is required!
+             la confirmation est obligatoire!
           </small>
           <small
             class="form-text error"
             *ngIf="rePass.touched && password.value != rePass.value && !rePass.errors?.required">
-            Password does not match the confirm password.
+            Vérifiez les deux champs de mot de passe .
           </small>
         </div>
 
         <div class="form-group accept-group col-sm-12" *ngIf="getConfigValue('forms.register.terms')">
           <nb-checkbox name="terms" [(ngModel)]="user.terms" [required]="getConfigValue('forms.register.terms')">
-            Agree to <a href="#" target="_blank"><strong>Terms & Conditions</strong></a>
+            Vous Acceptez les <a href="#" target="_blank"><strong>Termes et Conditions</strong></a>
           </nb-checkbox>
         </div>
 
         <button [disabled]="submitted || !form.valid" class="btn btn-block btn-hero-success"
                 [class.btn-pulse]="submitted">
-          Register
+          Enregistrer
         </button>
       </form>
 
       <div class="links">
 
         <ng-container *ngIf="socialLinks && socialLinks.length > 0">
-          <small class="form-text">Or connect with:</small>
+          <small class="form-text">connecter avec:</small>
 
           <div class="socials">
             <ng-container *ngFor="let socialLink of socialLinks">
@@ -139,7 +139,7 @@ import{ NgxLoginComponent } from '../login/login.component';
         </ng-container>
 
         <small class="form-text">
-          Already have an account? <a routerLink="../login"><strong>Sign in</strong></a>
+          Vous avez un compte? <a routerLink="../auth/login"><strong> Connexion</strong></a>
         </small>
       </div>
     </nb-auth-block>
