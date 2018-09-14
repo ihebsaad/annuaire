@@ -117,9 +117,10 @@ fnclick(value : string){
     
     console.log(value);
 
-this.servDirect.getDataPerCateg(value).subscribe(resp => {console.log(resp);
-          console.log(resp['categories']);
-          this.dataD = resp['categories'];
+this.servDirect.getDataPerCateg(value).subscribe(resp => {
+  console.log("directories");
+         // console.log(resp['repertoires']);
+          this.dataD = resp['repertoires'];
 console.log(this.dataD);
       });    
 }

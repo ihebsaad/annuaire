@@ -22,37 +22,44 @@ export class ListingComponent implements OnInit {
  data:any;
  selectedCategory:String;
  arraycat: any[] = [];     
-      arraycat1: any[] = []; 
-        arraycat2: any[] = []; 
-        dataCatnames:any;dataC:any;
-  constructor(private serv : ListingService,  private router: Router,private servDirect: DirectoriesService,private servCateg:CategoriesService ) {
-//Get categories list 
-     this.servCateg.getData().subscribe(resp => {//console.log(resp);
-        //  console.log(resp['categories']);
-          this.dataC = resp['categories'];
+ arraycat1: any[] = []; 
+ arraycat2: any[] = []; 
+ dataCatnames:any;
+ dataC:any;
+ imagepath="../../../../server/uploads/";
+  constructor(private serv : ListingService,
+              private router: Router,
+              private servDirect: DirectoriesService,
+              private servCateg:CategoriesService ) 
+  {
 
-this.servCateg.getNames().subscribe(resp => {//console.log(resp);
+//  ********** Get categories list **********  //
+     this.servCateg.getData().subscribe(resp => {        
+          this.dataC = resp['categories'];
+this.servCateg.getNames().subscribe(resp => {
           console.log(resp['categories']);
           this.dataCatnames = resp['categories'];
-var promises = [];
- 
-  let observables = new Array();
 
-//let value=resp['categories'][i].titre;
+//  ********** Get count directories per category **********  //
+var promises = [];
+  let observables = new Array();
 for(var i = 0; i <= this.dataC.length - 1; i++ ) {
    let value=resp['categories'][i].titre;
    this.arraycat1[i]=value;
     observables.push(this.servDirect.getTotalperCat(value));
 }
+// inializate selected cateroy
 this.selectedCategory=   this.arraycat1[0];
+
+
 this.getDatapercategory(this.selectedCategory);
 
 Observable.forkJoin(observables).subscribe(
-    res => {console.log(res);
+    res => {
       for(var i = 0; i <= this.dataC.length - 1; i++ ) {
      this.arraycat2[i]=res[i].count;
     } 
-  },
+        },
     error => console.log('Error: ', error)
 );
       });
@@ -69,11 +76,10 @@ Observable.forkJoin(observables).subscribe(
     
   }
 
- 
+ //  ********** When selecting a categorie display related directories **********  //
   getDatapercategory(category:any) {
-
-      this.servDirect.getDataPerCateg(category).subscribe(resp => {console.log(resp);
-          console.log(resp['repertoires']);
+      this.selectedCategory=category;
+      this.servDirect.getDataPerCateg(category).subscribe(resp => {          
           this.data = resp['repertoires'];
 
       });

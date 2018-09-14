@@ -10,6 +10,7 @@ import {AppService} from '../../app.service';
 import { environment } from '../../../environments/environment';
 //import the file uploader plugin
 import {  FileUploader } from 'ng2-file-upload/ng2-file-upload';
+import {CategoriesService} from '../categories/categories.service';
 //define the constant url we would be uploading to.
  var up_URL= environment.Upload_Url;
  /*
@@ -36,12 +37,15 @@ export class DirectoriesComponent implements OnInit, AfterContentInit {
     test1: boolean = false;
     page : any;
     username:any;
-pathimage:any; fname:any;
+pathimage:any; fname:any;dataC:any;
 public uploader:FileUploader = new FileUploader({url: up_URL});
   constructor(private serv: DirectoriesService, private modalService: NgbModal,
-private servApp: AppService,private http: Http, private el: ElementRef
-    ) {
-
+private servApp: AppService,private http: Http, private el: ElementRef,
+   private servCateg:CategoriesService  ) {
+//get categories list
+this.servCateg.getData().subscribe(resp => {        
+          this.dataC = resp['categories'];
+        });
 this.servApp.getusername().subscribe(resp => {
   console.log( resp);
       console.log("name** = "+resp.result);
@@ -54,8 +58,6 @@ this.servApp.getusername().subscribe(resp => {
        //able to deal with the server response.
        this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
             console.log("ImageUpload:uploaded:", item, status, response);
-
-
         };
 
   }
@@ -132,9 +134,7 @@ getUsername(){
       this.serv.getData().subscribe(resp => {console.log(resp);
           console.log(resp['repertoires']);
           this.data = resp['repertoires'];
-
       });
-
   }
 approveDirectory(f: NgForm){
  this.serv.approve(this.id).subscribe(resp => {console.log(resp);

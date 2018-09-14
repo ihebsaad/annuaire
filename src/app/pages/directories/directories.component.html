@@ -87,15 +87,10 @@
             <div class="form-group row">
               <label for="input9" class="col-sm-3 col-form-label">Catégorie</label>
               <div class="col-sm-9">
-                <select id="input9" class="form-control" name="categorie" [(ngModel)]="model1.categorie">
-                  <option ></option>
-                  <option>Cafés</option>
-                  <option>Restaurants</option>
-                    <option>Hotels</option>
-                    <option>Logement</option>
-                    <option>Santé</option>
-                    <option>Beauté</option>
-                    <option>Services Financiers</option>
+                
+                  <select id="input9" class="form-control" name="categorie" [(ngModel)]="model1.categorie">
+                  <option  *ngFor="let elt of dataC">{{elt.titre}}</option>
+                  
                  </select>
               </div>
             </div>
