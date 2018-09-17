@@ -15,7 +15,7 @@ import{ NgxLoginComponent } from '../login/login.component';
   styleUrls: ['./register.component.scss'],
   template: `
     <nb-auth-block>
-      <h2 class="title">Registration</h2>
+      <h2 class="title">Inscription</h2>
       <form (ngSubmit)="register()" #form="ngForm">
 
         <div *ngIf="showMessages.error && errors && errors.length > 0 && !submitted"
@@ -28,7 +28,6 @@ import{ NgxLoginComponent } from '../login/login.component';
           <div><strong>Bienvenue!</strong></div>
           <div *ngFor="let message of messages">{{ message }}</div>
         </div>
-
         <div class="form-group">
           <label for="input-name" class="sr-only">Nom </label>
           <input name="fullName" [(ngModel)]="user.fullName" id="input-name" #fullName="ngModel"
@@ -194,7 +193,6 @@ export class NgxRegisterComponent {
 
 
 });
-
 
 
      //end login after register

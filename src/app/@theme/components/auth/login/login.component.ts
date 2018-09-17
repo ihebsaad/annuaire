@@ -81,7 +81,7 @@ import { environment } from '../../../../../environments/environment';
       <div class="links">
 
         <ng-container *ngIf="socialLinks && socialLinks.length > 0">
-          <small class="form-text">Or connect with:</small>
+          <small class="form-text"> connecter avec:</small>
 
           <div class="socials">
             <ng-container *ngFor="let socialLink of socialLinks">
@@ -99,7 +99,7 @@ import { environment } from '../../../../../environments/environment';
           </div>
         </ng-container>
          <small class="form-text">
-          Nouveau? <a routerLink="../auth/register"><strong>Inscription ici</strong></a>
+          Nouveau? <a routerLink="test7.enterpriseesolutions.com/auth/register"><strong>Inscription ici</strong></a>
         </small>
       </div>
     </nb-auth-block>
