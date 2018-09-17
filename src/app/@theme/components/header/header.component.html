@@ -33,7 +33,7 @@
 </div>
 -->
  <ul class="nav navbar-nav navbar-right" style="width:250px" >
-        <li *ngIf="!auth.isLoggedIn()"><a style="cursor:pointer;color:#40dc7e" href="/auth/login">Se connecter</a></li>
+        <li *ngIf="!auth.isLoggedIn()"><a style="cursor:pointer;color:#40dc7e" href="http://test7.enterpriseesolutions.com/auth/login">Se connecter</a></li>
         <li *ngIf="auth.isLoggedIn()"><a routerLink="/profile">{{ username }}</a></li>
         <li *ngIf="auth.isLoggedIn()"><a style="cursor:pointer;color:#40dc7e" (click)="auth.logout()">Déconnexion</a></li>
  </ul>

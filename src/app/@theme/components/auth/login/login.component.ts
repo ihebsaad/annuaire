@@ -99,7 +99,7 @@ import { environment } from '../../../../../environments/environment';
           </div>
         </ng-container>
          <small class="form-text">
-          Nouveau? <a routerLink="test7.enterpriseesolutions.com/auth/register"><strong>Inscription ici</strong></a>
+          Nouveau? <a routerLink="../register"><strong>Inscription ici</strong></a>
         </small>
       </div>
     </nb-auth-block>
