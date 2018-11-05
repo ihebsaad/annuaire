@@ -22,7 +22,7 @@ if (window.location.hostname == 'localhost')
 else{ URL= 'http://test7.enterpriseesolutions.com';}
 
 URL= 'http://test7.enterpriseesolutions.com';
-API_URL: 'http://test7.enterpriseesolutions.com';
+//API_URL: 'http://test7.enterpriseesolutions.com';
 
 export const environment =
     {
