@@ -23,7 +23,7 @@ import {NgxRegisterComponent} from './@theme/components/auth/register/register.c
 import {NgxRequestPasswordComponent} from './@theme/components/auth/request-password/request-password.component';
 import {NgxResetPasswordComponent} from './@theme/components/auth/reset-password/reset-password.component';
 import {NgxLogoutComponent} from './@theme/components/auth/logout/logout.component';
-import { FileUploadModule } from 'ng2-file-upload';
+//import { FileUploadModule } from 'ng2-file-upload';
 
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 //import the ng2-file-upload directive so we can add it to our declarations.
