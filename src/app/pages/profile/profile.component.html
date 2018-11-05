@@ -1,0 +1,131 @@
+
+
+<!--
+
+<div class="form-group">
+    <label for="input-company"  >Entreprise </label>
+    <input name="company" [(ngModel)]="user.company" id="input-company" #company="ngModel"
+           class="form-control" placeholder="votre Entreprise"
+           [class.form-control-danger]="company.invalid && company.touched"
+           [required]="getConfigValue('forms.validation.company.required')"
+           [minlength]="getConfigValue('forms.validation.company.minLength')"
+           [maxlength]="getConfigValue('forms.validation.company.maxLength')"
+           autofocus>
+    <small class="form-text error" *ngIf="company.invalid && company.touched && company.errors['required']">
+        L 'entreprise est obligatoire!
+    </small>
+    <small
+            class="form-text error"
+            *ngIf="company.invalid && company.touched && (company.errors['minlength'] || company.errors['maxlength'])">
+        l'entreprise doit contenir
+        de  {{getConfigValue('forms.validation.company.minLength')}}
+        à {{getConfigValue('forms.validation.company.maxLength')}}
+        caractères
+    </small>
+</div>
+
+
+<div class="form-group">
+    <label style="margin-bottom:20px;margin-top:20px">Vous êtes intéressés par :</label><br>
+    <div class="row" style="font-size:18px">
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+            <label class="container">
+                <input type="checkbox" name="cat1" [(ngModel)]="user.cat1"  data-md-icheck (change)="toggleVisibility1($event)"/>
+                <span >Finances</span>
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+            <label class="container">
+                <input type="checkbox" name="cat2" [(ngModel)]="user.cat2"  data-md-icheck (change)="toggleVisibility2($event)"/>
+                <span >Informatique</span>
+
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+            <label class="container">
+                <input type="checkbox" name="cat3" [(ngModel)]="user.cat3"  data-md-icheck (change)="toggleVisibility3($event)"/>
+                <span >Elécrtonique</span>
+
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+            <label class="container">
+                <input type="checkbox" name="cat4" [(ngModel)]="user.cat4"  data-md-icheck (change)="toggleVisibility4($event)"/>
+                <span >Mécanique</span>
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div>
+    <div class="row" style="font-size:18px">
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+            <label class="container">
+                <input type="checkbox" name="cat5" [(ngModel)]="user.cat5"  data-md-icheck (change)="toggleVisibility5($event)"  />
+                <span >Habillement</span>
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+            <label class="container">
+                <input type="checkbox" name="cat6" [(ngModel)]="user.cat6"  data-md-icheck (change)="toggleVisibility6($event)"/>
+                <span >Alimentaire</span>
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+            <label class="container">
+                <input type="checkbox"  name="cat7" [(ngModel)]="user.cat7"  data-md-icheck (change)="toggleVisibility7($event)" />
+                <span >Services</span>
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+            <label class="container">
+                <input type="checkbox" name="cat8"[(ngModel)]="user.cat8"  data-md-icheck (change)="toggleVisibility8($event)" />
+                <span >Autres</span>
+
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div>
+</div>
+
+
+<br>
+<br>
+-->
+<div align="center" class="row"><h2>Je cherche une opportunité de </h2></div>
+<div class="row"  >
+
+    <div class=" col-md-4 col-xs-8 col-sm-6 col-xs-offset-2 col-sm-offset-4 col-md-offset-1" >
+        <div style="background-color: white" id="c1" class="carte"   onclick="update('c1')"  (click)="changeType('Développer réseau')">
+            <br><br><h3>Développer mon réseau d'Entreprises</h3><br>
+            <div align=center><img style="text-align:center" src="../../../assets/images/growth.png"></div>
+
+        </div>
+    </div>
+
+    <div    class="col-md-4 col-xs-8 col-sm-6 col-xs-offset-2 col-sm-offset-4 col-md-offset-1"  >
+        <div style="background-color: white" id="c2" class="carte"  onclick="update('c2')"(click)="changeType('Trouver des Opportunités')">
+            <br><br><h3>Trouver des Opportunités</h3><br>
+            <div align=center> <img style="text-align:center" src="../../../assets/images/job1.png"></div>
+        </div>
+    </div>
+
+    <div   class="col-md-4 col-xs-8 col-sm-6 col-xs-offset-2 col-sm-offset-4 col-md-offset-1"  >
+        <div style="background-color: white" id="c3" class="carte"  onclick="update('c3')"  (click)="changeType('Anciennes Opportunités')">
+            <br><br><h3>Anciennes Opportunités </h3><br>
+            <div align=center><img  src="../../../assets/images/job2.png"></div>
+
+        </div>
+    </div>
+
+
+</div><!--row-->
+
+
+<div class="row">
+    <button [disabled]="" class="btn2" (click)="next()"  type="submit" > <i class="fa fa-check"></i> Terminer</button>
+</div>

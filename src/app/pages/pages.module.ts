@@ -15,6 +15,7 @@ import { ArticlesComponent } from './articles/articles.component';
 import { AnnoncesComponent } from './annonces/annonces.component';
 import { ListingComponent } from './listing/listing.component';
 import { UsersComponent } from './users/users.component';
+import { ProfileComponent } from './profile/profile.component';
 import {ModalComponent} from './directories/modal/modal.component';
 import {ModalComponent2} from './categories/modal/modal.component';
 import {ModalComponent3} from './annonces/modal/modal.component';
@@ -25,6 +26,7 @@ import {Ng2PaginationModule} from 'ng2-pagination';
 import { FileSelectDirective } from 'ng2-file-upload';
 import { HttpModule } from '@angular/http';
 import { RateComponent } from './dashboard/rate/rate.component';
+import {InterestComponent} from "./interest/interest.component";
 const PAGES_COMPONENTS = [
   PagesComponent,
 ];
@@ -48,7 +50,7 @@ const PAGES_COMPONENTS = [
     CategoriesComponent,RateComponent,
     ArticlesComponent,
     AnnoncesComponent,ListingComponent,
-    UsersComponent,
+    UsersComponent,ProfileComponent,InterestComponent,
       ModalComponent,ModalComponent2,ModalComponent3,ModalComponent4,ModalComponent5
   ],
     entryComponents: [

@@ -9,7 +9,6 @@
   </nb-card-body>
 </nb-card> -->
 
-
       <nb-card>
         <nb-card-header></nb-card-header>
 
@@ -17,10 +16,8 @@
 
              <nb-card>
                  <nb-card-header>
-                     <h1>Liste des répertoires<button style="float:right" class="btn2" (click)="AfficherFormulaire1()"><i class="fa fa-plus" ></i></button></h1>
+                     <h1>Liste des entrées<button style="float:right" class="btn2" (click)="AfficherFormulaire1()"><i class="fa fa-plus" ></i></button></h1>
                  </nb-card-header>
-
-
                <nb-card-body>
 
                  <table class="table table-bordered table-responsive-md table-striped text-center">
@@ -73,9 +70,8 @@
                </nb-card-body>
              </nb-card>
 
-
          <div *ngIf="test">
-             <h3>Modifier un repertoire</h3>
+             <h3>Modifier une entreé </h3>
 
              <form #f1="ngForm" (ngSubmit)="updateData(f1)" novalidate>
             <div class="form-group row">
@@ -138,7 +134,7 @@
           </form>
          </div>
              <div *ngIf="test1">
-                 <h3>Ajouter un repertoire</h3>
+                 <h3>Ajouter une entrée</h3>
 
                <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate enctype="multipart/form-data">
                  <div class="form-group row">
@@ -166,7 +162,7 @@
                          <option>Services Financiers</option>
                      </select>
                      <small class="form-text error" *ngIf="ctrl2.invalid && ctrl2.touched && ctrl2.errors['required']">
-                         Champ Obligatoire!
+                         Champ obligatoire!
                      </small>
                    </div>
                  </div>
@@ -175,7 +171,7 @@
                    <div class="col-sm-9">
                      <input type="text" class="form-control" id="input3" placeholder="" name="adresse" [(ngModel)]="model.adresse"  #ctrl3="ngModel" [class.form-control-danger]="ctrl3.invalid && ctrl3.touched" required>
                      <small class="form-text error" *ngIf="ctrl3.invalid && ctrl3.touched && ctrl3.errors['required']">
-                       Champ Obligatoire!
+                       Champ obligatoire!
                      </small>
                    </div>
                  </div>
@@ -184,7 +180,7 @@
                    <div class="col-sm-9">
                      <input type="text" class="form-control" id="input4" placeholder="" name="ville" [(ngModel)]="model.ville"  #ctrl4="ngModel" [class.form-control-danger]="ctrl4.invalid && ctrl4.touched" required>
                      <small class="form-text error" *ngIf="ctrl4.invalid && ctrl4.touched && ctrl4.errors['required']">
-                         Champ Obligatoire!
+                         Champ obligatoire!
                      </small>
                    </div>
                  </div>

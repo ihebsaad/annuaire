@@ -20,7 +20,52 @@ var UserSchema = new Schema({
         type: String,
         required: true,
         default: 'simple'
-    }
+    },
+	    account:{
+        type: String,
+        required: false,
+        default: ''
+    },
+    company:{
+        type: String,
+        required: false,
+     }
+	,
+    cat1:{
+        type: Boolean,
+      }	,
+    cat2:{
+        type: Boolean,
+     }	,
+    cat3:{
+        type: Boolean,
+     }	,
+    cat4:{
+        type: Boolean,
+     }	,
+    cat5:{
+        type: Boolean,
+     }	,
+    cat6:{
+        type: Boolean,
+     }	,
+    cat7:{
+        type: Boolean,
+     }	,
+    cat8:{
+        type: Boolean,
+     }
+	/* ,
+	categories: [{
+              cat1: Boolean,
+              cat2: Boolean,
+              cat3: Boolean,
+              cat4: Boolean,
+              cat5: Boolean,
+              cat6: Boolean,
+              cat7: Boolean,
+              cat8: Boolean,
+            }]*/
 });
 
 UserSchema.pre('save', function (next) {

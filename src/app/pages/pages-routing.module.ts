@@ -13,6 +13,8 @@ import {AnnoncesComponent} from './annonces/annonces.component';
 import {ListingComponent} from './listing/listing.component';
 import {UsersComponent} from './users/users.component';
 import {MapComponent} from './dashboard/search-map/map/map.component';
+import {ProfileComponent} from './profile/profile.component';
+import {InterestComponent} from "./interest/interest.component";
 
 
 const routes: Routes = [{
@@ -59,7 +61,14 @@ const routes: Routes = [{
           path: 'users',
           component: UsersComponent,
       },
-
+      {
+          path: 'profile',
+          component: ProfileComponent,
+      },
+      {
+          path: 'interest',
+          component: InterestComponent,
+      },
       {
       path: '',
     //  redirectTo: 'accueil',

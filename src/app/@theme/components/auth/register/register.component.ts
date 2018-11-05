@@ -38,7 +38,7 @@ import{ NgxLoginComponent } from '../login/login.component';
                  [maxlength]="getConfigValue('forms.validation.fullName.maxLength')"
                  autofocus>
           <small class="form-text error" *ngIf="fullName.invalid && fullName.touched && fullName.errors['required']">
-            Le Nom est obligatoire!
+            Le nom est obligatoire!
           </small>
           <small
             class="form-text error"
@@ -103,20 +103,115 @@ import{ NgxLoginComponent } from '../login/login.component';
             Vérifiez les deux champs de mot de passe .
           </small>
         </div>
+          
+    <!--      
+          
+          <div class="form-group">
+              <label for="input-company" class="sr-only">Entreprise </label>
+              <input name="company" [(ngModel)]="user.company" id="input-company" #company="ngModel"
+                     class="form-control" placeholder="Entreprise"
+                     [class.form-control-danger]="company.invalid && company.touched"
+                     [required]="getConfigValue('forms.validation.company.required')"
+                     [minlength]="getConfigValue('forms.validation.company.minLength')"
+                     [maxlength]="getConfigValue('forms.validation.company.maxLength')"
+                     autofocus>
+              <small class="form-text error" *ngIf="company.invalid && company.touched && company.errors['required']">
+                  L 'entreprise est obligatoire!
+              </small>
+              <small
+                      class="form-text error"
+                      *ngIf="company.invalid && company.touched && (company.errors['minlength'] || company.errors['maxlength'])">
+                  l'entreprise doit contenir
+                  de  {{getConfigValue('forms.validation.company.minLength')}}
+                  à {{getConfigValue('forms.validation.company.maxLength')}}
+                  caractères
+              </small>
+          </div>
+          
+          
+          <div class="form-group">
+              <label style="margin-bottom:20px;margin-top:20px">Vous êtes intéressés par :</label><br>
+<div class="row" style="font-size:18px">
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+              <label class="container">
+                  <input type="checkbox" name="cat1" [(ngModel)]="user.cat1"  data-md-icheck (change)="toggleVisibility1($event)"/>
+                   <span >Finances</span>
+                  <span class="checkmark"></span>
+              </label>
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+        <label class="container">
+            <input type="checkbox" name="cat2" [(ngModel)]="user.cat2"  data-md-icheck (change)="toggleVisibility2($event)"/>
+             <span >Informatique</span>
 
-        <div class="form-group accept-group col-sm-12" *ngIf="getConfigValue('forms.register.terms')">
+            <span class="checkmark"></span>
+        </label>
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+        <label class="container">
+            <input type="checkbox" name="cat3" [(ngModel)]="user.cat3"  data-md-icheck (change)="toggleVisibility3($event)"/>
+             <span >Elécrtonique</span>
+
+            <span class="checkmark"></span>
+        </label>
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+        <label class="container">
+            <input type="checkbox" name="cat4" [(ngModel)]="user.cat4"  data-md-icheck (change)="toggleVisibility4($event)"/>
+            <span >Mécanique</span>
+            <span class="checkmark"></span>
+        </label>
+    </div>    
+ </div>
+              <div class="row" style="font-size:18px">
+              <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                  <label class="container">
+                      <input type="checkbox" name="cat5" [(ngModel)]="user.cat5"  data-md-icheck (change)="toggleVisibility5($event)"  />
+                      <span >Habillement</span>
+                      <span class="checkmark"></span>
+                  </label>
+              </div>
+              <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                  <label class="container">
+                      <input type="checkbox" name="cat6" [(ngModel)]="user.cat6"  data-md-icheck (change)="toggleVisibility6($event)"/>
+                      <span >Alimentaire</span>
+                      <span class="checkmark"></span>
+                  </label>
+              </div>
+              <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                  <label class="container">
+                      <input type="checkbox"  name="cat7" [(ngModel)]="user.cat7"  data-md-icheck (change)="toggleVisibility7($event)" />
+                      <span >Services</span>
+                      <span class="checkmark"></span>
+                  </label>
+              </div>
+              <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                  <label class="container">
+                      <input type="checkbox" name="cat8"[(ngModel)]="user.cat8"  data-md-icheck (change)="toggleVisibility8($event)" />
+                      <span >Autres</span>
+
+                      <span class="checkmark"></span>
+                  </label>
+              </div>
+          </div>
+          </div>
+
+          
+          -->
+          
+          
+          <div class="form-group accept-group col-sm-12" *ngIf="getConfigValue('forms.register.terms')">
           <nb-checkbox name="terms" [(ngModel)]="user.terms" [required]="getConfigValue('forms.register.terms')">
             Vous Acceptez les <a href="#" target="_blank"><strong>Termes et Conditions</strong></a>
           </nb-checkbox>
         </div>
-
         <button [disabled]="submitted || !form.valid" class="btn btn-block btn-hero-success"
                 [class.btn-pulse]="submitted">
           Enregistrer
         </button>
       </form>
 
-      <div class="links">
+<!--      <div class="links">
 
         <ng-container *ngIf="socialLinks && socialLinks.length > 0">
           <small class="form-text">connecter avec:</small>
@@ -140,7 +235,7 @@ import{ NgxLoginComponent } from '../login/login.component';
         <small class="form-text">
           Vous avez un compte? <a routerLink="../auth/login"><strong> Connexion</strong></a>
         </small>
-      </div>
+      </div>-->
     </nb-auth-block>
   `,
 })
@@ -156,6 +251,7 @@ export class NgxRegisterComponent {
   user: any = {};
   socialLinks: NbAuthSocialLink[] = [];
 
+
   constructor(protected service: NbAuthService,
               @Inject(NB_AUTH_OPTIONS) protected options = {},
               protected router: Router) {
@@ -164,7 +260,35 @@ export class NgxRegisterComponent {
     this.showMessages = this.getConfigValue('forms.register.showMessages');
     this.strategy = this.getConfigValue('forms.register.strategy');
     this.socialLinks = this.getConfigValue('forms.login.socialLinks');
+
   }
+
+    toggleVisibility1(e){
+         this.user.cat1=e.target.checked;;
+    }
+    toggleVisibility2(e){
+        this.user.cat2=e.target.checked;;
+
+    }
+    toggleVisibility3(e){
+        this.user.cat3=e.target.checked;;
+    }
+    toggleVisibility4(e){
+        this.user.cat4=e.target.checked;;
+    }
+
+    toggleVisibility5(e){
+        this.user.cat5=e.target.checked;;
+    }
+    toggleVisibility6(e){
+        this.user.cat6=e.target.checked;;
+    }
+    toggleVisibility7(e){
+        this.user.cat7=e.target.checked;;
+    }
+    toggleVisibility8(e){
+        this.user.cat8=e.target.checked;;
+    }
 
   register(): void {
     this.errors = this.messages = [];
@@ -191,21 +315,20 @@ export class NgxRegisterComponent {
         this.errors = result.getErrors();
       }
 
-
 });
-
 
      //end login after register
       } else {
         this.errors = result.getErrors();
       }
+        this.router.navigateByUrl('/interest');
 
-      const redirect = result.getRedirect();
+  /*    const redirect = result.getRedirect();
       if (redirect) {
         setTimeout(() => {
           return this.router.navigateByUrl(redirect);
         }, this.redirectDelay);
-      }
+      }*/
     });
   }
   

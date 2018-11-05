@@ -98,31 +98,50 @@ router.get('/add',(request,response)=>{
 
 //addsubmit
 router.post('/add',(request,response)=>{
+	console.log('Adding the user');
 
     request.checkBody('fullName','le nom est obligatoire').notEmpty()
     request.checkBody('email','l  email est obligatoire').notEmpty()
-    request.checkBody('satus','le status est obligatoire').notEmpty()
+    request.checkBody('status','le status est obligatoire').notEmpty()
+   // request.checkBody('company','entreprise obligatoire').notEmpty()
     // request.checkBody('ref','ref est oblig').notEmpty()
-    let errors=request.validationErrors()
+  /*  let errors=request.validationErrors()
     if(errors){
-        /* response.render('add',{
-         titre:'Ajouter un Répertoire',
-         errors:errors
-         }) */
+
+	
         response.json({
 
-            result : "failed to add the directory !"
+            result : "failed to add  !"
 
         });
-    }else {
+			console.log('erreur : '+errors);
+
+    }else {*/
         let user = new User();
         user.fullName = request.body.fullName ;
         user.email = request.body.email ;
         user.status = request.body.status ;
+        user.password = request.body.password ;
+         user.company = request.body.company ;
+         user.cat1 = request.body.cat1 ;
+         user.cat2 = request.body.cat2 ;
+         user.cat3 = request.body.cat3 ;
+         user.cat4 = request.body.cat4 ;
+         user.cat5 = request.body.cat5 ;
+         user.cat6 = request.body.cat6 ;
+         user.cat7 = request.body.cat7 ;
+         user.cat8 = request.body.cat8 ;
 
         user.save((error) => {
-            if (error) throw error
+			 console.log(' ajout utilisateur ..');
+
+            if (error) {
+				//throw error
+				console.log('erreur ajout'+error);
+			}
             else
+			 console.log(' ajout with no erros');
+
             /* request.flash('positive', "ajouté avec succès!")
              response.redirect('/users') */
                 response.json({
@@ -133,7 +152,7 @@ router.post('/add',(request,response)=>{
 
         })
 
-    }
+    /*}*/
 
 })
 
@@ -255,6 +274,24 @@ router.post('/edit/:id',(request,response)=>{
                 user.email = request.body.email ;
             if(request.body.status != null)
                 user.status = request.body.status ;
+			if(request.body.company != null)
+                user.company = request.body.company ;
+			if(request.body.cat1 != null)
+                user.cat1 = request.body.cat1 ;
+			if(request.body.cat2 != null)
+                user.cat2 = request.body.cat2 ;
+			if(request.body.cat3 != null)
+                user.cat3 = request.body.cat3 ;
+			if(request.body.cat4 != null)
+                user.cat4 = request.body.cat4 ;
+			if(request.body.cat5 != null)
+                user.cat5 = request.body.cat5 ;
+			if(request.body.cat6 != null)
+                user.cat6 = request.body.cat6 ;
+			if(request.body.cat7 != null)
+                user.cat7 = request.body.cat7 ;
+			if(request.body.cat8 != null)
+                user.cat8 = request.body.cat8 ;
 
             User.update({_id:request.params.id},user,(error)=>{
                 response.json({
@@ -301,5 +338,236 @@ router.post('/admin/', function (req, res) {
 
 
 });
+
+
+router.post('/changeentreprise/:email/:entreprise',(request,response)=>{
+
+console.log('Email : '+request.params.email);
+    User.findOne({ email: request.params.email},(err,user)=>{
+    if (err){console.log('erreur : '+err);}
+	
+		    let Company = request.params.entreprise;
+				user.company = Company ; 
+ console.log('company : '+request.params.entreprise);
+
+            User.update({email:request.params.email},user,(error)=>{
+                response.json({
+
+                    result : "success to update the user !"
+
+                });
+            console.log('success to update the user');
+
+            })
+
+        
+    })
+
+});
+
+
+router.post('/change/:email/:type',(request,response)=>{
+
+console.log('Email : '+request.params.email);
+    User.findOne({ email: request.params.email},(err,user)=>{
+    if (err){console.log('erreur : '+err);}
+	
+		    let Type= request.params.type;
+				user.account = Type ; 
+ 
+            User.update({email:request.params.email},user,(error)=>{
+                response.json({
+
+                    result : "success to update the user !"
+
+                });
+            console.log('success to update the user');
+
+            })
+
+        
+    })
+
+});
+
+ 
+
+router.post('/changecat/:email/:nbr/:val',(request,response)=>{
+
+console.log('Email : '+request.params.email);
+    User.findOne({ email: request.params.email},(err,user)=>{
+    if (err){console.log('erreur : '+err);}
+	
+	let Nbr =request.params.nbr;
+	console.log('Categorie : '+Nbr);
+	let Val =request.params.val;
+	   	console.log('Valeur : '+Val);
+
+
+	if (Nbr==1)
+	{ 		
+            user.cat1 = Val; 
+ 
+	}
+	if (Nbr==2)
+	{ 		
+             user.cat2 = Val; 
+
+	}
+	if (Nbr==3)
+	{ 		
+             user.cat3 = Val; 
+	}
+	if (Nbr==4)
+	{ 		
+             user.cat4 = Val; 
+
+	}
+	if (Nbr==5)
+	{ 		
+             user.cat5 = Val; 
+	}
+	if (Nbr==6)
+	{ 		
+             user.cat6 = Val; 
+
+	}
+	if (Nbr==7)
+	{ 		
+             user.cat7 = Val; 
+
+	}
+	if (Nbr==8)
+	{ 		
+             user.cat2 = Val; 
+
+	}	
+            User.update({email:request.params.email},user,(error)=>{
+                response.json({
+                    result : "success to update the user cat !"
+                });
+            console.log('success to update the user cat');
+            })	
+ 
+     
+});
+
+    });
+
+
+/**********************  Users Management  **************************/
+
+// Get List Users
+router.get('/', function (req, res) {
+	User.find({}, function (err, users)
+		{
+			if (err){console.log(err);}
+			else{
+				res.render('users/users',{
+					
+					  users:users
+					
+				});
+			}
+			 
+		});
+ 
+});
+
+router.get('/add',(request,response)=>{
+    response.render('users/add',{titre:'Ajouter un Utilisateur',errors:null})
+})
+/*
+//addsubmit
+router.post('/add',(request,response)=>{
+    request.checkBody('nom','le titre est obligatoire').notEmpty()
+    request.checkBody('prenom','la ville est obligatoire').notEmpty()
+    request.checkBody('adresse',"l'adresse est obligatoire").notEmpty()
+    request.checkBody('categorie',"la catégories est obligatoire").notEmpty()
+   // request.checkBody('ref','ref est oblig').notEmpty()
+    let errors=request.validationErrors()
+    if(errors){
+        response.render('add',{
+            titre:'Ajouter un Utilisateur',
+            errors:errors
+        })
+    }else {
+        let user = new User();
+        user.titre = request.body.titre ;
+        user.tel = request.body.tel ;
+        user.categorie = request.body.categorie ;
+        user.ville = request.body.ville ;
+        user.adresse = request.body.adresse ;
+        user.auteur = request.body.auteur;
+
+        user.save((error) => {
+            if (error) throw error
+            else
+                request.flash('positive', "ajouté avec succès!")
+            response.redirect('/users')
+
+        })
+
+    }
+})
+
+*/
+//get user
+router.get('/:id',(request,response)=>{
+
+    User.findById(request.params.id,(err,user)=>{
+			console.log(request.params.id);
+             response.render('users/edit',{
+                user:user//,
+              //  name: user.name
+            })
+ 
+    })
+
+})
+//sup user
+router.get('/delete/:id',(request,response)=>{
+                console.log("suppression")        
+                User.findByIdAndRemove(request.params.id, (err,user) => {
+					console.log(err);
+                    response.redirect('/users')
+                })
+        
+
+})
+//Get User/edit
+router.get('/edit/:id',(request,response)=>{
+
+    User.findById(request.params.id,(err,user)=>{
+        if(user.ref != request.user._id){
+            console.log(request.user._id)
+            request.flash('negative','not Authorized');
+            response.redirect('/users');
+        }else{
+        response.render('edit',{user:user})}
+    })
+
+})
+router.post('/edit/:id',(request,response)=>{
+    let user={};
+     user.nom = request.body.nom ;
+        user.prenom = request.body.prenom ;
+        user.email = request.body.email ;
+
+    User.update({_id:request.params.id},user,(error)=>{
+        request.flash('positive',"modifié avec succès !")
+        response.redirect('/users')
+
+    })
+})
+
+
+
+
+module.exports = router;
+
+
+
+
 
 module.exports = router;

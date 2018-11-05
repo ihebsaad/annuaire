@@ -3,10 +3,10 @@
 
            <nb-card-body>
 <div class="row">
-	<div class="col-xs-12 col-sm-12 col-md-6  col-lg-6 ">
+	<div class="col-xs-12 col-sm-12  ">
              <nb-card>
                <nb-card-header>
-                <h1>Liste des utiliateurs<!-- <button style="float:right" class="btn2" (click)="AfficherFormulaire1()"><i class="fa fa-plus" ></i></button>--></h1>
+                <h1>Liste des utilisateurs <button style="float:right" class="btn2" (click)="AfficherFormulaire1()"><i class="fa fa-plus" ></i></button></h1>
                </nb-card-header>
 
                <nb-card-body>
@@ -15,23 +15,26 @@
                    <tr>
                      <th class="text-center">Nom</th>
                      <th class="text-center">Email</th>
-                     <th class="text-center">Status</th>
+                       <th class="text-center">Status</th>
+                       <th class="text-center">Type</th>
+                       <th class="text-center">Company</th>
                      <th class="text-center">Action</th>
                    </tr>
                    <tr *ngFor="let elt of data | paginate: {itemsPerPage: 5, currentPage:page, id: '1'} ">
                        <td class="pt-3-half" contenteditable="false">{{elt.fullName}}</td>
                        <td class="pt-3-half" contenteditable="false">{{elt.email}}</td>
-                     <td class="pt-3-half" contenteditable="false">{{elt.status}}</td>
+                       <td class="pt-3-half" contenteditable="false">{{elt.status}}</td>
+                       <td class="pt-3-half" contenteditable="false">{{elt.account}}</td>
+                       <td class="pt-3-half" contenteditable="false">{{elt.company}}</td>
                      <td>
                           <span>
                              <button class="btn1" (click)="AfficherFormulaire(); getId(elt._id)"><i class="fa fa-edit"></i></button>
                              <button class="btn3" (click)="showStaticModal(elt._id);"   ><i class="fa fa-trash"></i></button>
                           </span>
-
                      </td>
                     </tr>
-
                  </table>
+
                   <div>
                   </div>
 
@@ -52,7 +55,7 @@
 	</div><!--col-->
 
 <div class="row">
-<div  >
+    <div  >
 	<div   style="width:100%;padding-top:70px;padding-left:50px;padding-right:30px;margin-bottom:50px">
          <div *ngIf="test">
 		 	<h3>Modifier </h3>
@@ -65,17 +68,87 @@
               </div>
             </div>
             <div class="form-group row">
-              <label for="input10" class="c  col-form-label">Email</label>
+              <label for="input9" class="c  col-form-label">Email</label>
               <div  >
                 <input type="text" class="form-control" id="input9" placeholder="" name="email"  [(ngModel)]="model1.email">
               </div>
             </div>
               <div class="form-group row">
-                  <label for="input10" class="c  col-form-label">Status</label>
+                  <label for="input120" class="  col-form-label">Status</label>
                   <div  >
-                      <input type="text" class="form-control" id="input10" placeholder="" name="status"  [(ngModel)]="model1.status">
+                      <input type="text" class="form-control" id="input120" placeholder="" name="status"  [(ngModel)]="model1.status">
                   </div>
               </div>
+              <div class="form-group row">
+                  <label for="input140" class=" col-form-label">Entreprise</label>
+                  <div  >
+                      <input type="text" class="form-control" id="input140" placeholder="" name="company"  [(ngModel)]="model1.company">
+                  </div>
+              </div>
+
+              <div class="row" style="font-size:18px">
+                  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                      <label class="container">
+                          <input type="checkbox" name="cat1" [(ngModel)]="model1.cat1"  data-md-icheck (change)="toggleVisibility1($event)"/>
+                          <span >Finances</span>
+                          <span class="checkmark"></span>
+                      </label>
+                  </div>
+                  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                      <label class="container">
+                          <input type="checkbox" name="cat2" [(ngModel)]="model1.cat2"  data-md-icheck (change)="toggleVisibility2($event)"/>
+                          <span >Informatique</span>
+                          <span class="checkmark"></span>
+                      </label>
+                  </div>
+                  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                      <label class="container">
+                          <input type="checkbox" name="cat3" [(ngModel)]="model1.cat3"  data-md-icheck (change)="toggleVisibility3($event)"/>
+                          <span >Eléctronique</span>
+                          <span class="checkmark"></span>
+                      </label>
+                  </div>
+                  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                      <label class="container">
+                          <input type="checkbox" name="cat4" [(ngModel)]="model1.cat4"  data-md-icheck (change)="toggleVisibility4($event)"/>
+                          <span >Mécanique</span>
+                          <span class="checkmark"></span>
+                      </label>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                      <label class="container">
+                          <input type="checkbox" name="cat5" [(ngModel)]="model1.cat5"  data-md-icheck (change)="toggleVisibility5($event)"  />
+                          <span >Habillement</span>
+                          <span class="checkmark"></span>
+                      </label>
+                  </div>
+                  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                      <label class="container">
+                          <input type="checkbox" name="cat6" [(ngModel)]="model1.cat6"  data-md-icheck (change)="toggleVisibility6($event)"/>
+                          <span >Alimentaire</span>
+                          <span class="checkmark"></span>
+                      </label>
+                  </div>
+                  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                      <label class="container">
+                          <input type="checkbox"  name="cat7" [(ngModel)]="model1.cat7"  data-md-icheck (change)="toggleVisibility7($event)" />
+                          <span >Services</span>
+                          <span class="checkmark"></span>
+                      </label>
+                  </div>
+                  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                      <label class="container">
+                          <input type="checkbox" name="cat8"[(ngModel)]="model1.cat8"  data-md-icheck (change)="toggleVisibility8($event)" />
+                          <span >Autres</span>
+
+                          <span class="checkmark"></span>
+                      </label>
+                  </div>
+
+              </div>
+
             <div class="form-group row" style="padding-left:100px">
               <div class="    ">
                 <button type="submit" class="btn btn-warning">Modifier</button>
@@ -85,8 +158,132 @@
           </form>
          </div>
 	</div><!--col-->
-		 
-	<div  style="width:100%;padding-left:50px;padding-right:30px">
+
+
+    <div  class="row" style="margin-left:50px">
+        <div  >
+            <div *ngIf="test1">
+                <h3>Ajouter </h3>
+
+                <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+                    <div class="form-group row">
+                        <label for="input101" class="  col-form-label">Nom</label>
+                        <div  >
+                            <input type="text" class="form-control" id="input101" placeholder="" name="fullName" [(ngModel)]="model.fullName">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                    <label for="input102" class="  col-form-label">Email</label>
+                    <div  >
+                        <input type="text" class="form-control" id="input102" placeholder="" name="email"  [(ngModel)]="model.email">
+                    </div>
+                </div>
+                    <div class="form-group row">
+                        <label for="input103" class="  col-form-label">Password</label>
+                        <div  >
+                            <input type="password" class="form-control" id="input103" placeholder="" name="password"  [(ngModel)]="model.password">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="input104" class=" col-form-label">Status</label>
+                        <div  >
+                            <input type="text" class="form-control" id="input104" placeholder="" name="status"  [(ngModel)]="model.status">
+                        </div>
+                    </div>
+                     <div class="form-group row">
+                        <label for="input14" class=" col-form-label">Entreprise</label>
+                        <div  >
+                            <input type="text" class="form-control" id="input14" placeholder="" name="company"  [(ngModel)]="model.company">
+                        </div>
+                    </div>
+
+
+                    <div class="row" style="font-size:18px">
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                            <label class="container">
+                                <input type="checkbox" name="cat1" [(ngModel)]="model.cat1"  data-md-icheck (change)="toggleVisibility1($event)"/>
+                                <span >Finances</span>
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                            <label class="container">
+                                <input type="checkbox" name="cat2" [(ngModel)]="model.cat2"  data-md-icheck (change)="toggleVisibility2($event)"/>
+                                <span >Informatique</span>
+
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                            <label class="container">
+                                <input type="checkbox" name="cat3" [(ngModel)]="model.cat3"  data-md-icheck (change)="toggleVisibility3($event)"/>
+                                <span >Eléctronique</span>
+
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                            <label class="container">
+                                <input type="checkbox" name="cat4" [(ngModel)]="model.cat4"  data-md-icheck (change)="toggleVisibility4($event)"/>
+                                <span >Mécanique</span>
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                            <label class="container">
+                                <input type="checkbox" name="cat5" [(ngModel)]="model.cat5"  data-md-icheck (change)="toggleVisibility5($event)"  />
+                                <span >Habillement</span>
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                            <label class="container">
+                                <input type="checkbox" name="cat6" [(ngModel)]="model.cat6"  data-md-icheck (change)="toggleVisibility6($event)"/>
+                                <span >Alimentaire</span>
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                            <label class="container">
+                                <input type="checkbox"  name="cat7" [(ngModel)]="model.cat7"  data-md-icheck (change)="toggleVisibility7($event)" />
+                                <span >Services</span>
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                            <label class="container">
+                                <input type="checkbox" name="cat8"[(ngModel)]="model.cat8"  data-md-icheck (change)="toggleVisibility8($event)" />
+                                <span >Autres</span>
+
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+
+                        <div class="form-group row" style="padding-left:100px">
+                            <div class="    ">
+                                <button type="submit" class="btn btn-warning">Ajouter</button>
+                                <button type="button" class="btn " style="margin-left: 10px;background-color:#848484" (click)="cacherFormulaire1()">Annuler</button>
+                            </div>
+                        </div>
+                     </div>
+
+            </form>
+            </div>
+        </div><!--col-->
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <div  style="width:100%;padding-left:50px;padding-right:30px">
 		 <!--
              <div *ngIf="test1">
 	<h3>Ajouter une catégorie</h3>

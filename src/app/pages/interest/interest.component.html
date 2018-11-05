@@ -1,0 +1,87 @@
+
+<form  #form="ngForm">
+
+<div class="form-group">
+    <label for="company"  >Entreprise </label>
+    <input name="company"  id="company"   style="max-width: 300px" (change)="changeEnterprise($event)"
+           class="form-control" placeholder="votre Entreprise"
+
+           autofocus>
+  <!--  <small class="form-text error" *ngIf="company.invalid && company.touched && company.errors['required']">
+        L 'entreprise est obligatoire!
+    </small>-->
+
+</div>
+
+
+<div class="form-group">
+    <label style="margin-bottom:20px;margin-top:20px">Vous êtes intéressés par :</label><br>
+    <div class="row" style="font-size:18px">
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+            <label class="container">
+                <input type="checkbox" name="cat1" [(ngModel)]="user.cat1"  data-md-icheck (change)="toggleVisibility1($event);"/>
+                <span >Finances</span>
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+            <label class="container">
+                <input type="checkbox" name="cat2" [(ngModel)]="user.cat2"  data-md-icheck (change)="toggleVisibility2($event);"/>
+                <span >Informatique</span>
+
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+            <label class="container">
+                <input type="checkbox" name="cat3" [(ngModel)]="user.cat3"  data-md-icheck (change)="toggleVisibility3($event);"/>
+                <span >Elécrtonique</span>
+
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+            <label class="container">
+                <input type="checkbox" name="cat4" [(ngModel)]="user.cat4"  data-md-icheck (change)="toggleVisibility4($event);"/>
+                <span >Mécanique</span>
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div>
+    <div class="row" style="font-size:18px">
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+            <label class="container">
+                <input type="checkbox" name="cat5" [(ngModel)]="user.cat5"  data-md-icheck (change)="toggleVisibility5($event);"  />
+                <span >Habillement</span>
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+            <label class="container">
+                <input type="checkbox" name="cat6" [(ngModel)]="user.cat6"  data-md-icheck (change)="toggleVisibility6($event);"/>
+                <span >Alimentaire</span>
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+            <label class="container">
+                <input type="checkbox"  name="cat7" [(ngModel)]="user.cat7"  data-md-icheck (change)="toggleVisibility7($event);" />
+                <span >Services</span>
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+            <label class="container">
+                <input type="checkbox" name="cat8"[(ngModel)]="user.cat8"  data-md-icheck (change)="toggleVisibility8($event);" />
+                <span >Autres</span>
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <button [disabled]="" class="btn2" (click)="next()"  type="submit" ><i class="fa fa-arrow-right"></i> Suivant</button>
+</div>
+
+</form>
