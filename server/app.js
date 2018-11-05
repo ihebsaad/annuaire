@@ -31,9 +31,6 @@ db.on('error',function(err){
 
 });
 
-app.route('/*').get(function(req, res) { 
-    return res.sendFile(path.join(__dirname, 'public/index.html')); 
-});
 
 app.use('/',require('./routes/api'));
 app.use('/annonces',require('./routes/annonces'));
