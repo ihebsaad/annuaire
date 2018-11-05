@@ -23,7 +23,7 @@ import {ModalComponent4} from './articles/modal/modal.component';
 import {ModalComponent5} from './users/modal/modal.component';
 import {FormsModule} from '@angular/forms';
 import {Ng2PaginationModule} from 'ng2-pagination';
-import { FileSelectDirective } from 'ng2-file-upload';
+//////import { FileSelectDirective } from 'ng2-file-upload';
 import { HttpModule } from '@angular/http';
 import { RateComponent } from './dashboard/rate/rate.component';
 import {InterestComponent} from "./interest/interest.component";
@@ -44,7 +44,7 @@ const PAGES_COMPONENTS = [
   ],
   declarations: [
     ...PAGES_COMPONENTS,
-    BlogComponent,FileSelectDirective,
+    BlogComponent,//////FileSelectDirective,
     DirectoriesComponent,
     ContactComponent,
     CategoriesComponent,RateComponent,
