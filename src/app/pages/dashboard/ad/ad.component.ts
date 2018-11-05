@@ -13,13 +13,13 @@ export class AdComponent implements OnDestroy {
     source = 'assets/hotel.jpg';
 
     constructor(private themeService: NbThemeService) {
-        this.themeSubscription = this.themeService.getJsTheme().subscribe(theme => {
-            this.currentTheme = theme.name;
-        });
+    ////////    this.themeSubscription = this.themeService.getJsTheme().subscribe(theme => {
+     //////       this.currentTheme = theme.name;
+     /////   });
     }
 
-    ngOnDestroy() {
-        this.themeSubscription.unsubscribe();
+   ngOnDestroy() {
+/////        this.themeSubscription.unsubscribe();
     }
 
 }
