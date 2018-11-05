@@ -39,10 +39,12 @@ app.use('/categories',require('./routes/categories'));
 app.use('/users',require('./routes/users'));
 app.use('/repertoires',require('./routes/repertoires'));
 //app.use('/contact',require('./routes/contact'));
+app.use('/auth/register',require('./routes/users'));
+app.use('/auth/login',require('./routes/users'));
 
 
 app.use(function(req, res, next) {
-   // res.header("Access-Control-Allow-Origin", "http://test7.enterpriseesolutions.com:4200");
+     res.header("Access-Control-Allow-Origin", "*");
      res.header("Access-Control-Allow-Origin", "http://localhost:4200");
    // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
