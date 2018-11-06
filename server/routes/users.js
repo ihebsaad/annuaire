@@ -22,19 +22,7 @@ router.use(expressValidator());
 
 router.use(cors(corsOptions));
 
-
-
-
-// Register
-router.get('auth/register', function (req, res) {
-	res.render('register');
-});
-
-// Login
-router.get('auth/login', function (req, res) {
-	res.render('login');
-});
-
+ 
 
 
 

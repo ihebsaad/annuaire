@@ -76,7 +76,7 @@ const routes: Routes = [
   ],
   bootstrap: [AppComponent],
   providers: [AppService,AuthenticationService,
-    { provide: APP_BASE_HREF, useValue: '/' },
+    { provide: APP_BASE_HREF,  useValue: window['_app_base'] || '/' },
   ],
 })
 export class AppModule {
