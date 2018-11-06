@@ -21,7 +21,7 @@ if (window.location.hostname == 'localhost')
 }
 else{ URL= 'http://test7.enterpriseesolutions.com';}
 
-URL= 'http://localhos:3000';
+URL= 'http://localhost:3000';
 //API_URL: 'http://test7.enterpriseesolutions.com';
 
 export const environment =

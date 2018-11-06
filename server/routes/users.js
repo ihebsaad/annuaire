@@ -10,13 +10,29 @@ var cors = require('cors');
 var corsOptions = {
 
     origin: 'http://localhost:4200',
-    // origin: 'http://'+window.location.hostname+':4200',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+    //   origin: 'http://'+window.location.hostname+':4200',
+	   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
 router.use(expressValidator());
 
 router.use(cors(corsOptions));
+
+
+
+
+// Register
+router.get('/register', function (req, res) {
+	res.render('register');
+});
+
+// Login
+router.get('/login', function (req, res) {
+	res.render('login');
+});
+
+
+
 
 // Get List Users
 router.get('/', function (req, res) {
@@ -560,14 +576,6 @@ router.post('/edit/:id',(request,response)=>{
 
     })
 })
-
-
-
-
-module.exports = router;
-
-
-
-
+ 
 
 module.exports = router;
