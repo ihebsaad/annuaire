@@ -31,6 +31,9 @@ db.on('error',function(err){
 
 });
 
+app.use('/auth/register',require('./routes/users'));
+app.use('/auth/login',require('./routes/users'));
+
 
 app.use('/',require('./routes/api'));
 app.use('/annonces',require('./routes/annonces'));
