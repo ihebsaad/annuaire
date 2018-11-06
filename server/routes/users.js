@@ -23,8 +23,17 @@ router.use(expressValidator());
 router.use(cors(corsOptions));
 
  
+router.get('/auth/login',(request,response)=>{
 
+  response.render('auth/login',{titre:'login' , errors:null})
+ 
+});
 
+router.get('/auth/register',(request,response)=>{
+
+  response.render('auth/register',{titre:'register' , errors:null})
+ 
+});
 
 // Get List Users
 router.get('/', function (req, res) {
