@@ -6,14 +6,18 @@ var expressValidator = require('express-validator');
 var User = require('../models/user');
 var cors = require('cors');
 
-
+const corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+/*
 var corsOptions = {
 
     origin: 'http://localhost:4200',
     //   origin: 'http://'+window.location.hostname+':4200',
 	   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
-
+*/
 router.use(expressValidator());
 
 router.use(cors(corsOptions));
@@ -22,12 +26,12 @@ router.use(cors(corsOptions));
 
 
 // Register
-router.get('/register', function (req, res) {
+router.get('auth/register', function (req, res) {
 	res.render('register');
 });
 
 // Login
-router.get('/login', function (req, res) {
+router.get('auth/login', function (req, res) {
 	res.render('login');
 });
 
