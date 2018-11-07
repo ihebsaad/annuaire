@@ -3,7 +3,7 @@
  * Copyright Akveo. All Rights Reserved.
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
-import { APP_BASE_HREF } from '@angular/common';
+import {APP_BASE_HREF, HashLocationStrategy, LocationStrategy} from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -76,7 +76,7 @@ const routes: Routes = [
   ],
   bootstrap: [AppComponent],
   providers: [AppService,AuthenticationService,
-    { provide: APP_BASE_HREF, useValue: '/' },
+    { provide: APP_BASE_HREF, useValue: '/' },{provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
 })
 export class AppModule {
