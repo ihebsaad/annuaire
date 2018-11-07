@@ -23,20 +23,21 @@ router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({extended: true}));
 
 
-router.get('/test2', function(req, res) {
+router.post('/test2', function(req, res) {
     res.send('this is a sample!');  
 });
 
-router.get('/auth/login', function(req, res) {
+router.post('/auth/login', function(req, res) {
+    res.send(res);  
 
 });
-router.get('/auth/register', function(req, res) {
+router.post('/auth/register', function(req, res) {
 
 });
-router.get('/profile', function(req, res) {
+router.post('/profile', function(req, res) {
 
 });
-router.get('/interest', function(req, res) {
+router.post('/interest', function(req, res) {
 
 });
 
