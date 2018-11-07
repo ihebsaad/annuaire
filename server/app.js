@@ -36,13 +36,13 @@ db.on('error',function(err){
 
 app.use('/auth/login', function (req, res, next) {
    // res.send(req.params)
-     console.log('Time:', Date.now());
+   //  console.log('Time:', Date.now());
 
 });
 
 app.use('/auth/register', function (req, res, next) {
   //  res.send(req.params)
-    console.log('Now:', Date.now());
+   // console.log('Now:', Date.now());
 
 });
 
