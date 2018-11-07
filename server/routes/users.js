@@ -6,34 +6,17 @@ var expressValidator = require('express-validator');
 var User = require('../models/user');
 var cors = require('cors');
 
-const corsOptions = {
-    origin: '*',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
-/*
+
 var corsOptions = {
 
     origin: 'http://localhost:4200',
-    //   origin: 'http://'+window.location.hostname+':4200',
-	   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+    // origin: 'http://'+window.location.hostname+':4200',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
-*/
+
 router.use(expressValidator());
 
 router.use(cors(corsOptions));
-
- 
-router.get('/auth/login',(request,response)=>{
-
-  response.render('auth/login',{titre:'login' , errors:null})
- 
-});
-
-router.get('/auth/register',(request,response)=>{
-
-  response.render('auth/register',{titre:'register' , errors:null})
- 
-});
 
 // Get List Users
 router.get('/', function (req, res) {
@@ -577,6 +560,14 @@ router.post('/edit/:id',(request,response)=>{
 
     })
 })
- 
+
+
+
+
+module.exports = router;
+
+
+
+
 
 module.exports = router;
