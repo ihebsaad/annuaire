@@ -32,7 +32,7 @@ db.on('error',function(err){
 });
 
 
-
+/*
 
 app.use('/auth/login', function (req, res, next) {
    // res.send(req.params)
@@ -45,7 +45,7 @@ app.use('/auth/register', function (req, res, next) {
    // console.log('Now:', Date.now());
 
 });
-
+*/
 
 
 app.use('/',require('./routes/api'));

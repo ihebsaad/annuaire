@@ -18,6 +18,25 @@ router.use(expressValidator());
 
 router.use(cors(corsOptions));
 
+
+router.post('/auth/register',(request,response)=>{
+});
+
+
+router.post('/auth/login',(request,response)=>{
+});
+
+router.post('/pofile',(request,response)=>{
+});
+
+router.post('/interest',(request,response)=>{
+});
+
+
+
+
+
+
 // Get List Users
 router.get('/', function (req, res) {
     User.find({}, function (err, users)
