@@ -23,6 +23,24 @@ router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({extended: true}));
 
 
+router.get('/test2', function(req, res) {
+    res.send('this is a sample!');  
+});
+
+router.get('/auth/login', function(req, res) {
+
+});
+router.get('/auth/register', function(req, res) {
+
+});
+router.get('/profile', function(req, res) {
+
+});
+router.get('/interest', function(req, res) {
+
+});
+
+
 router.post('/signup', function(req, res) {
     if (!req.body.email || !req.body.password ||!req.body.fullName) {
         res.json({success: false, msg: 'Please pass email and password.'});

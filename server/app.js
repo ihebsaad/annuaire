@@ -47,22 +47,7 @@ app.use('/auth/register', function (req, res, next) {
 });
 */
 
-router.get('/test2', function(req, res) {
-    res.send('this is a sample!');  
-});
 
-router.get('/auth/login', function(req, res) {
-
-});
-router.get('/auth/register', function(req, res) {
-
-});
-router.get('/profile', function(req, res) {
-
-});
-router.get('/interest', function(req, res) {
-
-});
 
 app.use('/',require('./routes/api'));
 app.use('/annonces',require('./routes/annonces'));
