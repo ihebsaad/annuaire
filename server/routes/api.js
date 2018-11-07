@@ -39,10 +39,10 @@ router.get('/profile', function(req, res) {
     res.render('/profile',{titre:'Profil' , errors:null})
 
 });
-router.render('/interest', function(req, res) {
+///router.render('/interest', function(req, res) {
   //  res.render('/interest',{titre:'interêt' , errors:null})
 
-});
+///});
 
 
 router.post('/signup', function(req, res) {
