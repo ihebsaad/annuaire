@@ -39,7 +39,7 @@ router.get('/profile', function(req, res) {
     res.render('/profile',{titre:'Profil' , errors:null})
 
 });
-router.get('/interest', function(req, res) {
+router.render('/interest', function(req, res) {
     res.render('/interest',{titre:'interêt' , errors:null})
 
 });
