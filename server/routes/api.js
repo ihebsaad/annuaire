@@ -40,7 +40,7 @@ router.get('/profile', function(req, res) {
 
 });
 router.render('/interest', function(req, res) {
-    res.render('/interest',{titre:'interêt' , errors:null})
+  //  res.render('/interest',{titre:'interêt' , errors:null})
 
 });
 
