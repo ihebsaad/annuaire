@@ -28,16 +28,19 @@ router.get('/test2', function(req, res) {
 });
 
 router.get('/auth/login', function(req, res) {
-    res.send(res);  
+    res.send();  
 
 });
 router.get('/auth/register', function(req, res) {
+    res.render('/auth/register',{titre:'Inscription' , errors:null})
 
 });
 router.get('/profile', function(req, res) {
+    res.render('/profile',{titre:'Profil' , errors:null})
 
 });
 router.get('/interest', function(req, res) {
+    res.render('/interest',{titre:'interêt' , errors:null})
 
 });
 
