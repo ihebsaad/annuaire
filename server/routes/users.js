@@ -18,18 +18,23 @@ router.use(expressValidator());
 
 router.use(cors(corsOptions));
 
-
-router.post('/auth/register',(request,response)=>{
+// sample route with a route the way we're used to seeing it
+router.get('/test', function(req, res) {
+    res.send('this is a sample!');  
 });
 
 
-router.post('/auth/login',(request,response)=>{
+router.get('/auth/register',(request,response)=>{
 });
 
-router.post('/pofile',(request,response)=>{
+
+router.get('/auth/login',(request,response)=>{
 });
 
-router.post('/interest',(request,response)=>{
+router.get('/pofile',(request,response)=>{
+});
+
+router.get('/interest',(request,response)=>{
 });
 
 
