@@ -33,11 +33,11 @@ db.on('error',function(err){
 
 
 
-router.get('/auth/login', function (req, res, next) {
+app.use('/auth/login', function (req, res, next) {
     res.send(req.params)
 });
 
-router.get('/auth/register', function (req, res, next) {
+app.use('/auth/register', function (req, res, next) {
     res.send(req.params)
 });
 
