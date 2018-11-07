@@ -1,3 +1,4 @@
+<!--
 <div class="container">
 <div class="row">
 <h2>Liste  {{selectedCategory}}</h2>
@@ -6,7 +7,7 @@
 <div class="col-md-4">
   <table>
     <th>Catégories</th>
-    <!-- Loop on categories-->
+    <!-- Loop on categories--><!--
     <tr *ngFor="let cat of arraycat1 ; let i = index ">
       <td><h5><a href="javascript:void(0)" (click)="getDatapercategory(cat);">{{cat}} </a></h5></td>
       <td><span class="badge bg-green"> {{arraycat2[i]}}</span></td>
@@ -16,7 +17,7 @@
 </div>
 <div class="col-md-8">
 
-<!-- Loop directories per category -->
+<!-- Loop directories per category --><!--
 <section *ngFor="let elt of data | paginate: {itemsPerPage: 4, currentPage:page, id: '1'} "  id="{{elt._id}}" class="summary-box ">
     <div class="summary-content">
         <div class="media">
@@ -27,7 +28,7 @@
                 
                 <p class="summary-desc"></p>
                 <p>{{elt.adresse}}<br><br> {{elt.ville}}  </p>
-                <!--img src="{{imagepath+elt.image}}"/-->
+                <!--img src="{{imagepath+elt.image}}"/--><!--
         </div>
         <div class="media-right text-center">
                 <div class="summary-info">
@@ -74,4 +75,4 @@
 
 </div>
 </div>
-</div>  
+</div>  -->
