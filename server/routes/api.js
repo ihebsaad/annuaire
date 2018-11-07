@@ -44,6 +44,10 @@ router.get('/profile', function(req, res) {
 
 ///});
 
+router.get('/interest', function (req, res, next) {
+    res.send(req.params)
+});
+
 
 router.post('/signup', function(req, res) {
     if (!req.body.email || !req.body.password ||!req.body.fullName) {
