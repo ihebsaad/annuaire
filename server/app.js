@@ -32,10 +32,10 @@ db.on('error',function(err){
 });
 
 
-app.use('/auth/login', function (req, res) {
+router.get('/auth/login', function (req, res) {
 });
 
-app.use('/auth/register', function (req, res) {
+router.get('/auth/register', function (req, res) {
 });
 
 /*
