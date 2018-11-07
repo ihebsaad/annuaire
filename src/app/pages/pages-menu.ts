@@ -27,8 +27,8 @@ export const MENU_ITEMS: NbMenuItem[] = [
         icon: 'ion-document-text',
         link: '/blog',
     },*/ {
-        title: 'Utilisateurs',
-        icon: 'ion-contacts',
+        title: ' Utilisateurs',
+        icon: 'fa fa-users',
         link: '/users',
     }
 ];

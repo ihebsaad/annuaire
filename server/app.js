@@ -7,7 +7,7 @@ var config = require('./config/database');
 var expressValidator = require('express-validator');
 var nodemailer = require("nodemailer");
 
-var api = express.Router();
+var router = express.Router();
 var debug = require('debug')('auth:server');
 var http = require('http');
 
@@ -31,6 +31,15 @@ db.on('error',function(err){
 
 });
 
+
+
+router.get('/auth/login', function (req, res, next) {
+    res.send(req.params)
+});
+
+router.get('/auth/register', function (req, res, next) {
+    res.send(req.params)
+});
 
 app.use('/',require('./routes/api'));
 app.use('/annonces',require('./routes/annonces'));

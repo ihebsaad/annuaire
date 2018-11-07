@@ -14,40 +14,40 @@ import {getDeepFromObject} from '@nebular/auth/helpers';
   styleUrls: ['./request-password.component.scss'],
   template: `
     <nb-auth-block>
-      <h2 class="title">Forgot Password</h2>
-      <small class="form-text sub-title">Enter your email adress and we’ll send a link to reset your password</small>
+      <h2 class="title">Mot de passe oublié</h2>
+      <small class="form-text sub-title">Entrer votre adresse email pour reçevoir le lien du changement du mot de passe</small>
       <form (ngSubmit)="requestPass()" #requestPassForm="ngForm">
 
         <div *ngIf="showMessages.error && errors && errors.length > 0 && !submitted"
              class="alert alert-danger" role="alert">
-          <div><strong>Oh snap!</strong></div>
+          <div><strong>Email Inexistnant!</strong></div>
           <div *ngFor="let error of errors">{{ error }}</div>
         </div>
         <div *ngIf="showMessages.success && messages && messages.length > 0 && !submitted"
              class="alert alert-success" role="alert">
-          <div><strong>Hooray!</strong></div>
+          <div><strong>Merci!</strong></div>
           <div *ngFor="let message of messages">{{ message }}</div>
         </div>
 
         <div class="form-group">
-          <label for="input-email" class="sr-only">Enter your email address</label>
+          <label for="input-email" class="sr-only">Entrer votre adresse email</label>
           <input name="email" [(ngModel)]="user.email" id="input-email" #email="ngModel"
                  class="form-control" placeholder="Email address" pattern=".+@.+\..+"
                  [class.form-control-danger]="email.invalid && email.touched"
                  [required]="getConfigValue('forms.validation.email.required')"
                  autofocus>
           <small class="form-text error" *ngIf="email.invalid && email.touched && email.errors['required']">
-            Email is required!
+            Adresse email est obligatoire!
           </small>
           <small class="form-text error"
                  *ngIf="email.invalid && email.touched && email.errors['pattern']">
-            Email should be the real one!
+            Email incorrect!
           </small>
         </div>
 
         <button [disabled]="submitted || !requestPassForm.form.valid" class="btn btn-hero-success btn-block"
                 [class.btn-pulse]="submitted">
-          Request password
+          Demander le mot de passe
         </button>
       </form>
 
