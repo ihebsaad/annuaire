@@ -44,4 +44,10 @@ id:any;
 
     }
 
+    previous()
+    {
+        this.router.navigateByUrl('/interest');
+
+    }
+
 }

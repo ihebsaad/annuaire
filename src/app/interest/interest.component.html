@@ -4,7 +4,7 @@
             <nb-card-body>
                 <div class="flex-centered col-xl-12 col-lg-12 col-md-12 col-sm-12">
                     <router-outlet></router-outlet>
-
+                    <br><br>
 <form  #form="ngForm">
 
 <div class="form-group">
@@ -87,9 +87,12 @@
 </div>
 
 <div class="row">
-    <button [disabled]="" class="btn2" (click)="next()"  type="submit" ><i class="fa fa-arrow-right"></i> Suivant</button>
+    <div class="col-md-10 col-lg-10"></div>
+    <div class="col-md-2 col-lg-2">
+        <button [disabled]="" class="btn2" (click)="next()"  type="submit" ><i class="fa fa-arrow-right"></i> Suivant</button>
+    </div>
 </div>
-
+    <br><br>
 </form>
 
 <style>

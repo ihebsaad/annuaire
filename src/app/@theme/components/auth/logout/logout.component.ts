@@ -39,16 +39,17 @@ localStorage.removeItem('auth_app_token');
         this.router.navigateByUrl('/');
 
  // this.router.navigateByUrl('/home');
-/*
-      const redirect = result.getRedirect();
+
+    /*  const redirect = result.getRedirect();
     if (redirect) {
         setTimeout(() => {
           return this.router.navigateByUrl(redirect);
         }, this.redirectDelay);
-      }
+      }*/
+
     });
     //localStorage.removeItem(key);
-*/
+
     console.log('logout')
   }
 
