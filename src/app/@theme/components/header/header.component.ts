@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   @Input() position = 'normal';
 username:any;
   user: any;
-
+useremail:any;
   userMenu = [{ title: 'Profile' }, { title: 'Log out' }];
 
   constructor(private sidebarService: NbSidebarService,
@@ -31,6 +31,9 @@ username:any;
        this.username=resp.result;
          //return resp.result; 
       });
+
+       this.useremail=localStorage.getItem('email');
+
   }
 
   ngOnInit() {
