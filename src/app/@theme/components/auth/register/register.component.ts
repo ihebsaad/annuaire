@@ -326,7 +326,7 @@ export class NgxRegisterComponent {
       } else {
         this.errors = result.getErrors();
       }
-        this.router.navigateByUrl('/interest');
+        this.router.navigateByUrl('/#/interest');
 
   /*    const redirect = result.getRedirect();
       if (redirect) {
