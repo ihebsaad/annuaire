@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'ngx-footer',
   styleUrls: ['./footer.component.scss'],
   template: `
-      <span class="created-by">Premier annuaire en Tunisie avec "Smart Search"</span>
+      <span class="created-by">Annuaire des entreprise © 2018</span>
     <div class="socials">
         <a href="#" target="_blank" class="ion ion-social-facebook"></a>
         <a href="#" target="_blank" class="ion ion-social-twitter"></a>

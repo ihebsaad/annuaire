@@ -5,6 +5,7 @@ import {ModalComponent5} from './modal/modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {User} from './model/user';
 import {NgForm} from '@angular/forms';
+import {Router} from "@angular/router";
 //import {AfterContentChecked, AfterContentInit, AfterViewChecked, DoCheck} from '@angular/core';
 @Component({
   selector: 'users',
@@ -27,7 +28,13 @@ model: any = {};
     test1: boolean = false;
     page : any;
 
-  constructor(private serv : UsersService, private modalService: NgbModal) { }
+  constructor(private serv : UsersService, private modalService: NgbModal,protected router: Router) {
+
+      if (status != "admin"){
+          this.router.navigateByUrl('/');
+
+      }
+  }
 
 
     toggleVisibility1(e){

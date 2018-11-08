@@ -5,6 +5,7 @@ import {ModalComponent2} from './modal/modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Cat} from './model/cat';
 import {NgForm} from '@angular/forms';
+import {Router} from "@angular/router";
 //import {AfterContentChecked, AfterContentInit, AfterViewChecked, DoCheck} from '@angular/core';
 @Component({
   selector: 'categories',
@@ -29,7 +30,11 @@ model: any = {};
     parent:any;
 
 
-  constructor(private serv : CategoriesService, private modalService: NgbModal) {this.getCatList();
+  constructor(private serv : CategoriesService, private modalService: NgbModal ,protected router: Router) {this.getCatList();
+      if (status != "admin"){
+          this.router.navigateByUrl('/');
+
+      }
   }
 
     getCatList()

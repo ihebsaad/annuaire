@@ -26,7 +26,7 @@ import {Ng2PaginationModule} from 'ng2-pagination';
 //////import { FileSelectDirective } from 'ng2-file-upload';
 import { HttpModule } from '@angular/http';
 import { RateComponent } from './dashboard/rate/rate.component';
-import {InterestComponent} from "./interest/interest.component";
+import {InterestComponent} from "./../interest/interest.component";
 const PAGES_COMPONENTS = [
   PagesComponent,
 ];

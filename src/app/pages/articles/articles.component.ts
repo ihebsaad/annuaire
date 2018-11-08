@@ -10,6 +10,7 @@ import {header} from "express-validator/check";
 //import {UserDetails} from  '../../authentification.service';
 import {AppService} from '../../app.service';
 import { AuthenticationService } from '../../authentication.service';
+import {Router} from "@angular/router";
  @Component({
   selector: 'articles',
   templateUrl: './articles.component.html',
@@ -32,12 +33,18 @@ export class ArticlesComponent implements OnInit {
 //  user= HeaderComponent.username;
     username:any;
   constructor(private serv : ArticlesService, private modalService: NgbModal,   private appserv: AppService,
-    public auth: AuthenticationService) {
+    public auth: AuthenticationService    ,protected router: Router) {
     this.appserv.getusername().subscribe(resp => {
     console.log( resp);
     console.log("name** = "+resp.result);
     this.username=resp.result;
     //return resp.result;
+
+
+      if (status != "admin"){
+        this.router.navigateByUrl('/');
+
+      }
 });
 }
 

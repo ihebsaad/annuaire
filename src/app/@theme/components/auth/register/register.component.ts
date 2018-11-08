@@ -13,7 +13,9 @@ import{ NgxLoginComponent } from '../login/login.component';
 @Component({
   selector: 'ngx-register',
   styleUrls: ['./register.component.scss'],
-  template: `
+    templateUrl: './register.component.html',
+/*
+    template: `
     <nb-auth-block>
       <h2 class="title">Inscription</h2>
       <form (ngSubmit)="register()" #form="ngForm">
@@ -208,7 +210,9 @@ import{ NgxLoginComponent } from '../login/login.component';
         <button [disabled]="submitted || !form.valid" class="btn btn-block btn-hero-success"
                 [class.btn-pulse]="submitted">
           Enregistrer
-        </button>
+        </button><br>
+          <small class="form-text sub-title">Vous avez un compte ?<a href="/#/auth/login"> Se connecter ici</a></small>
+
       </form>
 
 <!--      <div class="links">
@@ -238,6 +242,7 @@ import{ NgxLoginComponent } from '../login/login.component';
       </div>-->
     </nb-auth-block>
   `,
+    */
 })
 export class NgxRegisterComponent {
 // @Input() logincpn: NgxLoginComponent;

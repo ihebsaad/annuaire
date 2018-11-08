@@ -53,10 +53,10 @@ import {getDeepFromObject} from '@nebular/auth/helpers';
 
       <div class="links col-sm-12">
         <small class="form-text">
-          Already have an account? <a routerLink="../login"><strong>Sign In</strong></a>
+          Vous avez un compte? <a routerLink="../login"><strong>Se connecter</strong></a>
         </small>
         <small class="form-text">
-          <a routerLink="../register"><strong>Sign Up</strong></a>
+          <a routerLink="../register"><strong>Inscription</strong></a>
         </small>
       </div>
     </nb-auth-block>

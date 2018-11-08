@@ -14,7 +14,7 @@ import {ListingComponent} from './listing/listing.component';
 import {UsersComponent} from './users/users.component';
 import {MapComponent} from './dashboard/search-map/map/map.component';
 import {ProfileComponent} from './profile/profile.component';
-import {InterestComponent} from "./interest/interest.component";
+import {InterestComponent} from "./../interest/interest.component";
 
 
 const routes: Routes = [{

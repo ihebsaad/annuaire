@@ -30,7 +30,13 @@ export class AnnoncesComponent implements OnInit {
 username:any;
 
   constructor(private serv : AnnoncesService, private modalService: NgbModal,   private appserv: AppService,
-              public auth: AuthenticationService,   private router: Router,public userserv: UsersService ) {
+              public auth: AuthenticationService,   public userserv: UsersService   ,protected router: Router) {
+
+    if (status != "admin"){
+      this.router.navigateByUrl('/');
+
+    }
+
     this.appserv.getusername().subscribe(resp => {
       console.log( resp);
       console.log("name** = "+resp.result);

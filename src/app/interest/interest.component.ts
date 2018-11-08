@@ -2,21 +2,29 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {InterestService} from './interest.service';
 import {Router} from "@angular/router";
+import {NbMenuItem} from "@nebular/theme";
+import {AuthenticationService} from "../authentication.service";
 
 declare function update(div):any;
 @Component({
   selector: 'interest',
   templateUrl: './interest.component.html',
-  styleUrls: ['./interest.component.scss']
+  styleUrls: ['./interest.component.scss'],
+
 
 })
 export class InterestComponent implements OnInit {
-id:any;
+ id:any;
     user: any = {};
     company:any;
 
 
-    constructor(private fb: FormBuilder,private serv : InterestService , protected router: Router) {
+    constructor(private fb: FormBuilder,private serv : InterestService   , public auth: AuthenticationService,protected router: Router) {
+
+        if(!auth.isLoggedIn()){
+            this.router.navigateByUrl('/auth/login');
+
+        }
 
   }
 

@@ -7,7 +7,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/dashboard',
     home: true,
   }, {
-        title: 'Repertoires',
+        title: 'Entrées',
         icon : 'ion-folder',
         link: '/directories',
     }, {
@@ -39,7 +39,7 @@ export const MENU_ITEMS_SIMPLE: NbMenuItem[] = [
     link: '/dashboard',
     home: true,
   }, {
-        title: 'Repertoires',
+        title: 'Entrées',
         icon : 'ion-folder',
         link: '/directories',
     },  {

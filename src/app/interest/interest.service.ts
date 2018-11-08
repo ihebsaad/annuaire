@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Rx';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../environments/environment';
+import {AuthenticationService} from "../authentication.service";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +11,14 @@ import { environment } from '../../../environments/environment';
 export class InterestService {
 
   private configUrl= environment.API_URL;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public auth: AuthenticationService,protected router: Router) {
+
+    if(!auth.isLoggedIn()){
+      this.router.navigateByUrl('/#/auth/login');
+
+    }
+
+  }
 
 
 

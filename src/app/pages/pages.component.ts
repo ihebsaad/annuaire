@@ -18,7 +18,7 @@ export class PagesComponent {
   menu = MENU_ITEMS;
 constructor() {
 
-if (status == "simple"){
+if (status != "admin"){
 
 this.menu = MENU_ITEMS_SIMPLE;
 }

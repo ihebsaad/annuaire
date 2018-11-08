@@ -9,7 +9,9 @@ import { environment } from '../../../environments/environment';
 export class ProfileService {
 
   private configUrl= environment.API_URL;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient){
+
+  }
 
 
   change(email:any,type: any): Observable<any> {
