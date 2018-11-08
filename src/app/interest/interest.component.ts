@@ -21,11 +21,11 @@ export class InterestComponent implements OnInit {
 
     constructor(private fb: FormBuilder,private serv : InterestService   , public auth: AuthenticationService,protected router: Router) {
 
-        if(!auth.isLoggedIn()){
+    /*    if(!auth.isLoggedIn()){
             this.router.navigateByUrl('/auth/login');
 
         }
-
+    */
   }
 
   ngOnInit() {

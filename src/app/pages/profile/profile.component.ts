@@ -15,13 +15,13 @@ export class ProfileComponent implements OnInit {
 id:any;
  
   constructor(private fb: FormBuilder,private serv : ProfileService  , public auth: AuthenticationService,protected router: Router) {
-
+/*
       if(!auth.isLoggedIn()){
           this.router.navigateByUrl('/auth/login');
 
       }
 
- 
+ */
 
   }
 
