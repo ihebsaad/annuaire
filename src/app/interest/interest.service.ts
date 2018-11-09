@@ -13,10 +13,8 @@ export class InterestService {
   private configUrl= environment.API_URL;
   constructor(private http: HttpClient, public auth: AuthenticationService,protected router: Router) {
 
-    if(!auth.isLoggedIn()){
-      this.router.navigateByUrl('/#/auth/login');
 
-    }
+
 
   }
 
