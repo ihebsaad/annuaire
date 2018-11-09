@@ -326,16 +326,22 @@ export class NgxRegisterComponent {
       } else {
         this.errors = result.getErrors();
       }
-        if (window.location.hostname == 'localhost')
-        {
-             this.router.navigateByUrl('/interest');
+        this.router.navigateByUrl('/interest');
+/**
+ *
+ *         if (window.location.hostname == 'localhost')
+ {
+      this.router.navigateByUrl('/interest');
 
-        }
-        else{
+ }
+ else{
           URL= 'http://test7.enterpriseesolutions.com';
             this.router.navigateByUrl('http://test7.enterpriseesolutions.com/#/interest');
 
         }
+
+ * */
+
 
   /*    const redirect = result.getRedirect();
       if (redirect) {
