@@ -97,4 +97,7 @@ h3{text-align:center;font-size:22px;}
 float:right;width:200px;
 }
 
-.menu-sidebar .start,nb-sidebar{display:none!important;}
+.menu-sidebar, .start,nb-sidebar{display:none!important;}
+
+:host nb-tab {
+    padding: 1.25rem;}

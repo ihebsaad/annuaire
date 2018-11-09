@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy,Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {InterestService} from './interest.service';
 import {Router} from "@angular/router";
@@ -10,7 +10,13 @@ declare function update(div):any;
   selector: 'interest',
   templateUrl: './interest.component.html',
   styleUrls: ['./interest.component.scss'],
-
+    changeDetection: ChangeDetectionStrategy.OnPush,
+/*
+    styles: [`
+        :host nb-tab {
+            padding: 1.25rem;
+        }
+    `],*/
 
 })
 export class InterestComponent implements OnInit {

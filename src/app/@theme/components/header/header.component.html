@@ -32,9 +32,17 @@
  <a href=""> Login  </a>
 </div>
 -->
+
  <ul class="nav navbar-nav navbar-right" style="width:250px" >
      <li style="display:block;margin-right: 20px;margin-bottom:10px;margin-top:20px" *ngIf="!auth.isLoggedIn()"><a  style="cursor:pointer;color:#40dc7e"   href="/#/auth/register">Inscription</a></li>
      <li  style="display:block;margin-right: 20px;margin-bottom:10px"  *ngIf="!auth.isLoggedIn()"><a  style="cursor:pointer;color:#40dc7e"  href="/#/auth/login">Se connecter</a></li>
-        <li style="display:block;margin-right: 20px;"  *ngIf="useremail!='' "><a class="nb-theme-default" routerLink="/profile">{{ username }}</a></li>
+        <li style="display:block;margin-right: 20px;"  *ngIf="auth.isLoggedIn() "><a class="nb-theme-default" routerLink="/profile">{{ username }}</a></li>
         <li style="display:block;margin-right: 20px;"  *ngIf="auth.isLoggedIn()"><a class="nb-theme-default" style="cursor:pointer;color:#40dc7e" (click)="auth.logout()">Déconnexion</a></li>
  </ul>
+<!--
+<nb-actions size="small">
+    <nb-action icon="nb-lock">Register</nb-action>
+    <nb-action icon="fa fa-lock">Login</nb-action>
+    <nb-action icon="nb-person"></nb-action>
+</nb-actions>
+-->
