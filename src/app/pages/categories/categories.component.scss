@@ -24,7 +24,7 @@ nb-card {
   nb-card.inline-form-card nb-card-body {
     padding-bottom: 0;
   }
-
+/*
   nb-tabset {
     height: 100%;
     width: 100%;
@@ -35,7 +35,7 @@ nb-card {
   nb-tab {
     padding: nb-theme(padding);
   }
-
+*/
   /deep/ ngx-tab1, /deep/ ngx-tab2 {
     display: block;
     padding: nb-theme(padding);
@@ -96,5 +96,18 @@ nb-card {
   cursor: pointer;
   margin-left: 10px;
 }
+/*
 
+table tr td,table  td,table  tr ,tdc{
+  line-height: 10px!important;
+  height: 10px!important;
+}
 
+:host /deep/ table tr,table td {
+
+  height: 10px;
+}
+*/
+ .table td {
+  padding: 2px 2px 2px 2px!important;
+   vertical-align: middle;}

@@ -18,10 +18,10 @@
                        <th class="text-center">Parent</th>
                      <th class="text-center">Action</th>
                    </tr>
-                   <tr *ngFor="let elt of data | paginate: {itemsPerPage: 5, currentPage:page, id: '1'} ">
-                     <td class="pt-3-half" contenteditable="false">{{elt.titre}}</td>
-                       <td class="pt-3-half" contenteditable="false">{{elt.type}}</td>
-                       <td class="pt-3-half" contenteditable="false">{{elt.parent}}</td>
+                   <tr *ngFor="let elt of data | paginate: {itemsPerPage: 15, currentPage:page, id: '1'} ">
+                     <td class="tdc" contenteditable="false">{{elt.titre}}</td>
+                       <td class="tdc" contenteditable="false">{{elt.type}}</td>
+                       <td class="tdc" contenteditable="false">{{elt.parent}}</td>
                      <td>
                           <span>
                              <button class="btn1" (click)="AfficherFormulaire(); getId(elt._id)"><i class="fa fa-edit"></i></button>

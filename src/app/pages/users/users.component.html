@@ -20,7 +20,7 @@
                        <th class="text-center">Company</th>
                      <th class="text-center">Action</th>
                    </tr>
-                   <tr *ngFor="let elt of data | paginate: {itemsPerPage: 5, currentPage:page, id: '1'} ">
+                   <tr *ngFor="let elt of data | paginate: {itemsPerPage: 15, currentPage:page, id: '1'} ">
                        <td class="pt-3-half" contenteditable="false">{{elt.fullName}}</td>
                        <td class="pt-3-half" contenteditable="false">{{elt.email}}</td>
                        <td class="pt-3-half" contenteditable="false">{{elt.status}}</td>
