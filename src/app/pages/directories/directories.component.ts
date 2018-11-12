@@ -101,10 +101,10 @@ ngOnInit() {
 
             this.http
         //post the form data to the url defined above and map the response. Then subscribe //to initiate the post. if you don't subscribe, angular wont post.
-                .post(up_URL, formData).map((res:Response) => res.json()).subscribe(
+                .post(up_URL, formData).subscribe(
                 //map the success function and alert the response
                  (success) => {
-                  // console.log('here');
+                   console.log('success');
                   // console.log(success.path);
                  //   console.log('here2');
                    //console.log(success._body);
