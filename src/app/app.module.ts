@@ -76,7 +76,7 @@ const routes: Routes = [
   ],
   bootstrap: [AppComponent],
   providers: [AppService,AuthenticationService,
-    { provide: APP_BASE_HREF, useValue: '/' },{provide: LocationStrategy, useClass: HashLocationStrategy} /// # on links
+    { provide: APP_BASE_HREF, useValue: '/' }//////,{provide: LocationStrategy, useClass: HashLocationStrategy} /// # on links
   ],
 })
 export class AppModule {

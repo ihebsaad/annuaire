@@ -57,7 +57,7 @@ this.getDatapercategory(this.selectedCategory);
 Observable.forkJoin(observables).subscribe(
     res => {
       for(var i = 0; i <= this.dataC.length - 1; i++ ) {
-     this.arraycat2[i]=res[i].count;
+    ///////////////////// this.arraycat2[i]=res[i].count;
     } 
         },
     error => console.log('Error: ', error)
