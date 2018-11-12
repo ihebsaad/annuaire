@@ -34,8 +34,8 @@
 -->
 
  <ul class="nav navbar-nav navbar-right" style="width:250px" >
-     <li style="display:block;margin-right: 20px;margin-bottom:10px;margin-top:20px" *ngIf="!auth.isLoggedIn()"><a  style="cursor:pointer;color:#40dc7e"   href="/#/auth/register">Inscription</a></li>
-     <li  style="display:block;margin-right: 20px;margin-bottom:10px"  *ngIf="!auth.isLoggedIn()"><a  style="cursor:pointer;color:#40dc7e"  href="/#/auth/login">Se connecter</a></li>
+     <li style="display:block;margin-right: 20px;margin-bottom:10px;margin-top:20px" *ngIf="!auth.isLoggedIn()"><a  style="cursor:pointer;color:#40dc7e"   href="/auth/register">Inscription</a></li>
+     <li  style="display:block;margin-right: 20px;margin-bottom:10px"  *ngIf="!auth.isLoggedIn()"><a  style="cursor:pointer;color:#40dc7e"  href="/auth/login">Se connecter</a></li>
         <li style="display:block;margin-right: 20px;"  *ngIf="auth.isLoggedIn() "><a class="nb-theme-default" routerLink="/profile">{{ username }}</a></li>
         <li style="display:block;margin-right: 20px;"  *ngIf="auth.isLoggedIn()"><a class="nb-theme-default" style="cursor:pointer;color:#40dc7e" (click)="auth.logout()">Déconnexion</a></li>
  </ul>

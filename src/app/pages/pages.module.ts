@@ -27,6 +27,8 @@ import {Ng2PaginationModule} from 'ng2-pagination';
 import { HttpModule } from '@angular/http';
 import { RateComponent } from './dashboard/rate/rate.component';
 import {InterestComponent} from "./../interest/interest.component";
+import {FileUploadModule} from "ng2-file-upload";
+import {ExtraOptions} from "@angular/router";
 const PAGES_COMPONENTS = [
   PagesComponent,
 ];
@@ -40,7 +42,7 @@ const PAGES_COMPONENTS = [
     MiscellaneousModule,
     Ng2SmartTableModule,
       FormsModule,HttpModule,
-      Ng2PaginationModule
+      Ng2PaginationModule,FileUploadModule
   ],
   declarations: [
     ...PAGES_COMPONENTS,
@@ -57,5 +59,12 @@ const PAGES_COMPONENTS = [
         ModalComponent,ModalComponent2,ModalComponent3,ModalComponent4,ModalComponent5
     ],
 })
+
+
+
+
 export class PagesModule {
 }
+
+
+
