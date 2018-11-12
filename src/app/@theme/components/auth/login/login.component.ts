@@ -76,7 +76,7 @@ import { environment } from '../../../../../environments/environment';
                 [class.btn-pulse]="submitted">
           se connecter
         </button><br>
-          <small class="form-text sub-title">Nouveau ?<strong><a href="/auth/register"> Inscription ici</a></strong></small>
+          <small class="form-text sub-title">Nouveau ?<strong><a href="/#/auth/register"> Inscription ici</a></strong></small>
 
       </form>
 
