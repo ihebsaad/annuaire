@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs/Rx';
+import {Observable, Subscription} from 'rxjs/Rx';
 import { environment } from '../../../environments/environment';
 import {BehaviorSubject,  Subject} from 'rxjs/Rx';
 @Injectable({
@@ -92,8 +92,24 @@ console.log(' dynamic Url'+this.configUrl + '/users/list');
 
     }
 
+// Send Email welcome
+
+ sendEmail(email: any, name:any): Subscription {
+         const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type':  'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }),
+        };
+      //  return this.http.post(this.configUrl + '/users/contact/'+email, httpOptions);
 
 
+     return  this.http
+          .post(this.configUrl + '/users/contact/'+email+'/'+name, httpOptions).subscribe(
+          (success) => {
+             console.log('success');
 
-
+         },
+         (error) => alert(error))
+    }
 }

@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import {NB_AUTH_OPTIONS, NbAuthResult, NbAuthService, NbAuthSocialLink} from '@nebular/auth';
 import {getDeepFromObject} from '@nebular/auth/helpers';
 import{ NgxLoginComponent } from '../login/login.component';
+import {UsersService} from "../../../../pages/users/users.service";
 
 
 @Component({
@@ -257,7 +258,7 @@ export class NgxRegisterComponent {
   socialLinks: NbAuthSocialLink[] = [];
 
 
-  constructor(protected service: NbAuthService,
+  constructor(protected service: NbAuthService,private userserv : UsersService,
               @Inject(NB_AUTH_OPTIONS) protected options = {},
               protected router: Router) {
 
@@ -322,6 +323,8 @@ export class NgxRegisterComponent {
 
 });
 
+    // send Email
+          this.userserv.sendEmail(  this.user.email,this.user.fullName);
      //end login after register
       } else {
         this.errors = result.getErrors();
