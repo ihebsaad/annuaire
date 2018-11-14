@@ -18,14 +18,8 @@ var URL='';
 if (window.location.hostname == 'localhost')
 {
      URL="http://localhost:3000";
-    Upload_Url: URL+'/upload';
-
 }
-else{ URL= 'http://test7.enterpriseesolutions.com';
-    Upload_Url: URL+'/upload';
-
-}
-
+else{ URL= 'http://test7.enterpriseesolutions.com';}
 export const environment =
     {
         production: false,
