@@ -32,8 +32,10 @@ model: any = {};
 
       if (status != "admin"){
           this.router.navigateByUrl('/');
-
       }
+      this.serv.getData().subscribe(resp => {
+          this.data = resp['users'];
+      });
   }
 
 

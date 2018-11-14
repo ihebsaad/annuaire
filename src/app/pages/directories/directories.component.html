@@ -16,7 +16,7 @@
 
              <nb-card>
                  <nb-card-header>
-                     <h1>Liste des entrées<button style="float:right" class="btn2" (click)="AfficherFormulaire1()"><i class="fa fa-plus" ></i></button></h1>
+                     <h1>Liste des entrées<a style="color:white" href="#add"><button style="float:right" class="btn2" (click)="AfficherFormulaire1()"><i class="fa fa-plus" ></i></button></a></h1>
                  </nb-card-header>
                <nb-card-body>
 
@@ -133,8 +133,8 @@
             </div>
           </form>
          </div>
-             <div *ngIf="test1">
-                 <h3>Ajouter une entrée</h3>
+             <div *ngIf="test1" id="add">
+                 <h3>Ajouter une entrée</h3><br>
 
                <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate enctype="multipart/form-data">
                  <div class="form-group row">

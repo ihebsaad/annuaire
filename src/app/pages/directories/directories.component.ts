@@ -39,6 +39,8 @@ export class DirectoriesComponent implements OnInit, AfterContentInit {
     username:any;
 pathimage:any; fname:any;dataC:any;
 public uploader:FileUploader = new FileUploader({url: up_URL});
+
+
   constructor(private serv: DirectoriesService, private modalService: NgbModal,
 private servApp: AppService,private http: Http, private el: ElementRef,
    private servCateg:CategoriesService  ) {

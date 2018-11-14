@@ -18,13 +18,19 @@ var URL='';
 if (window.location.hostname == 'localhost')
 {
      URL="http://localhost:3000";
+    Upload_Url: URL+'/upload'
+
 }
-else{ URL= 'http://test7.enterpriseesolutions.com';}
+else{ URL= 'http://test7.enterpriseesolutions.com';
+    Upload_Url: URL+'/upload'
+
+}
+
 export const environment =
     {
         production: false,
 //	'http://'+window.location.hostname+':4200',
 
     API_URL: URL,
-    Upload_Url: URL+'/repertoires/upload'
+    Upload_Url: URL+'/upload'
 };
