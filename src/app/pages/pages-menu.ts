@@ -41,7 +41,7 @@ export const MENU_ITEMS_SIMPLE: NbMenuItem[] = [
   }, {
         title: 'Entrées',
         icon : 'ion-folder',
-        link: '/directories',
+        link: '/listing',
     },  {
         title: 'Articles',
         icon : 'ion-document',

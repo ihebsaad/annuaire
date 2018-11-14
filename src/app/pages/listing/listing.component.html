@@ -29,18 +29,19 @@
                 
                 <p class="summary-desc"></p>
                 <p>{{elt.adresse}}<br><br> {{elt.ville}}  </p>
-                <img src="{{imagepath+elt.image}}"/>
-                image :{{elt.image}}
-                <!--
+                <!--<div align=center><img style="text-align:center;width:250px;" src="../../../assets/images/hotel.jpg"></div>-->
+                <div align=center>
+              <img src="{{imagepath+elt.image}}"/>
+                 <!--
                 https://stackoverflow.com/questions/43631683/how-to-display-image-in-angularimage-uploded-in-server-side-uploads-folder-and?rq=1
                 -->
-        </div>
+                </div></div>
         <div class="media-right text-center">
                 <div class="summary-info">
                     <span class="stars-rating"><span class="rate-0"></span></span>
                     <ngx-rate></ngx-rate>
                 </div>
-                    <h6>Noter</h6>
+                    <h6>Tel</h6>
                     <p class="contact-info">
                     <mark><h5>{{elt.tel}}</h5></mark>
                     </p>

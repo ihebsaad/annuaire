@@ -26,5 +26,5 @@ export const environment =
 //	'http://'+window.location.hostname+':4200',
 
     API_URL: URL,
-    Upload_Url: URL+'/upload'
+    Upload_Url: URL+'/repertoires/upload'
 };

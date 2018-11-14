@@ -26,7 +26,7 @@ export class ListingComponent implements OnInit {
  arraycat2: any[] = []; 
  dataCatnames:any;
  dataC:any;
- imagepath="../../../../server/uploads/";
+ imagepath="http://localhost:8000/uploads/";
   constructor(private serv : ListingService,
               private router: Router,
               private servDirect: DirectoriesService,

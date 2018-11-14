@@ -1,6 +1,6 @@
 .container{
-padding-right:10%;
-padding-left:10%;
+padding-right:2%;
+padding-left:2%;
 }
 .badge{
       background-color: #00a65a !important;
@@ -25,6 +25,7 @@ padding-left:10%;
     margin-bottom: 30px;
     font-weight: 400;
     background-color: transparent;
+    border: 1px solid #2196F3 ;
 }
 @media screen and (min-width: 780px){
 .summary-box {
@@ -124,6 +125,10 @@ small, .small {
 .summary-box > .summary-content h3 a {
     text-decoration: none;
     color: black;
+}
+
+.summary-box{
+    background-color:white!important;
 }
 
 
