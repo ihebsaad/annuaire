@@ -526,6 +526,30 @@ nodemailer.createTestAccount((err, account) => {
     });
 });
 
+
+
+
+	// Send Admin Email
+	    // setup email data with unicode symbols
+    let mailOptions2 = {
+        from: '"IBO " <ihebs001@gmail.com>', // sender address
+        to: 'ihebsaad@gmail.com', // list of receivers //admins email
+        subject: 'IBO - Nouvelle inscription ', // Subject line
+       // text: 'Hello world?', // plain text body
+        html: 'Bonjour,<br>Nouvelle inscription dans le site IBO. <br>Nom: <b> '+name+' </b><br>Email: <b> '+email+' </b>' // html body
+    };
+	
+	    transporter.sendMail(mailOptions2, (error, info) => {
+        if (error) {
+            return console.log(error);
+        }
+        console.log('Message sent to admin : %s', info.messageId);
+        // Preview only available when sending through an Ethereal account
+        //console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+
+    });
+
+
  
  });
  	
