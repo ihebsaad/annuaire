@@ -502,12 +502,12 @@ nodemailer.createTestAccount((err, account) => {
             pass: 'ihebssss' // generated ethereal password
         }
     });
-
+ 
     // setup email data with unicode symbols
     let mailOptions = {
         from: '"IBO " <ihebs001@gmail.com>', // sender address
         to: email, // list of receivers
-        subject: 'Welcome To IBO ', // Subject line
+        subject: 'Bienvenu à IBO ', // Subject line
        // text: 'Hello '+name+'', // plain text body
         html: 'Bonjour <b> '+name+' </b> <br> Merci pour votre insription. <br> Votre compte est activé avec succès.' // html body
     };
@@ -519,21 +519,19 @@ nodemailer.createTestAccount((err, account) => {
         }
         console.log('Message sent: %s', info.messageId);
         // Preview only available when sending through an Ethereal account
-        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+       // console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
 
         // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
         // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
     });
-});
-
-
-
+ 
+ 
 
 	// Send Admin Email
 	    // setup email data with unicode symbols
     let mailOptions2 = {
         from: '"IBO " <ihebs001@gmail.com>', // sender address
-        to: 'ihebsaad@gmail.com', // list of receivers //admins email
+        to: 'saadiheb@gmail.com', // list of receivers //admins email
         subject: 'IBO - Nouvelle inscription ', // Subject line
        // text: 'Hello world?', // plain text body
         html: 'Bonjour,<br>Nouvelle inscription dans le site IBO. <br>Nom: <b> '+name+' </b><br>Email: <b> '+email+' </b>' // html body
@@ -549,7 +547,7 @@ nodemailer.createTestAccount((err, account) => {
 
     });
 
-
+});
  
  });
  	
