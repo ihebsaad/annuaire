@@ -6,7 +6,6 @@ var passport = require('passport');
 var config = require('./config/database');
 var expressValidator = require('express-validator');
 var nodemailer = require("nodemailer");
-var fs = require('fs');  
 
 var router = express.Router();
 var debug = require('debug')('auth:server');
@@ -34,17 +33,13 @@ db.on('error',function(err){
 
 
 /*
-
 app.use('/auth/login', function (req, res, next) {
    // res.send(req.params)
    //  console.log('Time:', Date.now());
-
 });
-
 app.use('/auth/register', function (req, res, next) {
   //  res.send(req.params)
    // console.log('Now:', Date.now());
-
 });
 */
 
@@ -106,43 +101,46 @@ server.on('listening', onListening);
  * Normalize a port into a number, string, or false.
  */
 
- 
- 
- 
- 
-  'use strict';
-router.post('/contact/:email',(request,response)=>{
-
-  console.log('sending Email ... : ');
-
-     let email= request.params.email;
-console.log('Email : '+email);
+ // ***** Send Mail *****    //
+ app.post('/contact/send', function(req, res){
+console.log('here we go from app.js');
+ console.log(req.body.email);
+ let sender=req.body.email;
 // Generate test SMTP service account from ethereal.email
 // Only needed if you don't have a real mail account for testing
 nodemailer.createTestAccount((err, account) => {
     // create reusable transporter object using the default SMTP transport
-    let transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
+/*    let transporter = nodemailer.createTransport({
+        host: 'smtp.ethereal.email',
         port: 587,
         secure: false, // true for 465, false for other ports
         auth: {
-            user: 'ihebs001@gmail.com', // generated ethereal user
-            pass: 'ihebssss' // generated ethereal password
+            user: account.user, // generated ethereal user
+            pass: account.pass // generated ethereal password
         }
-    });
+    });*/
+
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'saadrania92@gmail.com',
+    pass: 'mypw'
+  }
+});
 
     // setup email data with unicode symbols
     let mailOptions = {
-        from: '"Iheb SAAD" <ihebs001@gmail.com>', // sender address
-        to: email, // list of receivers
-        subject: 'welcome To IBO ?', // Subject line
-        text: 'Hello world?', // plain text body
+        from: '"From Ran 👻" '+sender, // sender address
+        to: 'ing.raniasaad@gmail.com',
+                subject: 'Hello ✔'+req.body.name, // Subject line
+        text: req.body.description, // plain text body
         html: '<b>Hello world?</b>' // html body
     };
 
     // send mail with defined transport object
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
+            console.log('error from send mail');
             return console.log(error);
         }
         console.log('Message sent: %s', info.messageId);
@@ -153,11 +151,8 @@ nodemailer.createTestAccount((err, account) => {
         // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
     });
 });
+});
 
- 
- });
- 
-  
 
 
 function normalizePort(val) {
@@ -216,118 +211,6 @@ function onListening() {
     debug('Listening on ' + bind);
 }
  
-  
-  
-  
-  
-var image= '02.jpg';
-  
-var staticBasePath = './uploads/';
-
-var staticServe = function(req, res) {  
-    var fileLoc = path.resolve(staticBasePath);
-    fileLoc = path.join(fileLoc,  image);
-
-        var stream = fs.createReadStream(fileLoc);
-
-        stream.on('error', function(error) {
-            res.writeHead(404, 'Not Found');
-            res.end();
-			console.log(error);
-        });
-
-        stream.pipe(res);
-};
-
-var httpServer = http.createServer(staticServe);  
-httpServer.listen(8080); 
 
 
-
-/*
-
-var dirname = './uploads/';
-
-
-function readFiles(dirname, onFileContent, onError) {
-  fs.readdir(dirname, function(err, filenames) {
-    if (err) {
-      onError(err);
-      return;
-    }
-    filenames.forEach(function(filename) {
-      fs.readFile(dirname + filename, 'utf-8', function(err, content) {
-        if (err) {
-          onError(err);
-          return;
-        }
-        onFileContent(filename, content);
-      });
-    });
-  });
-}
-*/
-
-
-
-
-
-const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
-
-
-const fileUpload = require('express-fileupload');
-const cors = require('cors');
-
- 
-// view engine setup
- app.set('uploads', path.join(__dirname, 'uploads'));
-app.set('view engine', 'jade');
-
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-//app.use(logger('dev'));
-app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(fileUpload());
-app.use('/uploads', express.static(__dirname + '/uploads'));
-
-
-app.post('/upload', (req, res, next) => {
-  console.log(req);
-  let imageFile = req.files.file;
-
-  imageFile.mv(`${__dirname}/uploads/${req.body.filename}.jpg`, function(err) {
-    if (err) {
-      return res.status(500).send(err);
-    }
-
-    res.json({file: `uploads/${req.body.filename}.jpg`});
-  });
-
-})
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  const err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
-
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
-
-app.listen(8000, () => {
-  console.log('8000');
-});
 module.exports = app;
