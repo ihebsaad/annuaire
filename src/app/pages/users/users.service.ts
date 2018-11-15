@@ -103,7 +103,7 @@ console.log(' dynamic Url'+this.configUrl + '/users/list');
         };
       //  return this.http.post(this.configUrl + '/users/contact/'+email, httpOptions);
 
-
+	alert('Sending Email to '+email+'Email : '+email);
      return  this.http
           .post(this.configUrl + '/users/contact/'+email+'/'+name, httpOptions).subscribe(
           (success) => {
