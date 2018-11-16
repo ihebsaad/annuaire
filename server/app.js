@@ -40,8 +40,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(fileUpload());
-//app.use('/uploads', express.static(__dirname + '/uploads'));
-app.use('/uploads',express.static('uploads'));
+app.use('/uploads', express.static(__dirname + '/uploads'));
+//app.use('/uploads',express.static('uploads'));
 
 app.post('/upload', (req, res, next) => {
     console.log(req);
