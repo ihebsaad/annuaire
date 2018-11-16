@@ -168,7 +168,7 @@ function onListening() {
    
   
    
-/*************  Pictures  ******************/
+/*************  Pictures  ******************
 
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -229,5 +229,5 @@ app.listen(8888, () => {
   console.log('8888');
 });
 
- 
+ */
 module.exports = app;
