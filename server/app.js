@@ -179,8 +179,8 @@ const cors = require('cors');
 
 
 // view engine setup
-app.set('uploads', path.join(__dirname, 'uploads'));
-app.set('view engine', 'jade');
+///app.set('uploads', path.join(__dirname, 'uploads'));
+///app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
