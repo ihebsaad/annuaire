@@ -507,7 +507,7 @@ nodemailer.createTestAccount((err, account) => {
     let mailOptions = {
         from: '"IBO " <ihebs001@gmail.com>', // sender address
         to: email, // list of receivers
-        subject: 'Bienvenu à IBO ', // Subject line
+        subject: 'Bienvenue à IBO ', // Subject line
        // text: 'Hello '+name+'', // plain text body
         html: 'Bonjour <b> '+name+' </b> <br> Merci pour votre insription. <br> Votre compte est activé avec succès.' // html body
     };
