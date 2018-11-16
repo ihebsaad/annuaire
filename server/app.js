@@ -168,7 +168,7 @@ function onListening() {
    
   
    
-/*************  Pictures  *****************
+/*************  Pictures  ******************/
 
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -190,8 +190,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(fileUpload());
-app.use('/uploads', express.static(__dirname + '/uploads'));
-
+////app.use('/uploads', express.static(__dirname + '/uploads'));
+app.use('/uploads',express.static('uploads'));
 
 app.post('/upload', (req, res, next) => {
   console.log(req);
@@ -225,11 +225,9 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(8880, () => {
-  console.log('8880');
+app.listen(8888, () => {
+  console.log('8888');
 });
 
-
-*/
-
+ 
 module.exports = app;
