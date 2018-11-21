@@ -6,22 +6,20 @@
         <!-- Blog Entries Column -->
         <div class="col-md-8">
 
-          <h1 class="my-4">Blog
-            <small>Derniers Articles</small>
-          </h1>
-  <div *ngFor="let elt of data | paginate: {itemsPerPage: 15, currentPage:page, id: '1'} ">
+          <h1 class="my-4">Blog    <small style="margin-left:40px;font-size:18px">Derniers Articles</small>  </h1>
+          <div *ngFor="let elt of data | paginate: {itemsPerPage: 3, currentPage:page, id: '1'} ">
                   
           <!-- Blog Post -->
           <div class="card mb-4">
-            <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+            <img class="card-img-top" src="https://www.soworkingirls.com/wp-content/uploads/2017/10/redacteur-web-qualites-770x513.jpg" alt="Card image cap">
             <div class="card-body">
               <h2 class="card-title">{{elt.title}}</h2>
               <p class="card-text">{{elt.contenu}}</p>
-              <a href="#" class="btn btn-primary">Lire plus &rarr;</a>
+              <a href="#" class="btn btn-primary">Lire la suite &rarr;</a>
             </div>
             <div class="card-footer text-muted">
               Par :  {{elt.auteur}}
-              <a href="#">Start </a>
+            <!--  <a href="#">Start </a>-->
             </div>
           </div>
 

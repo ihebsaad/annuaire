@@ -6,14 +6,13 @@
         <!-- Blog Entries Column -->
         <div class="col-md-8">
 
-          <h1 class="my-4">ADS
-            <small>Dernières Annonces</small>
-          </h1>
+          <h1 class="my-4">ADS  <small style="margin-left:40px;font-size:18px">Dernières Annonces</small>  </h1>
   <div *ngFor="let elt of data | paginate: {itemsPerPage: 10, currentPage:page, id: '1'} ">
                   
           <!-- Blog Post -->
           <div class="card mb-4">
-            <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+          <!--  <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">-->
+            <img class="card-img-top" src="https://fruchtman.com/wp-content/uploads/2018/06/406Main-t.jpg" alt="Card image cap">
             <div class="card-body">
               <h2 class="card-title">{{elt.titre}}</h2>
               <p class="card-text">{{elt.details}}</p>
