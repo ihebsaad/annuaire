@@ -21,6 +21,9 @@ constructor() {
 if (status != "admin"){
 
 this.menu = MENU_ITEMS_SIMPLE;
+}else{
+  this.menu = MENU_ITEMS;
+
 }
        }
   

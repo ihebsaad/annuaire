@@ -6,26 +6,25 @@
         <!-- Blog Entries Column -->
         <div class="col-md-8">
 
-          <h1 class="my-4">Blog
-            <small>Derniers Articles</small>
+          <h1 class="my-4">ADS
+            <small>Dernières Annonces</small>
           </h1>
-  <div *ngFor="let elt of data | paginate: {itemsPerPage: 15, currentPage:page, id: '1'} ">
+  <div *ngFor="let elt of data | paginate: {itemsPerPage: 10, currentPage:page, id: '1'} ">
                   
           <!-- Blog Post -->
           <div class="card mb-4">
             <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
             <div class="card-body">
-              <h2 class="card-title">{{elt.title}}</h2>
-              <p class="card-text">{{elt.contenu}}</p>
+              <h2 class="card-title">{{elt.titre}}</h2>
+              <p class="card-text">{{elt.details}}</p>
               <a href="#" class="btn btn-primary">Lire plus &rarr;</a>
             </div>
             <div class="card-footer text-muted">
               Par :  {{elt.auteur}}
-              <a href="#">Start </a>
+             <!-- <a href="#">Start </a>-->
             </div>
           </div>
 
-		  
 		  
 		  
 	</div>	  

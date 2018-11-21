@@ -15,6 +15,7 @@ import {UsersComponent} from './users/users.component';
 import {MapComponent} from './dashboard/search-map/map/map.component';
 import {ProfileComponent} from './profile/profile.component';
 import {InterestComponent} from "./../interest/interest.component";
+import {AdsComponent} from "./ads/ads.component";
 
 
 const routes: Routes = [{
@@ -68,6 +69,10 @@ const routes: Routes = [{
       {
           path: 'interest',
           component: InterestComponent,
+      },
+      {
+          path: 'ads',
+          component: AdsComponent,
       },
       {
       path: '',

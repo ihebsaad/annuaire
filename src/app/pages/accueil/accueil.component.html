@@ -1,14 +1,15 @@
+<!--
 <nb-card style="height: 400px">
-  <nb-card-header>VOTRE ANNUAIRE AVANCÉ EN LIGNE</nb-card-header>
+  <nb-card-header>Annuaire des entreprise</nb-card-header>
   <nb-card-body [style.background-image]="'url(' + source + ')'">
     <form class="form-inline">
       <div class="input-group full-width">
         <ngx-search (positionChanged)="updateLocation($event)" ></ngx-search>
       </div>
-    <!--  <button class="btn btn-success btn-semi-round btn-demo" >Search</button> -->
+    <!--  <button class="btn btn-success btn-semi-round btn-demo" >Search</button> --><!--
     </form>
   </nb-card-body>
-</nb-card>
+</nb-card>-->
 <!--nb-card>
   <nb-card-header></nb-card-header>
 
@@ -38,6 +39,7 @@
   </nb-card-body>
 </nb-card-->
 
+<!--
 <nb-card>
   <nb-card-header></nb-card-header>
   
@@ -58,7 +60,32 @@
       </div>
   </nb-card-body>
 </nb-card>
+-->
 
+<div class="row" class="center bluebg">
+  <div class="col-md-12 col-lg-12" >
+    <div class="video hidden-md hidden-lg">
+      <iframe width="640" height="360" src="https://www.youtube.com/embed/jAg5wPuA5lU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <br>
+    </div>
+    <!--
+    <div class="video visible-md visible-lg">
+      <iframe width="640" height="360" src="https://www.youtube.com/embed/jAg5wPuA5lU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div> -->
+     </div>
+  <div class="col-md-6 col-lg-7" class="center"  >
+    <h1 style="color:white;text-shadow: 1px 1px #000408">Bienvenue à notre réseau d'entreprises <em>IBO</em></h1><br><br><br>
+    <p class="center">
+      Un réseau d'entreprises qui permet de connecter les professionnels
+       et de fournir des opportunités d'emploi, de vente, de réseautage et de relations...
+    </p>
+    <div class="form-large form-signup form-js autocheck">
+      <a   style="cursor:pointer" status="success" class="btn"  href="/#/auth/register">Inscription</a>
+      <a   style="cursor:pointer" status="success" class="btn"  href="/#/auth/login">Connexion</a>
+    </div>
+
+  </div>
+</div>
 <nb-card>  <br><br>
   <nb-card-body>
     <div class="row">
@@ -70,7 +97,7 @@
     </div>
   </nb-card-body>
 </nb-card>
-
+<!--
 <nb-card>
  <div align="center"><nb-card-header><h2 style="align: center">Répertoires En Vedette</h2></nb-card-header></div>
   <br><br>
@@ -82,9 +109,9 @@
     </div>
   </nb-card-body>
 </nb-card>
-
+-->
 <nb-card>
-<nb-card-header><h3>Parcourir par catégorie</h3></nb-card-header>
+<nb-card-header><h3 style="text-align:center">catégories</h3></nb-card-header>
 <nb-card-body>
 <div class="row">
 <div *ngFor="let cat of arraycat1; let i = index " class="col-md-2">
@@ -96,7 +123,7 @@
 </nb-card>
 
 
-
+<!--
 <nb-card>
   <div align="center"><nb-card-header><h2 style="align: center">Réjoignez nous facilement en 3 étapes</h2></nb-card-header></div>
   <br><br>
@@ -114,7 +141,7 @@
   </form>
 </nb-card-body>
 </nb-card>
-
+-->
   <nb-card-body>
     <div class="row">
       <div class="col-xxxl-3 col-xxl-4 col-lg-5 col-md-6">

@@ -334,10 +334,10 @@ router.post('/edit/:id',(request,response)=>{
 })
 
 // JSON Format
-router.post('/admin/', function (req, res) {
+router.post('/admin/:email', function (req, res) {
 
     let email= req.params.email;
-
+console.log("email : "+email);
     User.findOne({
         email: email
     }, function(err, user) {
@@ -356,7 +356,7 @@ router.post('/admin/', function (req, res) {
         }
 
 
-        // console.log('test');
+        console.log('statut : '+user.status);
 
 
     });
@@ -673,9 +673,4 @@ router.post('/edit/:id',(request,response)=>{
 
 
 module.exports = router;
-
-
-
-
-
-module.exports = router;
+ 

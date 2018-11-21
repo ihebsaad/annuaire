@@ -92,6 +92,18 @@ console.log(' dynamic Url'+this.configUrl + '/users/list');
 
     }
 
+    isEmailAdmin(email: any): Observable<any> {
+
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type':  'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }),
+        };
+        return this.http.post(this.configUrl + '/users/admin/'+email, httpOptions);
+
+    }
+
 // Send Email welcome
 
  sendEmail(email: any, name:any): Subscription {

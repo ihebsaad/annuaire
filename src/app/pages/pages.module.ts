@@ -4,9 +4,10 @@ import { PagesComponent } from './pages.component';
 import { DashboardModule } from './dashboard/dashboard.module'; 
 import { AccueilModule } from './accueil/accueil.module';  
 import { PagesRoutingModule } from './pages-routing.module';
-import { ThemeModule } from '../@theme/theme.module';
+import { ThemeModule, } from '../@theme/theme.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { BlogComponent } from './blog/blog.component';
+import { AdsComponent } from './ads/ads.component';
 import { DirectoriesComponent } from './directories/directories.component';
 import { ContactComponent } from './contact/contact.component';
 import {Ng2SmartTableModule} from 'ng2-smart-table';
@@ -47,7 +48,7 @@ const PAGES_COMPONENTS = [
   declarations: [
     ...PAGES_COMPONENTS,
     BlogComponent,//////FileSelectDirective,
-    DirectoriesComponent,
+    DirectoriesComponent,AdsComponent,
     ContactComponent,
     CategoriesComponent,RateComponent,
     ArticlesComponent,

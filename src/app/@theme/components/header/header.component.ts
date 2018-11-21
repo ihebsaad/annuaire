@@ -5,6 +5,8 @@ import { UserService } from '../../../@core/data/users.service';
 import { AnalyticsService } from '../../../@core/utils/analytics.service';
 import {AppService} from '../../../app.service';
 import { AuthenticationService } from '../../../authentication.service';
+import {UsersService} from '../../../pages/users/users.service';
+
 @Component({
   selector: 'ngx-header',
   styleUrls: ['./header.component.scss'],
@@ -97,5 +99,18 @@ else if (email.length > 0 ){
 
   startSearch() {
     this.analyticsService.trackEvent('startSearch');
+  }
+
+  isAdmin()
+  {
+    let admin=true;
+    let useremail=localStorage.getItem('email');
+    this.serv.isEmailAdmin(useremail);
+        //.subscribe(result => {//console.log( resp);
+    //admin=result.result;
+
+    //  ;});
+   // return userService.isEmailAdmin(useremail)
+    return admin;
   }
 }

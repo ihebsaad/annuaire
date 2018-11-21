@@ -38,4 +38,16 @@ getusername(): Observable<any> {
         return this.http.get(this.configUrl + '/users/username/'+ email, httpOptions);
 
     }
+
+    isEmailAdmin(email: any): Observable<any> {
+
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type':  'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }),
+        };
+        return this.http.post(this.configUrl + '/users/admin+'+email, httpOptions);
+
+    }
 }
