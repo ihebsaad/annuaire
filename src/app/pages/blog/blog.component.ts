@@ -4,7 +4,7 @@ import {ArticlesService} from '../articles/articles.service';
 @Component({
   selector: 'blog',
   templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.scss']
+  styleUrls: ['./blog.component.scss'],
     providers: [ArticlesService],
 
 })
