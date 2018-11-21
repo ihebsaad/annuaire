@@ -14,10 +14,7 @@ export class BlogComponent implements OnInit {
 
   constructor(private serv : ArticlesService) { }
 
-  ngOnInit() {
-  }
-  
-  
+
   ngOnInit() {
 
     this.getData();

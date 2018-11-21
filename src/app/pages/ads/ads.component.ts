@@ -14,9 +14,7 @@ export class AdsComponent implements OnInit {
 
   constructor(private serv : AnnoncesService) { }
 
-  ngOnInit() {
-  }
-  
+
   
   ngOnInit() {
 
