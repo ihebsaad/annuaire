@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
  import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {switchMap} from "rxjs/internal/operators";
-import {Anc} from "../annonces/model/anc";
+import {Anc} from "../annonces/model/Anc";
 import {AnnoncesService} from "../annonces/annonces.service";
 
 @Component({
