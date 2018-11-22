@@ -67,7 +67,7 @@
                 <div class="form-group row">
                   <label for="input9" class="c  col-form-label">Détails</label>
                   <div  >
-                    <input type="text" class="form-control" id="input9" placeholder="" name="details"  [(ngModel)]="model1.details">
+                    <textarea style="min-height:300px;width:400px"  class="form-control" id="input9" placeholder="" name="details"  [(ngModel)]="model1.details"></textarea>
                   </div>
                 </div><!--
                 <div class="form-group row">
@@ -105,7 +105,7 @@
                 <div class="form-group row">
                   <label for="input2" class="  col-form-label">Détails</label>
                   <div class=" ">
-                    <textarea type="text" class="form-control" id="input2" placeholder="" name="details" [(ngModel)]="model.details"  #ctrl2="ngModel" [class.form-control-danger]="ctrl2.invalid && ctrl2.touched" required></textarea>
+                    <textarea type="text" class="form-control" style="min-height:300px;width:400px" id="input2" placeholder="" name="details" [(ngModel)]="model.details"  #ctrl2="ngModel" [class.form-control-danger]="ctrl2.invalid && ctrl2.touched" required></textarea>
                     <small class="form-text error" *ngIf="ctrl2.invalid && ctrl2.touched && ctrl2.errors['required']">
                       Champ obligatoire!
                     </small>

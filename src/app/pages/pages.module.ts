@@ -13,6 +13,7 @@ import { ContactComponent } from './contact/contact.component';
 import {Ng2SmartTableModule} from 'ng2-smart-table';
 import { CategoriesComponent } from './categories/categories.component';
 import { ArticlesComponent } from './articles/articles.component';
+import { ArticleComponent } from './article/article.component';
 import { AnnoncesComponent } from './annonces/annonces.component';
 import { ListingComponent } from './listing/listing.component';
 import { UsersComponent } from './users/users.component';
@@ -30,6 +31,7 @@ import { RateComponent } from './dashboard/rate/rate.component';
 import {InterestComponent} from "./../interest/interest.component";
 import {FileUploadModule} from "ng2-file-upload";
 import {ExtraOptions} from "@angular/router";
+import {AnnonceComponent} from "./annonce/annonce.component";
 const PAGES_COMPONENTS = [
   PagesComponent,
 ];
@@ -51,8 +53,8 @@ const PAGES_COMPONENTS = [
     DirectoriesComponent,AdsComponent,
     ContactComponent,
     CategoriesComponent,RateComponent,
-    ArticlesComponent,
-    AnnoncesComponent,ListingComponent,
+    ArticlesComponent,ArticleComponent,
+    AnnoncesComponent,ListingComponent,AnnonceComponent,
     UsersComponent,ProfileComponent,InterestComponent,
       ModalComponent,ModalComponent2,ModalComponent3,ModalComponent4,ModalComponent5
   ],

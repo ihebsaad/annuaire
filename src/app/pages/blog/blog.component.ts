@@ -28,6 +28,7 @@ export class BlogComponent implements OnInit {
       console.log(resp['articles']);
 	  
       this.data = resp['articles'];
+     // alert(this.data[1]['_id']);
 
     });
 
