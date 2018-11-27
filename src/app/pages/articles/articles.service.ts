@@ -50,7 +50,6 @@ export class ArticlesService {
         'Access-Control-Allow-Origin': '*',
       }),
     };
-    alert(obj.contenu);
     return this.http.post(this.configUrl + '/articles/add', obj, httpOptions);
 
   }

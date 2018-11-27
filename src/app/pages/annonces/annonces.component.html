@@ -96,7 +96,7 @@
                 <div class="form-group row">
                   <label for="input1" class="  col-form-label">Titre</label>
                   <div class=" ">
-                    <input type="text" name="titre" [(ngModel)]="model.titre"
+                    <input type="text" name="titre" [(ngModel)]="model.titre" style="width:80%"
                            #ctrl1="ngModel"  class="form-control" id="input1" placeholder=""
                            [class.form-control-danger]="ctrl1.invalid && ctrl1.touched" required>
                     <small class="form-text error" *ngIf="ctrl1.invalid && ctrl1.touched && ctrl1.errors['required']">
@@ -105,14 +105,11 @@
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="input2" class="  col-form-label">Détails</label>
-                  <div class=" ">
-                    <angular-editor name="cont" id="input2" class="myeditor" [ngModelOptions]="{standalone: true}"  style="min-height:300px;min-width:400px" [(ngModel)]="model.details"></angular-editor>
-                    <input  #ctrl2="ngModel"  name="details" type="hidden" [(ngModel)]="model1.details" value={{model.details}} />
+                  <label for="input00" class="c  col-form-label">Détails</label>
+                  <div  >
+                    <angular-editor name="cont" id="input00" class="myeditor" [ngModelOptions]="{standalone: true}"  style="min-height:300px;min-width:400px" [(ngModel)]="model.details"></angular-editor>
+                    <input  #ctrl2="ngModel"  name="details" type="hidden" [(ngModel)]="model.details" value={{model.details}} />
 
-                    <small class="form-text error" *ngIf="ctrl2.invalid && ctrl2.touched && ctrl2.errors['required']">
-                      Champ obligatoire!
-                    </small>
                   </div>
                 </div>
                 <input type="hidden" class="form-control" id="input3" placeholder="" name="auteur" [(ngModel)]="username"  #ctrl3="ngModel" [class.form-control-danger]="ctrl3.invalid && ctrl3.touched" required>
