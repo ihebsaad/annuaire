@@ -1,16 +1,21 @@
-import {AfterContentChecked, AfterContentInit, AfterViewChecked, Component, DoCheck, OnInit} from '@angular/core';
+import {
+  AfterContentChecked, AfterContentInit, AfterViewChecked, Component, DoCheck, NgModule,
+  OnInit
+} from '@angular/core';
 import {ArticlesService} from './articles.service';
 import {LocalDataSource} from 'ng2-smart-table';
 import {ModalComponent4} from './modal/modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Art} from './model/art';
 import {NgForm} from '@angular/forms';
-//import {HeaderComponent} from '@theme/components/header/header.component.ts'
-import {header} from "express-validator/check";
-//import {UserDetails} from  '../../authentification.service';
+
 import {AppService} from '../../app.service';
 import { AuthenticationService } from '../../authentication.service';
 import {Router} from "@angular/router";
+import {AngularEditorConfig, AngularEditorModule} from "@kolkov/angular-editor";
+import {HttpClientModule} from "@angular/common/http";
+
+
  @Component({
   selector: 'articles',
   templateUrl: './articles.component.html',
@@ -28,6 +33,9 @@ export class ArticlesComponent implements OnInit {
   test: boolean = false;
   test1: boolean = false;
   page : any;
+   editor1 : any;
+  // editor1='';
+
 //user =    localStorage.getItem('username');
  user =    localStorage.getItem('email');
 //  user= HeaderComponent.username;
@@ -73,8 +81,8 @@ export class ArticlesComponent implements OnInit {
     this.serv.getDataById(id).subscribe(resp => {console.log(resp);
       console.log(resp['articles']);
       this.data1 = resp['articles'];
-      this.model1 = new Art(this.data1.title,this.data1.contenu,this.data1.auteur);
 
+      this.model1 = new Art(this.data1.title,this.data1.contenu,this.data1.auteur);
     });
 
   }
@@ -124,28 +132,24 @@ export class ArticlesComponent implements OnInit {
     });
 
 
-
   }
 
   AfficherFormulaire() {
-
+    if (this.test1==true) {this.test1=false;}
     if (this.test==false) {this.test=true;}else{this.test=false;}
+  }
 
+
+  AfficherFormulaire1() {
+    if (this.test==true) {this.test=false;}
+    if (this.test1==false) {this.test1=true;}else{this.test1=false;}
   }
 
   cacherFormulaire() {
-
     this.test = false;
   }
 
-  AfficherFormulaire1() {
-
-    if (this.test1==false) {this.test1=true;}else{this.test1=false;}
-
-  }
-
   cacherFormulaire1() {
-
     this.test1 = false;
   }
 
@@ -166,5 +170,31 @@ export class ArticlesComponent implements OnInit {
      console.log('name :'+email);
 
    }
+
+
+  config: AngularEditorConfig = {
+    editable: true,
+    spellcheck: true,
+    height: '15rem',
+    minHeight: '5rem',
+    placeholder: 'Enter text here...',
+    translate: 'no',
+    customClasses: [
+      {
+        name: "quote",
+        class: "quote",
+      },
+      {
+        name: 'redText',
+        class: 'redText'
+      },
+      {
+        name: "titleText",
+        class: "titleText",
+        tag: "h1",
+      },
+    ]
+  }
+
 
 }

@@ -32,6 +32,8 @@ import {InterestComponent} from "./../interest/interest.component";
 import {FileUploadModule} from "ng2-file-upload";
 import {ExtraOptions} from "@angular/router";
 import {AnnonceComponent} from "./annonce/annonce.component";
+import {AngularEditorModule} from "@kolkov/angular-editor";
+import {HttpClientModule} from "@angular/common/http";
 const PAGES_COMPONENTS = [
   PagesComponent,
 ];
@@ -45,7 +47,9 @@ const PAGES_COMPONENTS = [
     MiscellaneousModule,
     Ng2SmartTableModule,
       FormsModule,HttpModule,
-      Ng2PaginationModule,FileUploadModule
+      Ng2PaginationModule,FileUploadModule,AngularEditorModule,
+    HttpClientModule,
+
   ],
   declarations: [
     ...PAGES_COMPONENTS,

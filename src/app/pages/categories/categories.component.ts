@@ -132,22 +132,21 @@ model: any = {};
     }
 
     AfficherFormulaire() {
+        if (this.test1==true) {this.test1=false;}
         if (this.test==false) {this.test=true;}else{this.test=false;}
     }
 
-    cacherFormulaire() {
 
+    AfficherFormulaire1() {
+        if (this.test==true) {this.test=false;}
+        if (this.test1==false) {this.test1=true;}else{this.test1=false;}
+    }
+
+    cacherFormulaire() {
         this.test = false;
     }
 
-    AfficherFormulaire1() {
-
-        if (this.test1==false) {this.test1=true;}else{this.test1=false;}
-
-    }
-
     cacherFormulaire1() {
-
         this.test1 = false;
     }
 

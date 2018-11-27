@@ -8,7 +8,8 @@ import {AppService} from '../../app.service';
 import { AuthenticationService } from '../../authentication.service';
 import { UsersService } from '../users/users.service';
 import { Router } from '@angular/router';
-
+import {AngularEditorConfig, AngularEditorModule} from "@kolkov/angular-editor";
+import {HttpClientModule} from "@angular/common/http";
 
 @Component({
   selector: 'annonces',
@@ -146,24 +147,21 @@ else {
   }
 
   AfficherFormulaire() {
-
+    if (this.test1==true) {this.test1=false;}
     if (this.test==false) {this.test=true;}else{this.test=false;}
+  }
 
+
+  AfficherFormulaire1() {
+    if (this.test==true) {this.test=false;}
+    if (this.test1==false) {this.test1=true;}else{this.test1=false;}
   }
 
   cacherFormulaire() {
-
     this.test = false;
   }
 
-  AfficherFormulaire1() {
-
-    if (this.test1==false) {this.test1=true;}else{this.test1=false;}
-
-  }
-
   cacherFormulaire1() {
-
     this.test1 = false;
   }
 
@@ -173,5 +171,32 @@ else {
       this.data = data;
     });
   }
+
+
+
+  config: AngularEditorConfig = {
+    editable: true,
+    spellcheck: true,
+    height: '15rem',
+    minHeight: '5rem',
+    placeholder: 'Enter text here...',
+    translate: 'no',
+    customClasses: [
+      {
+        name: "quote",
+        class: "quote",
+      },
+      {
+        name: 'redText',
+        class: 'redText'
+      },
+      {
+        name: "titleText",
+        class: "titleText",
+        tag: "h1",
+      },
+    ]
+  }
+
 
 }

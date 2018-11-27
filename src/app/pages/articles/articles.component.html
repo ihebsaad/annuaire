@@ -3,7 +3,7 @@
 
   <nb-card-body>
     <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12  col-lg-6 ">
+      <div class="col-xs-12 col-sm-12 col-md-12  col-lg-12 ">
         <nb-card>
           <nb-card-header>
             <h1>Liste des articles<button style="float:right" class="btn2" (click)="AfficherFormulaire1()"><i class="fa fa-plus" ></i></button></h1>
@@ -14,13 +14,13 @@
             <table class="table table-bordered table-responsive-md table-striped text-center">
               <tr>
                 <th class="text-center">Titre</th>
-                <th class="text-center">Contenu</th>
+               <!-- <th class="text-center">Contenu</th>-->
                 <th class="text-center">Auteur</th>
                 <th class="text-center">Action</th>
               </tr>
               <tr *ngFor="let elt of data | paginate: {itemsPerPage: 15, currentPage:page, id: '1'} ">
                 <td class="pt-3-half" contenteditable="false">{{elt.title}}</td>
-                <td class="pt-3-half" contenteditable="false">{{elt.contenu}}</td>
+               <!-- <td class="pt-3-half" contenteditable="false" [innerHTML]="elt.contenu"></td>-->
                 <td class="pt-3-half" contenteditable="false">{{elt.auteur}}</td>
                 <td>
                           <span>
@@ -65,9 +65,13 @@
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="input9" class="c  col-form-label">Contenu</label>
+                  <label for="editor22" class="c  col-form-label">Contenu</label>
                   <div  >
-                    <textarea  style="min-height:300px;width:400px" class="form-control" id="input9" placeholder="" name="contenu"  [(ngModel)]="model1.contenu"></textarea>
+                    <!--<textarea  style="min-height:300px;width:400px" class="form-control" id="input9" placeholder="" name="contenu"  [(ngModel)]="model1.contenu"></textarea>-->
+                  <!--  <angular-editor   style="min-height:300px;min-width:400px" formControlName="htmlContent2"  id="editor2"  [(ngModel)]="model1.contenu"></angular-editor>-->
+                    <angular-editor name="cont" id="editor22" class="myeditor" [ngModelOptions]="{standalone: true}"  style="min-height:300px;min-width:400px" [(ngModel)]="model1.contenu"></angular-editor>
+                    <input  #ctrl2="ngModel"  name="contenu" type="hidden" [(ngModel)]="model1.contenu" value={{model1.contenu}} />
+
                   </div>
                 </div><!--
                 <div class="form-group row">
@@ -103,14 +107,22 @@
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="input2" class="  col-form-label">Contenu</label>
+                  <label   class="  col-form-label">Contenu</label>
                   <div class=" ">
-                    <textarea style="min-height:300px;width:400px;" type="text" class="form-control" id="input2" placeholder="" name="contenu" [(ngModel)]="model.contenu"  #ctrl2="ngModel" [class.form-control-danger]="ctrl2.invalid && ctrl2.touched" required ></textarea>
+                   <!-- <textarea style="min-height:300px;width:400px;" type="text" class="form-control" id="input2" placeholder="" name="contenu" [(ngModel)]="model.contenu"  #ctrl2="ngModel" [class.form-control-danger]="ctrl2.invalid && ctrl2.touched" required ></textarea>
                     <small class="form-text error" *ngIf="ctrl2.invalid && ctrl2.touched && ctrl2.errors['required']">
                       Champ obligatoire!
-                    </small>
-                  </div>
+
+                                 <angular-editor  [ngModelOptions]="{standalone: true}"  style="min-height:300px;min-width:400px" [(ngModel)]="editor1"></angular-editor>
+                      <textarea  type="text" [(ngModel)]="model.contenu" >{{editor1}}</textarea>
+
+                    </small>-->
+                      <angular-editor name="cont" id="editor2" class="myeditor" [ngModelOptions]="{standalone: true}"  style="min-height:300px;min-width:400px" [(ngModel)]="model.contenu"></angular-editor>
+                      <input  #ctrl2="ngModel"  name="contenu" type="hidden" [(ngModel)]="model.contenu" value={{model.contenu}} />
+
+                   </div>
                 </div>
+
                 <input type="hidden" class="form-control" id="input3" placeholder="" name="auteur"  [(ngModel)]="username"  #ctrl3="ngModel" [class.form-control-danger]="ctrl3.invalid && ctrl3.touched" required>
 
                 <div class="form-group row" style="padding-left:100px">

@@ -26,6 +26,7 @@ import {NgxLogoutComponent} from './@theme/components/auth/logout/logout.compone
 import { FileUploadModule } from 'ng2-file-upload';
 
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
+import {AngularEditorModule} from "@kolkov/angular-editor";
 //import the ng2-file-upload directive so we can add it to our declarations.
 //import { FileSelectDirective } from 'ng2-file-upload';
 const routes: Routes = [
@@ -64,6 +65,7 @@ const routes: Routes = [
     //FileSelectDirective,
     NgxLogoutComponent],
   imports: [
+      AngularEditorModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
