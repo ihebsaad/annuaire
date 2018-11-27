@@ -4,7 +4,7 @@
       <div class="row">
 
         <!-- Post Content Column -->
-        <div class="col-lg-8">
+        <div class="col-lg-8" style="background-color: white;">
 
           <!-- Title -->
           <h1 class="mt-4">{{model1.titre}}</h1>
@@ -29,7 +29,7 @@
 
           <!-- Post Content -->
 
-          <div [innerHTML]=model1.details></div>
+          <div id="content" [innerHTML]=model1.details></div>
 
           <hr>
 
