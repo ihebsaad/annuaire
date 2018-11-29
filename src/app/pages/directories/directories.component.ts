@@ -200,7 +200,7 @@ this.getUsername();
 
     }
 
-    getUsername( servApp : AppService)
+    getUsername(  )
     {
         this.servApp.getusername().subscribe(resp => {
             this.username=resp.result;

@@ -55,7 +55,7 @@ export class ArticlesComponent implements OnInit {
       }
 });
 }
-getUsername( appserv : AppService)
+getUsername(  )
 {
   this.appserv.getusername().subscribe(resp => {
      this.username=resp.result;
