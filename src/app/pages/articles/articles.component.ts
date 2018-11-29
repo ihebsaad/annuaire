@@ -55,6 +55,13 @@ export class ArticlesComponent implements OnInit {
       }
 });
 }
+getUsername( appserv : AppService)
+{
+  this.appserv.getusername().subscribe(resp => {
+     this.username=resp.result;
+   });
+
+}
 
   ngOnInit() {
 
@@ -84,6 +91,7 @@ export class ArticlesComponent implements OnInit {
 
       this.model1 = new Art(this.data1.title,this.data1.contenu,this.data1.auteur);
     });
+    this.getUsername();
 
   }
 
@@ -108,8 +116,9 @@ export class ArticlesComponent implements OnInit {
       this.getData();
       this.test1 = false;
       f.reset();
+      this.getData();
     });
-
+  this.getUsername();
   }
 
   getId(obj:any) {
@@ -131,6 +140,7 @@ export class ArticlesComponent implements OnInit {
 
     });
 
+    this.getUsername();
 
   }
 

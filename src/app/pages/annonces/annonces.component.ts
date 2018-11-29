@@ -120,7 +120,7 @@ else {
       this.test1 = false;
       f.reset();
     });
-
+this.getUsername();
   }
 
   getId(obj:any) {
@@ -142,7 +142,7 @@ else {
 
     });
 
-
+this.getUsername();
 
   }
 
@@ -172,7 +172,13 @@ else {
     });
   }
 
+  getUsername( appserv : AppService)
+  {
+    this.appserv.getusername().subscribe(resp => {
+      this.username=resp.result;
+    });
 
+  }
 
   config: AngularEditorConfig = {
     editable: true,

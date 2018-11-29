@@ -81,6 +81,7 @@ ngOnInit() {
            console.log('pathimage= '+this.pathimage);
 
         };
+
     }
     //declare a constroctur, so we can pass in some properties to the class, which can be    //accessed using the this variable
 
@@ -120,15 +121,8 @@ ngOnInit() {
     ngAfterContentInit() {
       this.afficher();
     }
-getUsername(){
- this.servApp.getusername().subscribe(resp => {
-  console.log( resp);
-      console.log("name** = "+resp.result);
-       this.username=resp.result;
-         //return resp.result;
-      });
 
-}
+
 
 
   getData() {
@@ -180,7 +174,7 @@ approveDirectory(f: NgForm){
             this.test1 = false;
             f.reset();
         });
-
+this.getUsername();
     }
 
     getId(obj:any) {
@@ -202,10 +196,17 @@ approveDirectory(f: NgForm){
 
         });
 
-
+this.getUsername();
 
     }
 
+    getUsername( servApp : AppService)
+    {
+        this.servApp.getusername().subscribe(resp => {
+            this.username=resp.result;
+        });
+
+    }
     AfficherFormulaire() {
         if (this.test1==true) {this.test1=false;}
         if (this.test==false) {this.test=true;}else{this.test=false;}

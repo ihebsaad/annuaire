@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import {ArticlesService} from "../articles.service";
+import {ArticlesComponent} from "../articles.component";
 
 @Component({
   selector: 'ngx-modal',
@@ -27,8 +28,7 @@ export class ModalComponent4 {
   id: any;
   data: any;
 
-
-  constructor(private activeModal: NgbActiveModal, private serv: ArticlesService) { }
+  constructor(private activeModal: NgbActiveModal, private serv: ArticlesService ) { }
 
   closeModal() {
     this.activeModal.close();
@@ -39,17 +39,20 @@ export class ModalComponent4 {
         this.serv.getData().subscribe(resp => {console.log(resp);
             console.log(resp['articles']);
             this.data = resp['articles'];
-            this.serv.updatedData(this.data);
         });
+        this.serv.updatedData(this.data);
 
     }
 
     deleteData() {
 
         this.serv.deleteData(this.id).subscribe(resp => {console.log(resp);
-                this.getData();
               //  this.serv.updatedData(this.data);
         });
+        this.getData();
+        this.serv.updatedData(this.data);
+        this.serv.getData();
+
     }
 
 }
