@@ -13,6 +13,7 @@ import {  FileUploader } from 'ng2-file-upload/ng2-file-upload';
 import {CategoriesService} from '../categories/categories.service';
 //define the constant url we would be uploading to.
  var up_URL= environment.Upload_Url;
+
  /*
  if (window.location.hostname == 'localhost')
 {
@@ -40,6 +41,11 @@ export class DirectoriesComponent implements OnInit, AfterContentInit {
 pathimage:any; fname:any;dataC:any;
 public uploader:FileUploader = new FileUploader({url: up_URL});
 
+    public hasBaseDropZoneOver:boolean = false;
+
+    public fileOverBase(e:any):void {
+        this.hasBaseDropZoneOver = e;
+    }
 
   constructor(private serv: DirectoriesService, private modalService: NgbModal,
 private servApp: AppService,private http: Http, private el: ElementRef,
