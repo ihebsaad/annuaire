@@ -60,7 +60,7 @@
               <form #f1="ngForm" (ngSubmit)="updateData(f1)" novalidate>
                 <div class="form-group row">
                   <label for="input8" class="  col-form-label">Titre</label>
-                  <div  >
+                  <div class="col-sm-9">
                     <input type="text" class="form-control" id="input8" placeholder="" name="titre" [(ngModel)]="model1.titre">
                   </div>
                 </div>
@@ -95,7 +95,7 @@
               <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
                 <div class="form-group row">
                   <label for="input1" class="  col-form-label">Titre</label>
-                  <div class=" ">
+                  <div class="col-sm-9">
                     <input type="text" name="titre" [(ngModel)]="model.titre" style="width:80%"
                            #ctrl1="ngModel"  class="form-control" id="input1" placeholder=""
                            [class.form-control-danger]="ctrl1.invalid && ctrl1.touched" required>

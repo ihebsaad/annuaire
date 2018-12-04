@@ -36,6 +36,7 @@ export class NgxLogoutComponent implements OnInit {
     this.service.logout(strategy).subscribe((result: NbAuthResult) => {
 localStorage.removeItem('email');      
 localStorage.removeItem('auth_app_token');
+localStorage.removeItem('status');
         this.router.navigateByUrl('/');
 
  // this.router.navigateByUrl('/home');

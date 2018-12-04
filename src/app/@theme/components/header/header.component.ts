@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
 username:any;
   user: any;
 useremail:any;
+typeuser:any;
   userMenu = [{ title: 'Profile' }, { title: 'Log out' }];
 
   constructor(private sidebarService: NbSidebarService,
@@ -35,6 +36,7 @@ useremail:any;
       });
 
        this.useremail=localStorage.getItem('email');
+       this.typeuser=localStorage.getItem('status');
 
   }
 
