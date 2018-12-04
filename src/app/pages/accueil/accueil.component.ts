@@ -9,6 +9,7 @@ import {DirectoriesService} from '../directories/directories.service';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/forkJoin';
+import {UsersService} from "../users/users.service";
 
 @Component({
   selector: 'ngx-accueil',
@@ -24,8 +25,12 @@ export class AccueilComponent implements OnInit {
     source = 'assets/tunisie.jpg';
     radioModel = 'left';
     dataC:any;dataD:any;cat:any;dataCatnames:any;
+
+    cat1: any;cat2: any;cat3: any;cat4: any;cat5: any;cat6: any;cat7: any;cat8 : any;
+
+
     countD:any;countA:any;countN:any;countCat:any;
-    constructor(private data: DataService,
+    constructor(private data: DataService,private userServ :UsersService,
      private router: Router,
      private servDirect: DirectoriesService,
       private servCateg:CategoriesService) {
@@ -69,7 +74,7 @@ for(var i = 0; i <= this.dataC.length - 1; i++ ) {
 Observable.forkJoin(observables).subscribe(
     res => {console.log(res);
       for(var i = 0; i <= this.dataC.length - 1; i++ ) {
-     this.arraycat2[i]=res[i].count;
+   ////////  this.arraycat2[i]=res[i].count;
     }
     
   },
@@ -82,20 +87,93 @@ Observable.forkJoin(observables).subscribe(
  
     }
 
-    ngOnInit() {
+ngOnInit() {
         this.data.location.subscribe(loc => this.searchedLocation = loc);
+        this.getCat1();
 }
-   
+
+getCat1()
+{
+let  email=localStorage.getItem('email');
+this.userServ.Interst1User(email).subscribe(result => {
+this.cat1=result['result'];
+ });
+
+ }
+
+ getCat2()
+    {
+        let  email=localStorage.getItem('email');
+        this.userServ.Interst2User(email).subscribe(result => {
+            this.cat2=result['result'];
+        });
+
+    }
+
+    getCat3()
+    {
+        let  email=localStorage.getItem('email');
+        this.userServ.Interst3User(email).subscribe(result => {
+            this.cat3=result['result'];
+        });
+
+    }
+
+    getCat4()
+    {
+        let  email=localStorage.getItem('email');
+        this.userServ.Interst4User(email).subscribe(result => {
+            this.cat4=result['result'];
+        });
+
+    }
+
+    getCat5()
+    {
+        let  email=localStorage.getItem('email');
+        this.userServ.Interst5User(email).subscribe(result => {
+            this.cat5=result['result'];
+        });
+
+    }
+
+    getCat6()
+    {
+        let  email=localStorage.getItem('email');
+        this.userServ.Interst6User(email).subscribe(result => {
+            this.cat6=result['result'];
+        });
+
+    }
+
+    getCat7()
+    {
+        let  email=localStorage.getItem('email');
+        this.userServ.Interst7User(email).subscribe(result => {
+            this.cat7=result['result'];
+        });
+
+    }
+
+    getCat8()
+    {
+        let  email=localStorage.getItem('email');
+        this.userServ.Interst8User(email).subscribe(result => {
+            this.cat8=result['result'];
+        });
+
+    }
+
 /*findcat(cat:any):any{
   console.log('findcat '+cat);
   this.servDirect.getTotalperCat(cat).subscribe(resp => {
 console.log('after service');
     console.log(resp['count']);
-          
+
          this.countCat = resp['count'];
 //console.log(this.countD);
 return  resp['count'];
-      });  
+      });
 }*/
 
     updateLocation(event: Location) {

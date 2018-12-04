@@ -365,6 +365,249 @@ console.log("email : "+email);
 });
 
 
+// JSON Format
+router.post('/interest1/:email', function (req, res) {
+
+    let email= req.params.email;
+	let cat1 =false;
+console.log("email : "+email);
+    User.findOne({
+        email: email
+    }, function(err, user) {
+        if (err) throw err;
+
+        if (!user) {
+            res.json({
+
+                result : "user not found" });
+        }
+        else{
+			cat1=user.cat1;
+            res.json({
+
+                result : cat1
+            });
+        }
+
+
+        console.log('cat1 : '+cat1);
+
+
+    });
+
+});
+
+// JSON Format
+router.post('/interest1/:email', function (req, res) {
+
+    let email= req.params.email;
+console.log("email : "+email);
+    User.findOne({
+        email: email
+    }, function(err, user) {
+        if (err) throw err;
+
+        if (!user) {
+            res.json({
+
+                result : "user not found" });
+        }
+        else{
+            res.json({
+
+                result : user.cat2
+            });
+        }
+
+
+        console.log('cat2 : '+user.cat2);
+
+
+    });
+
+});
+
+// JSON Format
+router.post('/interest3/:email', function (req, res) {
+
+    let email= req.params.email;
+console.log("email : "+email);
+    User.findOne({
+        email: email
+    }, function(err, user) {
+        if (err) throw err;
+
+        if (!user) {
+            res.json({
+
+                result : "user not found" });
+        }
+        else{
+            res.json({
+
+                result : user.cat3
+            });
+        }
+
+
+        console.log('cat3 : '+user.cat3);
+
+
+    });
+
+});
+
+// JSON Format
+router.post('/interest4/:email', function (req, res) {
+
+    let email= req.params.email;
+console.log("email : "+email);
+    User.findOne({
+        email: email
+    }, function(err, user) {
+        if (err) throw err;
+
+        if (!user) {
+            res.json({
+
+                result : "user not found" });
+        }
+        else{
+            res.json({
+
+                result : user.cat4
+            });
+        }
+
+
+        console.log('cat4 : '+user.cat4);
+
+
+    });
+
+});
+
+// JSON Format
+router.post('/interest5/:email', function (req, res) {
+
+    let email= req.params.email;
+console.log("email : "+email);
+    User.findOne({
+        email: email
+    }, function(err, user) {
+        if (err) throw err;
+
+        if (!user) {
+            res.json({
+
+                result : "user not found" });
+        }
+        else{
+            res.json({
+
+                result : user.cat5
+            });
+        }
+
+
+        console.log('cat5 : '+user.cat5);
+
+
+    });
+
+});
+
+// JSON Format
+router.post('/interest6/:email', function (req, res) {
+
+    let email= req.params.email;
+console.log("email : "+email);
+    User.findOne({
+        email: email
+    }, function(err, user) {
+        if (err) throw err;
+
+        if (!user) {
+            res.json({
+
+                result : "user not found" });
+        }
+        else{
+            res.json({
+
+                result : user.cat6
+            });
+        }
+
+
+        console.log('cat6 : '+user.cat6);
+
+
+    });
+
+});
+
+// JSON Format
+router.post('/interest7/:email', function (req, res) {
+
+    let email= req.params.email;
+console.log("email : "+email);
+    User.findOne({
+        email: email
+    }, function(err, user) {
+        if (err) throw err;
+
+        if (!user) {
+            res.json({
+
+                result : "user not found" });
+        }
+        else{
+            res.json({
+
+                result : user.cat7
+            });
+        }
+
+
+        console.log('cat7: '+user.cat7);
+
+
+    });
+
+});
+
+// JSON Format
+router.post('/interest8/:email', function (req, res) {
+
+    let email= req.params.email;
+console.log("email : "+email);
+    User.findOne({
+        email: email
+    }, function(err, user) {
+        if (err) throw err;
+
+        if (!user) {
+            res.json({
+
+                result : "user not found" });
+        }
+        else{
+            res.json({
+
+                result : user.cat8
+            });
+        }
+
+
+        console.log('cat8 : '+user.cat8);
+
+
+    });
+
+});
+
+
 router.post('/changeentreprise/:email/:entreprise',(request,response)=>{
 
 console.log('Email : '+request.params.email);

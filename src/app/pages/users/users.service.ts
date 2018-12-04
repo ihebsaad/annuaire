@@ -104,6 +104,111 @@ console.log(' dynamic Url'+this.configUrl + '/users/list');
 
     }
 
+    Interst1User(email: any): Observable<any> {
+
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type':  'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }),
+        };
+        return this.http.post(this.configUrl + '/users/interest1/'+email, httpOptions);
+
+    }
+
+
+    Interst2User(email: any): Observable<any> {
+
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type':  'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }),
+        };
+        return this.http.post(this.configUrl + '/users/interest2/'+email, httpOptions);
+
+    }
+
+
+    Interst3User(email: any): Observable<any> {
+
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type':  'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }),
+        };
+        return this.http.post(this.configUrl + '/users/interest3/'+email, httpOptions);
+
+    }
+
+
+    Interst4User(email: any): Observable<any> {
+
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type':  'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }),
+        };
+        return this.http.post(this.configUrl + '/users/interest4/'+email, httpOptions);
+
+    }
+
+
+
+    Interst5User(email: any): Observable<any> {
+
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type':  'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }),
+        };
+        return this.http.post(this.configUrl + '/users/interest5/'+email, httpOptions);
+
+    }
+
+
+    Interst6User(email: any): Observable<any> {
+
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type':  'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }),
+        };
+        return this.http.post(this.configUrl + '/users/interest6/'+email, httpOptions);
+
+    }
+
+
+    Interst7User(email: any): Observable<any> {
+
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type':  'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }),
+        };
+        return this.http.post(this.configUrl + '/users/interest7/'+email, httpOptions);
+
+    }
+
+
+    Interst8User(email: any): Observable<any> {
+
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type':  'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }),
+        };
+        return this.http.post(this.configUrl + '/users/interest8/'+email, httpOptions);
+
+    }
+
+
 // Send Email welcome
 
  sendEmail(email: any, name:any): Subscription {

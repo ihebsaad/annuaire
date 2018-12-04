@@ -62,10 +62,16 @@
 </nb-card>
 -->
 
-<div class="row" class="center bluebg">
-  <div class="col-md-12 col-lg-12" >
+<div class="row center bluebg">
+  <div class="col-md-12 col-lg-6 col-sm-12" >
     <div class="video hidden-md hidden-lg">
-      <iframe width="640" height="360" src="https://www.youtube.com/embed/jAg5wPuA5lU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <video width="400" controls>
+        <source src="mov_bbb.mp4" type="video/mp4">
+        <source src="mov_bbb.ogg" type="video/ogg">
+        Your browser does not support HTML5 video.
+      </video>
+
+      <!--<iframe width="600" height="320" src="https://www.youtube.com/embed/R5DAuIgAFNU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
       <br>
     </div>
     <!--
@@ -73,8 +79,8 @@
       <iframe width="640" height="360" src="https://www.youtube.com/embed/jAg5wPuA5lU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div> -->
      </div>
-  <div class="col-md-6 col-lg-7" class="center"  >
-    <h1 style="color:white;text-shadow: 1px 1px #000408">Bienvenue à notre réseau d'entreprises <em>IBO</em></h1><br><br><br>
+  <div class="col-md-12 col-lg-6 col-sm-12 center" ><br>
+    <h1 style="color:white;text-shadow: 1px 1px #000408">Bienvenue à notre réseau professionnel <em>IBO</em></h1><br><br><br>
     <p class="center">
       Un réseau d'entreprises qui permet de connecter les professionnels
        et de fournir des opportunités d'emploi, de vente, de réseautage et de relations...
@@ -86,13 +92,54 @@
 
   </div>
 </div>
+
+<br>
+<br>
+<nb-card>
+
+  <nb-card-body>
+<div class="row">
+  <div class="col-lg-12 text-center">
+    <h2 class="section-heading text-uppercase">A propos de IBO</h2>
+    <h3 class="section-subheading text-muted">un réseau intelligent</h3>
+  </div>
+</div>
+<div class="row text-center">
+  <div class="col-md-4 col-xs-12">
+            <span class="fa-stack fa-4x">
+              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+              <i class="fa fa-suitcase fa-stack-1x fa-inverse"></i>
+            </span>
+    <h4 class="service-heading">DÉCOUVREZ DES OPPORTUNITÉS</h4>
+    <p class="text-muted">Recevez une alerte chaque fois qu'un responsable du recrutement poste une offre d'emploi qui correspond à vos exigences (et vice versa).</p>
+  </div>
+  <div class="col-md-4 col-xs-12">
+            <span class="fa-stack fa-4x">
+              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+              <i class="fa fa-bullhorn fa-stack-1x fa-inverse"></i>
+            </span>
+    <h4 class="service-heading">PUBLIER DES OFFRES</h4>
+    <p class="text-muted">Faites-vous jumeler avec des millions de candidats du monde entier. Recevez des alertes chaque fois que nous vous mettons en correspondance avec un candidat qui répond à vos critères.</p>
+  </div>
+  <div class="col-md-4 col-xs-12">
+            <span class="fa-stack fa-4x">
+              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+              <i class="fa fa-handshake-o fa-stack-1x fa-inverse"></i>
+            </span>
+    <h4 class="service-heading">CONSTRUIRE DES RELATIONS</h4>
+    <p class="text-muted">Réseautez professionnellement et maintenant personnellement.
+             Découvrez et rencontrez des professionnels en fonction de vos préférences (âge, sexe, intérêts, personnalité et plus).</p>
+  </div>
+</div>
+  </nb-card-body></nb-card>
+<!--
 <nb-card>  <br><br>
   <nb-card-body>
     <div class="row">
       <div class="col-xxxl-3 col-xxl-4 col-lg-5 col-md-6">
          <ngx-ad  [category]="selectedCategory"></ngx-ad>
        <!--ngx-ad  *ngIf="selectedCategory; else infoText"
-      [category]="selectedCategory"></ngx-ad-->
+      [category]="selectedCategory"></ngx-ad--><!--
       </div>
     </div>
   </nb-card-body>
@@ -109,7 +156,7 @@
     </div>
   </nb-card-body>
 </nb-card>
--->
+--><!--
 <nb-card>
 <nb-card-header><h3 style="text-align:center">catégories</h3></nb-card-header>
 <nb-card-body>
@@ -144,7 +191,7 @@
 -->
   <nb-card-body>
     <div class="row">
-      <div class="col-xxxl-3 col-xxl-4 col-lg-5 col-md-6">
+      <div class="col-xl-3 col-xxl-4 col-lg-5 col-md-6">
          <ngx-ad></ngx-ad>
       </div>
     </div>

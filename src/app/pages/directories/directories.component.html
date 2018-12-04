@@ -229,23 +229,27 @@
                        <button type="button" class="btn btn-success btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
                            Télécharger
                        </button>
-                       <button style="margin-left:50px" type="button" class="btn btn-warning btn-s"
-                               (click)="uploader.cancelAll()" [disabled]="!uploader.isUploading">
-                           <span class="glyphicon glyphicon-ban-circle"></span> Annuler
-                       </button>
+
                        <div *ngIf="uploader.isHTML5">
                            <div class="progress" style="margin-bottom: 0;">
                                <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.queue.progress + '%' }"></div>
                            </div>
                        </div>
-</div></div>
-<!-- File input for upload without using the plugin.-->
+                       <div>
+                           Queue progress:
+                           <div class="progress" style="">
+                               <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+                           </div>
+                       </div>
+
+                   </div></div>
+<!-- File input for upload without using the plugin.-
 <input id="photo" type="file" />
  button to trigger the file upload when submitted
 <button type="button" class="btn btn-success btn-s" (click)="upload()">
 Upload with method 2
 </button>
-  
+-->
 
 
                  <div class="form-group row">
