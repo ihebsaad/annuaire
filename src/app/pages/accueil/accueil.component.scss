@@ -141,3 +141,12 @@ padding: 50px 50px 50px 50px;}
   min-width:150px;margin-left:50px;
 
 }
+
+
+@media (min-width: 1024px) {
+  .zone{min-height:50px;}
+}
+
+@media   (min-width: 1280px)  {
+  .zone{min-height:50px;}
+}

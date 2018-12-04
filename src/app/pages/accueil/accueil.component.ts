@@ -23,6 +23,7 @@ export class AccueilComponent implements OnInit {
         arraycat2: any[] = []; 
     searchedLocation: Location = new Location();
     source = 'assets/tunisie.jpg';
+    source2 = 'assets/IBO.mp4';
     radioModel = 'left';
     dataC:any;dataD:any;cat:any;dataCatnames:any;
 
