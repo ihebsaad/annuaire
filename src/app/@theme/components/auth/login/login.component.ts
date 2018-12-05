@@ -157,6 +157,7 @@ export class NgxLoginComponent {
       console.log("status = "+resp.result);
       status=resp.result;
       if (status=="admin"){redirect="/dashboard";}
+      if (status=="simple"){redirect="/accueil";}
 	     localStorage.setItem('status', status);
 
      
