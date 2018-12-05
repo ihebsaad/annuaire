@@ -30,9 +30,10 @@ model: any = {};
 
   constructor(private serv : UsersService, private modalService: NgbModal,protected router: Router) {
 
-      if (status != "admin"){
+    /*  if (status != "admin"){
           this.router.navigateByUrl('/');
-      }
+      }*/
+    
       this.serv.getData().subscribe(resp => {
           this.data = resp['users'];
       });
