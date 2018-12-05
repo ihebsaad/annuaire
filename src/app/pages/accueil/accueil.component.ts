@@ -43,26 +43,7 @@ this.servCateg.getNames().subscribe(resp => {//console.log(resp);
           console.log(resp['categories']);
           this.dataCatnames = resp['categories'];
 var promises = [];
- /*for (var i = 0; i <= this.dataC.length - 1; i++) {
-   
-   let value=[resp2['categories'][i]][0].titre;
-    
-     var promise= this.servDirect.getTotalperCat(value).subscribe(resp3 => {
-console.log('i='+i);
-     console.log('catégorie ='+value);   
-console.log('count = '+resp3['count']);
-console.log([resp['categories'][i]][0].titre);
-// this.arraycat1[i]=[resp['categories'][i]][0].titre;
-//this.arraycat2[i]=resp['count'];
-// [[resp['categories'][i]][0].titre]=  resp['count'];
-      });
-      promises.push(promise);
- }*/
- 
-// console.log( this.arraycat1);
-  //console.log( this.arraycat2);
-//let value=[resp['categories'][i]][0].titre;
-   
+
   let observables = new Array();
 
 //let value=resp['categories'][i].titre;
@@ -89,8 +70,9 @@ Observable.forkJoin(observables).subscribe(
     }
 
 ngOnInit() {
-        this.data.location.subscribe(loc => this.searchedLocation = loc);
+     ///   this.data.location.subscribe(loc => this.searchedLocation = loc);
         this.getCat1();
+
 }
 
 getCat1()
@@ -212,4 +194,5 @@ export class Category {
     this.titre = name;
     this.type = type;
   }
+
 }

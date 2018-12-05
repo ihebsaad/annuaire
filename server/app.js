@@ -61,6 +61,7 @@ app.use('/repertoires',require('./routes/repertoires'));
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://test7.enterpriseesolutions.com:4200");
+    res.header("Access-Control-Allow-Origin", "http://ibo.enterpriseesolutions.com:4200");
     // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });

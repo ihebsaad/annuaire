@@ -19,7 +19,7 @@ if (window.location.hostname == 'localhost')
 {
      URL="http://localhost:3000";
 }
-else{ URL= 'http://test7.enterpriseesolutions.com';}
+else{ URL= 'http://ibo.enterpriseesolutions.com';}
 export const environment =
     {
         production: false,
