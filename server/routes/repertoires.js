@@ -103,6 +103,29 @@ router.post('/list/elt', function (req, res) {
 });
 
 
+ // JSON Format
+router.get('/listu/:auteur', function (req, res) {
+ 
+		    var query  =  Repertoire.where({ auteur: req.params.auteur });
+
+	query.find( function (err, repertoires)
+		{
+			if (err){console.log(err);}
+			else{
+				res.json({
+					
+					  repertoires:repertoires
+					
+				});
+
+				}
+			
+			
+		});
+ 
+});
+
+
 router.get('/add',(request,response)=>{
 
 
@@ -363,7 +386,7 @@ console.log('titre'+request.params.titresel);
     query.find(function (err, Repertoire) {
         if (err){console.log(err);}
         else{
-console.log(Repertoire);
+//console.log(Repertoire);
             /* res.status(400).json({
 
                   repertoires:repertoires

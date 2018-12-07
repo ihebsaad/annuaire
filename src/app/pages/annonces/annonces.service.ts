@@ -31,6 +31,18 @@ export class AnnoncesService {
 
   }
 
+  getDatabyUser(auteur): Observable<any> {
+    console.log(' dynamic Url'+this.configUrl + '/annonces/list');
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Access-Control-Allow-Origin': '*',
+      }),
+    };
+    return this.http.get(this.configUrl + '/annonces/listu/'+auteur, httpOptions);
+
+  }
+
   getDataById(id: any): Observable<any> {
 
     const httpOptions = {

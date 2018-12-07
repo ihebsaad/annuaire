@@ -16,7 +16,7 @@
 
              <nb-card>
                  <nb-card-header>
-                     <h1>Liste des entrées<a style="color:white" href="#add"><button style="float:right" class="btn2" (click)="AfficherFormulaire1()"><i class="fa fa-plus" ></i></button></a></h1>
+                     <h1>Liste des Sociétés<a style="color:white" href="#add"><button style="float:right" class="btn2" (click)="AfficherFormulaire1()"><i class="fa fa-plus" ></i></button></a></h1>
                  </nb-card-header>
                <nb-card-body>
 
@@ -25,10 +25,10 @@
                      <th class="text-center">Titre</th>
                      <th class="text-center">Categorie</th>
                      <th class="text-center">Telephone</th>
-                     <th class="text-center">ville</th>
-                     <th class="text-center">adresse</th>
-                     <th class="text-center">auteur</th>
-                     <th class="text-center">status</th>
+                     <th class="text-center">Ville</th>
+                     <th class="text-center">Adresse</th>
+                     <th class="text-center">Par</th>
+                     <th class="text-center">Status</th>
                      <th class="text-center">Action</th>
                    </tr>
                    <tr *ngFor="let elt of data | paginate: {itemsPerPage: 15, currentPage:page, id: '1'} ">
@@ -71,7 +71,7 @@
              </nb-card>
 
          <div *ngIf="test"  id="edit">
-             <h3>Modifier une entreé </h3>
+             <h3>Modifier une société </h3>
 
              <form #f1="ngForm" (ngSubmit)="updateData(f1)" novalidate>
             <div class="form-group row">
@@ -104,7 +104,7 @@
             </div>
 
             <div class="form-group row">
-              <label for="input12" class="col-sm-3 col-form-label">Auteur</label>
+              <label for="input12" class="col-sm-3 col-form-label">Par</label>
               <div class="col-sm-9">
                 <input type="text" class="form-control" id="input12" placeholder="" name="auteur" [(ngModel)]="model1.auteur">
               </div>
@@ -115,6 +115,7 @@
                 <input type="tel" class="form-control" id="input13" pattern="^[0-9-+s()]*$" placeholder="" name="tel" [(ngModel)]="model1.tel">
               </div>
             </div>
+                 <!--
                  <div class="form-group row">
 
                  <label   class="col-sm-3 col-form-label">Localisation</label>
@@ -125,6 +126,7 @@
                      </div>
                  </div>
                  </div>
+                 -->
             <div class="form-group row">
               <div class="offset-sm-3 col-sm-9">
                 <button type="submit" class="btn btn-warning">Modifier</button>
@@ -134,7 +136,7 @@
           </form>
          </div>
              <div *ngIf="test1" id="add">
-                 <h3>Ajouter une entrée</h3><br>
+                 <h3>Ajouter une société</h3><br>
 
                <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate enctype="multipart/form-data">
                  <div class="form-group row">
@@ -152,14 +154,15 @@
                    <label for="input2" class="col-sm-3 col-form-label">Catégorie</label>
                    <div class="col-sm-9">
                      <select id="input2" class="form-control" name="categorie" [(ngModel)]="model.categorie" #ctrl2="ngModel" [class.form-control-danger]="ctrl2.invalid && ctrl2.touched" required>
-                         <option ></option>
-                         <option>Cafés</option>
-                         <option>Restaurants</option>
-                         <option>Hotels</option>
-                         <option>Logement</option>
-                         <option>Santé</option>
-                         <option>Beauté</option>
-                         <option>Services Financiers</option>
+                         <option  *ngFor="let elt of dataC">{{elt.titre}}</option>
+                         <!--  <option ></option>
+                           <option>Cafés</option>
+                           <option>Restaurants</option>
+                           <option>Hotels</option>
+                           <option>Logement</option>
+                           <option>Santé</option>
+                           <option>Beauté</option>
+                           <option>Services Financiers</option>-->
                      </select>
                      <small class="form-text error" *ngIf="ctrl2.invalid && ctrl2.touched && ctrl2.errors['required']">
                          Champ obligatoire!
@@ -192,6 +195,7 @@
                            <input type="tel" class="form-control" id="input6" pattern="^[0-9-+s()]*$" placeholder="" name="tel" [(ngModel)]="model.tel">
                        </div>
                    </div>
+                   <!--
                    <div class="form-group row">
                   <label   class="col-sm-3 col-form-label">Localisation</label>
                        <div class="col-sm-9">
@@ -201,7 +205,8 @@
                  </div>
                        </div>
                    </div>
-
+-->
+                   <!---  upload woking local
                    <div class="form-group row">
                       <label for="input7" class="col-sm-3 col-form-label">Photos</label>
                    <div class="col-sm-9">
@@ -236,13 +241,16 @@
                            </div>
                        </div>
                        <div>
-                           Queue progress:
+                           chargement:
                            <div class="progress" style="">
                                <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
                            </div>
                        </div>
 
                    </div></div>
+
+                   --->
+
 <!-- File input for upload without using the plugin.-
 <input id="photo" type="file" />
  button to trigger the file upload when submitted

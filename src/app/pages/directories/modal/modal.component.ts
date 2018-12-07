@@ -15,8 +15,8 @@ import {DirectoriesService} from "../directories.service";
       {{ modalContent }}
     </div>
     <div class="modal-footer">
-      <button class="btn btn-md btn-primary" (click)="deleteData(); closeModal()">Confirmer</button>
-        <button class="btn btn-md btn-primary" (click)="closeModal()">Annuler</button>
+      <button class="btn btn-md btn-hero-success" (click)="deleteData(); closeModal()">Confirmer</button>
+        <button class="btn btn-md btn-hero-danger" (click)="closeModal()">Annuler</button>
     </div>
   `,
 })

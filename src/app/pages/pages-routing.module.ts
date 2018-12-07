@@ -18,6 +18,7 @@ import {ProfileComponent} from './profile/profile.component';
 import {InterestComponent} from "./../interest/interest.component";
 import {AdsComponent} from "./ads/ads.component";
 import {ArticleComponent} from "./article/article.component";
+import {NetworkComponent} from "./network/network.component";
 
 
 const routes: Routes = [{
@@ -67,6 +68,10 @@ const routes: Routes = [{
       {
           path: 'profile',
           component: ProfileComponent,
+      },
+      {
+          path: 'network',
+          component: NetworkComponent,
       },
       {
           path: 'interest',

@@ -29,46 +29,56 @@ export class AnnoncesComponent implements OnInit {
   test1: boolean = false;
   page : any;
 username:any;
+  typeuser:any;
 
   constructor(private serv : AnnoncesService, private modalService: NgbModal,   private appserv: AppService,
               public auth: AuthenticationService,   public userserv: UsersService   ,protected router: Router) {
 
-    if (status != "admin"){
-      this.router.navigateByUrl('/');
+   // if (status != "admin"){
+    //  this.router.navigateByUrl('/');
+      this.typeuser=localStorage.getItem('status');
 
-    }
+  //  }
 
     this.appserv.getusername().subscribe(resp => {
       console.log( resp);
       console.log("name** = "+resp.result);
       this.username=resp.result;
+     // alert(this.username);
+
       //return resp.result;
+      if ( this.typeuser=='admin')
+      {
+        this.getData();
+
+      }else{
+         this.getDataByuser(this.username);
+
+      }
+
     });
+
 if (!  this.auth.isLoggedIn() )
 {this.router.navigateByUrl('/dashboard');
   console.log('Not logged in!');
 }
 else {
 
-  console.log(' logged in!');
+  console.log('Logged in!');
 
 }
 
+
+
    if(this.userserv.isAdmin(this.username)){
   console.log('is Admin yes !');
-   }else {
-     {this.router.navigateByUrl('/dashboard');
-       console.log('Not Admin !');
-
-     }
-
    }
+
   }
 
 
   ngOnInit() {
 
-    this.getData();
 
   }
 
@@ -79,6 +89,16 @@ else {
   getData() {
 
     this.serv.getData().subscribe(resp => {console.log(resp);
+      console.log(resp['annonces']);
+      this.data = resp['annonces'];
+
+    });
+
+  }
+
+  getDataByuser(auteur) {
+
+    this.serv.getDatabyUser(auteur).subscribe(resp => {console.log(resp);
       console.log(resp['annonces']);
       this.data = resp['annonces'];
 
@@ -116,7 +136,23 @@ else {
     console.log(f.valid);  // false
 
     this.serv.addData(f.value).subscribe(resp => {console.log(resp);
-      this.getData();
+
+      this.appserv.getusername().subscribe(resp => {
+        console.log( resp);
+        console.log("name** = "+resp.result);
+        this.username=resp.result;
+        //return resp.result;
+
+        if ( this.typeuser=='admin')
+        {
+          this.getData();
+
+        }else{
+          this.getDataByuser(this.username);
+
+        }
+
+      });
       this.test1 = false;
       f.reset();
     });
@@ -136,7 +172,22 @@ this.getUsername();
     console.log(this.id);
     this.serv.editData(this.id,f.value).subscribe(resp => {console.log(resp);
 
-      this.getData();
+      this.appserv.getusername().subscribe(resp => {
+        console.log( resp);
+        console.log("name** = "+resp.result);
+        this.username=resp.result;
+        //return resp.result;
+
+        if ( this.typeuser=='admin')
+        {
+          this.getData();
+
+        }else{
+          this.getDataByuser(this.username);
+
+        }
+
+      });
       this.test = false;
       f.reset();
 

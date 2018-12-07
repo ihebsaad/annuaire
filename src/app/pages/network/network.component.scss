@@ -1,0 +1,203 @@
+
+.content{
+    padding:20px 20px 20px 20px;
+
+    align-items:            center;
+    border-bottom-color:            rgb(235, 238, 242);
+    border-bottom-style:            solid;
+    border-bottom-width:            1px;
+    box-sizing:            border-box;
+    color:            rgb(164, 171, 179);
+    display:            flex;
+    font-family:            Roboto;
+    font-size:            14px;
+    font-weight:            400;
+    height:          74.5px;
+    justify-content:            space-between;
+    line-height:           17.5px;
+    padding-bottom:            14px;
+    padding-left:            14px;
+    padding-right:            14px;
+    padding-top:            14px;
+    text-align:            left;
+    text-size-adjust:            100%;
+    width:            384.5px;
+    -webkit-box-align:            center;
+    -webkit-box-direction:            normal;
+    -webkit-box-pack:            justify;
+    -webkit-font-smoothing:            antialiased;
+    -webkit-tap-highlight-color:            rgba(0, 0, 0, 0)
+}
+
+
+.user-title {
+    margin-left:25px;
+    margin-top:15px;
+}
+.user-picture{
+
+background-attachment:scroll;
+background-clip:border-box;
+    background-color:rgb(255, 255, 255);
+background-image:url(https://akveo.com/ngx-admin/assets/images/alan.png);
+background-origin:padding-box;
+background-position-x:0%;
+background-position-y:0%;
+/*background-repeat-x:;
+background-repeat-y:;*/
+background-size:cover;
+border-bottom-color:rgb(188, 195, 204);
+border-bottom-left-radius:50%;
+border-bottom-right-radius:50%;
+border-bottom-style:solid;
+border-bottom-width:2px;
+border-image-outset:0px;
+border-image-repeat:stretch;
+border-image-slice:100%;
+border-image-source:none;
+border-image-width:1;
+border-left-color:rgb(188, 195, 204);
+border-left-style:solid;
+border-left-width:2px;
+border-right-color:rgb(188, 195, 204);
+border-right-style:solid;
+border-right-width:2px;
+border-top-color:rgb(188, 195, 204);
+border-top-left-radius:50%;
+border-top-right-radius:50%
+;border-top-style:solid;
+border-top-width:2px;
+box-sizing:border-box;
+color:rgb(164, 171, 179);
+display:block;
+flex-shrink:0;
+font-family:Roboto;
+font-size:14px;font-weight:400;
+height:45.5px;
+line-height:17.5px;
+position:relative;    text-align:left;
+text-size-adjust:100%;width:45.5px;-webkit-box-direction:normal;
+-webkit-font-smoothing:antialiased;
+-webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+
+}
+
+
+.user-name {
+    font-family: Exo;
+    font-weight: 600;
+    color: #2a2a2a;
+    font-size: 20px;width:200px;margin-left:20px;
+    margin-top:20px;
+
+}
+.tab{
+    padding:20px 20px 20px 20px;
+
+    background-attachment:            scroll;
+    background-clip:            border-box;
+    background-color:            rgba(0, 0, 0, 0);
+    background-image:            none;
+    background-origin:            padding-box;
+    background-position-x:            0px;
+    background-position-y:            0px;
+  /*  background-repeat-x:;
+    background-repeat-y:;*/
+    background-size:            auto;
+    box-sizing:            border-box;
+    color:            rgb(75, 75, 75);
+    cursor:            pointer;
+    display:            list-item;
+    font-family:            Exo;
+    font-size:            15.75px;
+    font-weight:            400;
+    height:            54px;
+    line-height:            19.6875px;
+    list-style-type:            none;
+    margin-bottom:            -1px;
+    position:            relative;
+    text-align:            center;
+    text-size-adjust:            100%;
+    width:            82.6563px;
+    -webkit-box-direction:            normal;
+    -webkit-font-smoothing:            antialiased;
+    -webkit-tap-highlight-color:            rgba(0, 0, 0, 0);
+}
+
+
+.tabset{
+    padding:20px 20px 20px 20px;
+
+    border-bottom-color:            rgb(235, 238, 242);
+    border-bottom-style:            solid;
+    border-bottom-width:            1px;
+    box-sizing:            border-box;
+    color:            rgb(75, 75, 75);
+    display:            flex;
+    flex-direction:            row;
+    font-family:            Exo;
+    font-size:            15.75px;
+    font-weight:            400;
+    height:            54px;
+    justify-content:            space-around;
+    line-height:            19.6875px;
+    list-style-type:            none;
+    margin-block-end:            0px;
+    margin-block-start:            0px;
+    margin-bottom:            0px;
+    margin-inline-end:            0px;
+    margin-inline-start:            0px;
+    margin-left:            0px;
+    margin-right:            0px;
+    margin-top:            0px;
+    padding-bottom:            0px;
+    padding-inline-start:            17.5px;
+    padding-left:            17.5px;
+    padding-right:            17.5px;
+    padding-top:            0px;
+    text-align:            left;
+    text-size-adjust:            100%;
+    width:            384.5px;
+    -webkit-box-direction:            normal;
+    -webkit-box-orient:            horizontal;
+    -webkit-font-smoothing:            antialiased;
+    -webkit-tap-highlight-color:            rgba(0, 0, 0, 0);
+
+}
+
+.user-container{
+    padding:20px 20px 20px 20px;
+    align-items:            center;
+    box-sizing:            border-box;
+    color:            rgb(164, 171, 179);
+    display:            flex;
+    font-family:            Roboto;
+    font-size:            14px;
+    font-weight:            400;
+    height:            45.5px;
+    line-height:            17.5px;
+    position:            relative;
+    text-align:            left;
+    text-size-adjust:            100%;
+    width:            134.063px;
+    -webkit-box-align:            center;
+    -webkit-box-direction:            normal;
+    -webkit-font-smoothing:            antialiased;
+    -webkit-tap-highlight-color:            rgba(0, 0, 0, 0);
+
+
+}
+
+li{
+    margin-top:20px;
+}
+
+.nb-theme-default nb-tabset .tabset .tab.active a {
+    font-weight: 600;
+    color: #2a2a2a;
+}
+
+.nb-theme-default nb-tabset .tabset .tab a {
+    padding: 1.25rem;
+    color: #a4abb3;
+}

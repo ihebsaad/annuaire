@@ -76,6 +76,29 @@ router.post('/list/elt', function (req, res) {
 });
 
 
+ // JSON Format
+router.get('/listu/:auteur', function (req, res) {
+ 
+		    var query  =  Article.where({ auteur: req.params.auteur });
+
+	query.find( function (err, articles)
+		{
+			if (err){console.log(err);}
+			else{
+				res.json({
+					
+					  articles:articles
+					
+				});
+
+				}
+			
+			
+		});
+ 
+});
+
+
 
 router.get('/add',(request,response)=>{
     response.render('articles/add',{titre:'ADD Article',errors:null})

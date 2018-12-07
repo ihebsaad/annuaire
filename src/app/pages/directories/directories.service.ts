@@ -30,6 +30,19 @@ console.log(' dynamic Url'+this.configUrl + '/repertoires/list');
         return this.http.get(this.configUrl + '/repertoires/list', httpOptions);
 
     }
+
+    getDataByUser(auteur): Observable<any> {
+        console.log(' dynamic Url'+this.configUrl + '/articles/list');
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type':  'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }),
+        };
+        return this.http.get(this.configUrl + '/repertoires/listu/'+auteur, httpOptions);
+
+    }
+
     getDataPerCateg(titresel:String): Observable<any> {
 console.log(' dynamic Url'+this.configUrl + '/repertoires/list');
         const httpOptions = {

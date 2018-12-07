@@ -18,7 +18,6 @@ id:any;
 /*
       if(!auth.isLoggedIn()){
           this.router.navigateByUrl('/auth/login');
-
       }
 
  */
@@ -32,22 +31,18 @@ id:any;
  changeType(type)
  {
    let  email=localStorage.getItem('email');
-
    this.serv.change(email,type).subscribe(resp => {console.log(resp) });
-
 
   }
 
     next()
     {
-        this.router.navigateByUrl('/');
-
+        this.router.navigateByUrl('/network');
     }
 
     previous()
     {
         this.router.navigateByUrl('/interest');
-
     }
 
 }

@@ -33,6 +33,7 @@ export class ArticlesComponent implements OnInit {
   test: boolean = false;
   test1: boolean = false;
   page : any;
+   typeuser:any
    editor1 : any;
   // editor1='';
 
@@ -48,11 +49,20 @@ export class ArticlesComponent implements OnInit {
     this.username=resp.result;
     //return resp.result;
 
+      if ( this.typeuser=='admin')
+      {
+        this.getData();
 
-      if (status != "admin"){
-        this.router.navigateByUrl('/');
+      }else{
+         this.getDataByUser(this.username);
 
       }
+
+  /*    if (status != "admin"){
+        this.router.navigateByUrl('/');
+
+      }*/
+
 });
 }
 getUsername(  )
@@ -65,7 +75,7 @@ getUsername(  )
 
   ngOnInit() {
 
-    this.getData();
+   // this.getData();
 
   }
 
@@ -76,6 +86,15 @@ getUsername(  )
   getData() {
 
     this.serv.getData().subscribe(resp => {console.log(resp);
+      console.log(resp['articles']);
+      this.data = resp['articles'];
+
+    });
+
+  }
+  getDataByUser(auteur) {
+
+    this.serv.getDataByUser(auteur).subscribe(resp => {console.log(resp);
       console.log(resp['articles']);
       this.data = resp['articles'];
 
@@ -113,10 +132,24 @@ getUsername(  )
     console.log(f.valid);  // false
 
     this.serv.addData(f.value).subscribe(resp => {console.log(resp);
-      this.getData();
-      this.test1 = false;
+       this.test1 = false;
       f.reset();
-      this.getData();
+      this.appserv.getusername().subscribe(resp => {
+        console.log( resp);
+        console.log("name** = "+resp.result);
+        this.username=resp.result;
+        //return resp.result;
+
+        if ( this.typeuser=='admin')
+        {
+          this.getData();
+
+        }else{
+          this.getDataByUser(this.username);
+
+        }
+
+      });
     });
   this.getUsername();
   }

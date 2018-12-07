@@ -55,6 +55,29 @@ router.get('/list', function (req, res) {
  
 });
 
+ // JSON Format
+router.get('/listu/:auteur', function (req, res) {
+ 
+		    var query  =  Annonce.where({ auteur: req.params.auteur });
+
+	query.find( function (err, annonces)
+		{
+			if (err){console.log(err);}
+			else{
+				res.json({
+					
+					  annonces:annonces
+					
+				});
+
+				}
+			
+			
+		});
+ 
+});
+
+
 
 // JSON Format Elt
 router.post('/list/elt', function (req, res) {

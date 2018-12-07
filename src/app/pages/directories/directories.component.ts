@@ -38,6 +38,7 @@ export class DirectoriesComponent implements OnInit, AfterContentInit {
     test1: boolean = false;
     page : any;
     username:any;
+    typeuser:any;
 pathimage:any; fname:any;dataC:any;
 public uploader:FileUploader = new FileUploader({url: up_URL});
 
@@ -59,6 +60,16 @@ this.servApp.getusername().subscribe(resp => {
       console.log("name** = "+resp.result);
        this.username=resp.result;
          //return resp.result;
+
+    if ( this.typeuser=='admin')
+    {
+        this.getData();
+
+    }else{
+         this.getDataByUser(this.username);
+
+    }
+
       });
  //override the onAfterAddingfile property of the uploader so it doesn't authenticate with //credentials.
        this.uploader.onAfterAddingFile = (file)=> { file.withCredentials = false; };
@@ -71,7 +82,7 @@ this.servApp.getusername().subscribe(resp => {
   }
 
 ngOnInit() {
-   this.getData();
+  // this.getData();
     //override the onAfterAddingfile property of the uploader so it doesn't authenticate with //credentials.
       this.uploader.onAfterAddingFile = (file)=> { file.withCredentials = false; };
     //overide the onCompleteItem property of the uploader so we are
@@ -131,20 +142,41 @@ ngOnInit() {
 
 
 
-  getData() {
+    getData() {
 
-      this.serv.getData().subscribe(resp => {console.log(resp);
-          console.log(resp['repertoires']);
-          this.data = resp['repertoires'];
-      });
-  }
-approveDirectory(f: NgForm){
+        this.serv.getData().subscribe(resp => {console.log(resp);
+            console.log(resp['repertoires']);
+            this.data = resp['repertoires'];
+        });
+    }
+
+    getDataByUser(auteur) {
+
+        this.serv.getDataByUser(auteur).subscribe(resp => {console.log(resp);
+            console.log(resp['repertoires']);
+            this.data = resp['repertoires'];
+        });
+    }
+
+    approveDirectory(f: NgForm){
  this.serv.approve(this.id).subscribe(resp => {console.log(resp);
 
-            this.getData();
+     this.servApp.getusername().subscribe(resp => {
+         console.log( resp);
+         console.log("name** = "+resp.result);
+         this.username=resp.result;
+         //return resp.result;
 
+         if ( this.typeuser=='admin')
+         {
+             this.getData();
 
-        });
+         }else{
+             this.getDataByUser(this.username);
+
+         }
+
+     });        });
 
 }
   getDataById(id:any) {
@@ -176,7 +208,22 @@ approveDirectory(f: NgForm){
         console.log(f.valid);  // false
 
         this.serv.addData(f.value).subscribe(resp => {console.log(resp);
-            this.getData();
+            this.servApp.getusername().subscribe(resp => {
+                console.log( resp);
+                console.log("name** = "+resp.result);
+                this.username=resp.result;
+                //return resp.result;
+
+                if ( this.typeuser=='admin')
+                {
+                    this.getData();
+
+                }else{
+                    this.getDataByUser(this.username);
+
+                }
+
+            });
             this.test1 = false;
             f.reset();
         });
@@ -196,7 +243,22 @@ this.getUsername();
         console.log(this.id);
         this.serv.editData(this.id,f.value).subscribe(resp => {console.log(resp);
 
-            this.getData();
+            this.servApp.getusername().subscribe(resp => {
+                console.log( resp);
+                console.log("name** = "+resp.result);
+                this.username=resp.result;
+                //return resp.result;
+
+                if ( this.typeuser=='admin')
+                {
+                    this.getData();
+
+                }else{
+                    this.getDataByUser(this.username);
+
+                }
+
+            });
             this.test = false;
             f.reset();
 
