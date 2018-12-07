@@ -48,6 +48,7 @@ export class ArticlesComponent implements OnInit {
     console.log("name** = "+resp.result);
     this.username=resp.result;
     //return resp.result;
+      this.typeuser=localStorage.getItem('status');
 
       if ( this.typeuser=='admin')
       {

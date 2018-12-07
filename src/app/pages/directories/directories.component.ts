@@ -55,11 +55,13 @@ private servApp: AppService,private http: Http, private el: ElementRef,
 this.servCateg.getData().subscribe(resp => {        
           this.dataC = resp['categories'];
         });
+
 this.servApp.getusername().subscribe(resp => {
   console.log( resp);
       console.log("name** = "+resp.result);
        this.username=resp.result;
          //return resp.result;
+    this.typeuser=localStorage.getItem('status');
 
     if ( this.typeuser=='admin')
     {
@@ -213,6 +215,7 @@ ngOnInit() {
                 console.log("name** = "+resp.result);
                 this.username=resp.result;
                 //return resp.result;
+                this.typeuser=localStorage.getItem('status');
 
                 if ( this.typeuser=='admin')
                 {

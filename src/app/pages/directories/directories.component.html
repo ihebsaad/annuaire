@@ -42,8 +42,8 @@
                      [ngClass]="{'notapproved' : elt.status == 'non approuvé'}">{{elt.status}}</td>
                      <td>
                           <span>
+                              <button   *ngIf="typeuser =='admin' "class="btn2 " (click)="getId(elt._id);approveDirectory()"><i class="fa fa-check"></i></button>
                               <a  href="#edit"><button class="btn1" (click)="AfficherFormulaire(); getId(elt._id)"><i class="fa fa-edit"></i></button></a>
-                             <button class="btn2" (click)="getId(elt._id);approveDirectory()"><i class="fa fa-check"></i></button>
                              <button class="btn3" (click)="showStaticModal(elt._id);"   ><i class="fa fa-trash"></i></button>
                           </span>
 
