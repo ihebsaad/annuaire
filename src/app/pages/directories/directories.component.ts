@@ -11,6 +11,7 @@ import { environment } from '../../../environments/environment';
 //import the file uploader plugin
 import {  FileUploader } from 'ng2-file-upload/ng2-file-upload';
 import {CategoriesService} from '../categories/categories.service';
+import {Router} from "@angular/router";
 //define the constant url we would be uploading to.
  var up_URL= environment.Upload_Url;
 
@@ -50,7 +51,13 @@ public uploader:FileUploader = new FileUploader({url: up_URL});
 
   constructor(private serv: DirectoriesService, private modalService: NgbModal,
 private servApp: AppService,private http: Http, private el: ElementRef,
-   private servCateg:CategoriesService  ) {
+   private servCateg:CategoriesService , private router: Router ) {
+
+      if (status != "admin"){
+          this.router.navigateByUrl('/');
+
+      }
+
 //get categories list
 this.servCateg.getData().subscribe(resp => {        
           this.dataC = resp['categories'];

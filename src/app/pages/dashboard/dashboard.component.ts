@@ -21,7 +21,12 @@ export class DashboardComponent implements OnInit {
     dataC:any;dataD:any;
     countD:any;countA:any;countN:any;countNote:any;
     constructor(private data: DataService, private router: Router,private servDirect: DirectoriesService, private servCateg:CategoriesService) {
-     this.servCateg.getData().subscribe(resp => {console.log(resp);
+        if (status != "admin"){
+            this.router.navigateByUrl('/');
+
+        }
+
+    this.servCateg.getData().subscribe(resp => {console.log(resp);
           console.log(resp['categories']);
           this.dataC = resp['categories'];
 console.log(this.dataC);
