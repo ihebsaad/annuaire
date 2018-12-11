@@ -94,7 +94,7 @@ export class SampleLayoutComponent implements OnDestroy {
   protected menuClick$: Subscription;
 
   constructor(protected stateService: StateService,
-            //  protected menuService: NbMenuService,
+               protected menuService: NbMenuService,
               protected themeService: NbThemeService,
               protected bpService: NbMediaBreakpointsService,
               protected sidebarService: NbSidebarService) {
@@ -107,7 +107,7 @@ export class SampleLayoutComponent implements OnDestroy {
       });
 
     const isBp = this.bpService.getByName('is');
-   /*this.menuClick$ = this.menuService.onItemSelect()
+   this.menuClick$ = this.menuService.onItemSelect()
       .pipe(
         withLatestFrom(this.themeService.onMediaQueryChange()),
         delay(20),
@@ -117,7 +117,7 @@ export class SampleLayoutComponent implements OnDestroy {
         if (bpTo.width <= isBp.width) {
           this.sidebarService.collapse('menu-sidebar');
         }
-      });*/
+      });
   }
 
   ngOnDestroy() {
