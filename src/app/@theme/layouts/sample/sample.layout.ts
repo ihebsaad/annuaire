@@ -91,10 +91,10 @@ export class SampleLayoutComponent implements OnDestroy {
 
   protected layoutState$: Subscription;
   protected sidebarState$: Subscription;
-  protected menuClick$: Subscription;
+ // protected menuClick$: Subscription;
 
   constructor(protected stateService: StateService,
-               protected menuService: NbMenuService,
+           //   protected menuService: NbMenuService,
               protected themeService: NbThemeService,
               protected bpService: NbMediaBreakpointsService,
               protected sidebarService: NbSidebarService) {
@@ -107,7 +107,7 @@ export class SampleLayoutComponent implements OnDestroy {
       });
 
     const isBp = this.bpService.getByName('is');
-   this.menuClick$ = this.menuService.onItemSelect()
+ /*  this.menuClick$ = this.menuService.onItemSelect()
       .pipe(
         withLatestFrom(this.themeService.onMediaQueryChange()),
         delay(20),
@@ -118,11 +118,12 @@ export class SampleLayoutComponent implements OnDestroy {
           this.sidebarService.collapse('menu-sidebar');
         }
       });
+   */
   }
 
   ngOnDestroy() {
     this.layoutState$.unsubscribe();
     this.sidebarState$.unsubscribe();
-    this.menuClick$.unsubscribe();
+   // this.menuClick$.unsubscribe();
   }
 }
