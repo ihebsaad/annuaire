@@ -3,7 +3,7 @@
      [class.right]="position === 'inverse'">
   <div class="logo-containter">
     <a (click)="toggleSidebar()" href="#" class="navigation"><i class="nb-menu"></i></a>
-   <a  href="/#/"> <div class="logo" (click)="goToHome()"><span>IBO</span></div></a>
+   <a   href="/#/" > <div class="logo"  ><span>IBO</span></div></a>
   </div>
  <!-- <ngx-theme-switcher></ngx-theme-switcher> -->
  <!-- <ngx-layout-direction-switcher></ngx-layout-direction-switcher>
@@ -16,7 +16,7 @@
     <nb-action class="menu-item"><a   style="font-weight: bold;font-size:20px"  href="/#/ads">Ads</a></nb-action>
     <nb-action class="menu-item"><a   style="font-weight: bold;font-size:20px"  href="/#/listing">Listes</a></nb-action>
     <div style="margin-left:50px">
-    <nb-action class="menu-item"><a  style="color:grey" *ngIf=" auth.isLoggedIn() && typeuser =='admin' "     href="/#/dashboard">Panneau</a></nb-action>
+    <nb-action class="menu-item"><a  style="color:grey" *ngIf=" auth.isLoggedIn() && typeuser =='admin' "   href="/#/dashboard">Panneau</a></nb-action>
     <nb-action class="menu-item"><a  style="color:grey" *ngIf="auth.isLoggedIn() && typeuser =='admin' "   href="/#/categories">Catégories</a></nb-action>
     <nb-action class="menu-item"><a  style="color:grey" *ngIf="auth.isLoggedIn() && typeuser =='admin' "     href="/#/users">Utilisateurs</a></nb-action>
     <nb-action class="menu-item"><a  style="color:grey" *ngIf="auth.isLoggedIn()"   href="/#/directories">Sociétés</a></nb-action>
@@ -25,7 +25,6 @@
     </div>
 
 </div>
-
 
 
 <!--nb-actions--><!--

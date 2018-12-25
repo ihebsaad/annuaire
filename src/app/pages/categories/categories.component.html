@@ -13,15 +13,15 @@
 
                  <table class="table table-bordered table-responsive-md table-striped text-center">
                    <tr>
-                     <th class="text-center">Titre</th>
+                       <th class="text-center">Catégorie mère</th>
+                       <th class="text-center">Catégorie</th>
                        <th class="text-center">Type</th>
-                       <th class="text-center">Parent</th>
                      <th class="text-center">Action</th>
                    </tr>
                    <tr *ngFor="let elt of data | paginate: {itemsPerPage: 15, currentPage:page, id: '1'} ">
-                     <td class="tdc" contenteditable="false">{{elt.titre}}</td>
-                       <td class="tdc" contenteditable="false">{{elt.type}}</td>
                        <td class="tdc" contenteditable="false">{{elt.parent}}</td>
+                       <td class="tdc" contenteditable="false">{{elt.titre}}</td>
+                       <td class="tdc" contenteditable="false">{{elt.type}}</td>
                      <td>
                           <span>
                               <a  href="#edit"><button class="btn1" (click)="AfficherFormulaire(); getId(elt._id)"><i class="fa fa-edit"></i></button></a>
@@ -60,8 +60,19 @@
 		 	<h3>Modifier une catégorie</h3>
 		
           <form #f1="ngForm" (ngSubmit)="updateData(f1)" novalidate>
+              <div class="form-group row">
+                  <label for="input10" class="c  col-form-label">Catégorie mère</label>
+                  <div  >
+                      <select  class="form-control" id="input11" placeholder="" name="parent"  [(ngModel)]="model1.parent">
+                          <option selected="" value=""></option>
+                          <option [ngValue]="k.titre" *ngFor="let k of data">
+                              {{k.titre}}
+                          </option>
+                      </select>
+                  </div>
+              </div>
             <div class="form-group row">
-              <label for="input8" class="  col-form-label">Titre</label>
+              <label for="input8" class="  col-form-label">Catégorie</label>
               <div  >
                 <input type="text" class="form-control" id="input8" placeholder="" name="titre" [(ngModel)]="model1.titre">
               </div>
@@ -72,17 +83,7 @@
                 <input type="text" class="form-control" id="input10" placeholder="" name="type"  [(ngModel)]="model1.type">
               </div>
             </div>
-              <div class="form-group row">
-                  <label for="input10" class="c  col-form-label">Parent</label>
-                  <div  >
-                      <select  class="form-control" id="input11" placeholder="" name="parent"  [(ngModel)]="model1.parent">
-                          <option selected="" value=""></option>
-                          <option [ngValue]="k.titre" *ngFor="let k of data">
-                              {{k.titre}}
-                          </option>
-                      </select>
-                  </div>
-              </div>
+
             <div class="form-group row" style="padding-left:100px">
               <div class="    ">
                 <button type="submit" class="btn btn-warning">Modifier</button>
@@ -97,17 +98,30 @@
         <div *ngIf="test1" id="add">
 	<h3>Ajouter une catégorie</h3>
                <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
-                 <div class="form-group row">
-                   <label for="input1" class="  col-form-label">Titre</label>
-                   <div class=" ">
-                     <input type="text" name="titre" [(ngModel)]="model.titre"
-                            #ctrl1="ngModel"  class="form-control" id="input1" placeholder=""
-                            [class.form-control-danger]="ctrl1.invalid && ctrl1.touched" required>
-                     <small class="form-text error" *ngIf="ctrl1.invalid && ctrl1.touched && ctrl1.errors['required']">
-                       Champ obligatoire!
-                     </small>
+                   <div class="form-group row">
+                       <label for="input3" class="  col-form-label">Catégorie mère</label>
+                       <div class=" ">
+                           <select  (change)="selectCats();" class="form-control" id="input3" placeholder="" name="parent" [(ngModel)]="model.parent"  #ctrl3="ngModel" [class.form-control-danger]="ctrl3.invalid && ctrl3.touched" >
+                               <option selected="" value=""></option>
+                               <option [ngValue]="k.titre" *ngFor="let k of data">
+                                   {{k.titre}}
+                               </option>
+                           </select>
+                       </div>
                    </div>
-                 </div>
+
+                   <div class="form-group row">
+                       <label for="input1" class="  col-form-label">Catégorie</label>
+                       <div class=" ">
+                           <input type="text" name="titre" [(ngModel)]="model.titre"
+                                  #ctrl1="ngModel"  class="form-control" id="input1" placeholder=""
+                                  [class.form-control-danger]="ctrl1.invalid && ctrl1.touched" required>
+                           <small class="form-text error" *ngIf="ctrl1.invalid && ctrl1.touched && ctrl1.errors['required']">
+                               Champ obligatoire!
+                           </small>
+                       </div>
+                   </div>
+
                  <div class="form-group row">
                    <label for="input2" class="  col-form-label">Type</label>
                    <div class=" ">
@@ -117,17 +131,8 @@
                      </small>
                    </div>
                  </div>
-                   <div class="form-group row">
-                       <label for="input3" class="  col-form-label">Parent</label>
-                       <div class=" ">
-                           <select  (change)="selectCats();" class="form-control" id="input3" placeholder="" name="parent" [(ngModel)]="model.parent"  #ctrl3="ngModel" [class.form-control-danger]="ctrl3.invalid && ctrl3.touched" >
-                               <option selected="" value=""></option>
-                               <option [ngValue]="k.titre" *ngFor="let k of data">
-                                   {{k.titre}}
-                               </option>
-                           </select>
-                       </div>
-                    </div>
+
+
             <div class="form-group row" style="padding-left:100px">
                    <div class=" ">
                      <button type="submit" class="btn btn-success" [disabled]="!f.form.valid">Ajouter</button>
